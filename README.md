@@ -2,11 +2,11 @@
 
 Новий сайт ПП «Техно-АС» (Львів): теплові насоси, сонячні та зарядні станції.
 
-**Перегляд на GitHub Pages:** https://yarik547.github.io/AC/
+**Перегляд на GitHub Pages:** https://yarik547.github.io/AStecho/
 
 ## Що де в репозиторії
 
-- **Корінь репозиторію** — версія для GitHub Pages: адреси з префіксом `/AC/`. Пошуковики її не індексують (`noindex`), щоб не дублювати справжній сайт.
+- **Корінь репозиторію** — версія для GitHub Pages: адреси з префіксом `/AStecho/`. Пошуковики її не індексують (`noindex`), щоб не дублювати справжній сайт.
 - **`dist/`** — версія для справжнього домену `www.techno-as.com.ua`: адреси від кореня сайту. Як її викласти — у [DEPLOY.md](DEPLOY.md).
 - **`source/`** — вихідні файли: дизайн і скрипти збірки.
 - **`telegram-worker/`** — обробник, що пересилає заявки з форм у Telegram, з інструкцією.
@@ -32,7 +32,7 @@ npm install
 node build.js --out=../../dist
 
 # версія для GitHub Pages → корінь репозиторію
-node build.js --out=../.. --base=/AC/ --site=https://yarik547.github.io/AC --noindex
+node build.js --out=../.. --base=/AStecho/ --site=https://yarik547.github.io/AStecho --noindex
 
 # перегляд локально: http://localhost:8766
 node serve.js ../../dist 8766

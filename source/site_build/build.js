@@ -1,5 +1,5 @@
 // Builds the static site into ../dist from the Claude Design component.
-// usage: node build.js [--no-og] [--base=/AC/] [--out=../dist] [--site=https://…] [--noindex]
+// usage: node build.js [--no-og] [--base=/AStecho/] [--out=../dist] [--site=https://…] [--noindex]
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');

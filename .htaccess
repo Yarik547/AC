@@ -1,4 +1,4 @@
-ErrorDocument 404 /AC/404.html
+ErrorDocument 404 /AStecho/404.html
 DirectoryIndex index.html
 <IfModule mod_mime.c>
   AddType image/webp .webp
