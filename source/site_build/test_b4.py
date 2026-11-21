@@ -70,7 +70,8 @@ async def run(pw, engine, mobile):
 
     # --- Інженер AS: sign, then a trick, then pointing at a block
     await pg.evaluate('window.scrollTo(0, 0)')
-    await pg.wait_for_timeout(400)
+    await pg.wait_for_function("window.__ta.state.mascotSec === 'top'", timeout=5000)
+    await pg.wait_for_timeout(300)
     m = pg.locator('.ta-masc-live .ta-masc-btn')
     check('bulb lit at the top', await pg.locator('.ta-masc-live.ta-masc-lit').count() == 1)
     await m.click()
