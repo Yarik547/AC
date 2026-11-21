@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Техно-АС — Теплові насоси</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; background: #FFFFFF; font-family: 'Manrope', 'Segoe UI', Arial, sans-serif; color: #1C2B22">
+<dc-import name="Main" page="heat" primary="{{primary}}" sun="{{sun}}" hint-size="100%,7980px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#28874F","options":["#28874F","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"$preview":{"width":1440,"height":7980}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      primary: this.props.primary ?? '#28874F',
+      sun: this.props.sun ?? '#F5C542'
+    };
+  }
+}
+</script>
+</body>
+</html>

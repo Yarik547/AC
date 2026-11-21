@@ -1,0 +1,70 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 11180,
+      "is_interactive": true,
+      "title": "Головна сторінка",
+      "w": 1440,
+      "x": -54,
+      "y": -47
+    },
+    "Mobile.dc.html": {
+      "expand": "fill",
+      "h": 10670,
+      "is_interactive": true,
+      "title": "Телефон",
+      "w": 390,
+      "x": 1466,
+      "y": -47
+    },
+    "Heat.dc.html": {
+      "expand": "fill",
+      "h": 7980,
+      "is_interactive": true,
+      "title": "Сторінка: теплові насоси",
+      "w": 1440,
+      "x": 1936,
+      "y": -47
+    },
+    "Solar.dc.html": {
+      "expand": "fill",
+      "h": 9130,
+      "is_interactive": true,
+      "title": "Сторінка: сонячні станції",
+      "w": 1440,
+      "x": 3456,
+      "y": -47
+    },
+    "Ev.dc.html": {
+      "expand": "fill",
+      "h": 7920,
+      "is_interactive": true,
+      "title": "Сторінка: зарядні станції",
+      "w": 1440,
+      "x": 4976,
+      "y": -47
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-20T18:42:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "file": "Main.dc.html",
+    "view": "focused"
+  },
+  "notes": {},
+  "order": [
+    "Main.dc.html",
+    "Mobile.dc.html",
+    "Heat.dc.html",
+    "Solar.dc.html",
+    "Ev.dc.html"
+  ],
+  "pages": [],
+  "title": "Техно АС — новий сайт"
+}
