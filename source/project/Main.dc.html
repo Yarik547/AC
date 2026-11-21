@@ -1171,7 +1171,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"site":{"editor":null,"default":false},"$preview":{"width":1440,"height":11180}}'>
+<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"site":{"editor":null,"default":false},"base":{"editor":null,"default":"/"},"$preview":{"width":1440,"height":11180}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1584,7 +1584,8 @@ class Component extends DCLogic {
     const faqs = FAQ.filter((f) => page === 'home' || f.cat === 'all' || f.cat === page).map((f) => ({ q: f.q, a: f.a, link: f.link || '', linkText: f.linkText || '' }));
     const EV_PHOTO = '';
     const site = !!this.props.site;
-    const URLS = { home: '/', heat: '/teplovi-nasosy/', solar: '/sonyachni-stantsii/', ev: '/zaryadni-stantsii/' };
+    const B = this.props.base || '/';
+    const URLS = { home: B, heat: B + 'teplovi-nasosy/', solar: B + 'sonyachni-stantsii/', ev: B + 'zaryadni-stantsii/' };
     const SVC = {
       heat: { title: 'Теплові насоси', sub: 'у Львові та області — під ключ', lead: 'Опалення й гаряча вода за рахунок тепла повітря. Розрахунок, монтаж, запуск і сервіс.', img: '/_blob/76cf2841f7d367cd383eecd5eb37a33a', obj: 'Тепловий насос 12 кВт, с. Колочава, Закарпатська обл.' },
       solar: { title: 'Сонячні станції', sub: 'для дому й бізнесу — під ключ', lead: 'Власна електроенергія і світло під час відключень. Розраховуємо станцію під ваше споживання.', img: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', obj: 'Сонячна станція 30 кВт, с. Ластівка, Львівська обл.' },

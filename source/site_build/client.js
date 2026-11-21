@@ -114,7 +114,7 @@ function boot() {
   appRoot = document.querySelector('.ta-root');
   if (!appRoot) return;
   appRoot.querySelectorAll('[data-c]').forEach((w) => { wrappers[+w.getAttribute('data-c')] = w; });
-  const props = Object.assign({}, PROP_DEFAULTS, { page: document.documentElement.getAttribute('data-page') || 'home', site: true });
+  const props = Object.assign({}, PROP_DEFAULTS, { page: document.documentElement.getAttribute('data-page') || 'home', site: true, base: document.documentElement.getAttribute('data-base') || '/' });
   comp = new Component(props);
   // The server already rendered the same initial state, so only the event map is needed now.
   prevStrs = render();
