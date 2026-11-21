@@ -640,7 +640,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 
 <section id="top" class="{{heroCls}}" style="position: relative; overflow: hidden; margin-top: -69px; background: #1D3A2A; color: #FFFFFF">
 <div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden">
-<img class="ta-heropar" src="{{heroImg}}" alt="" style="position: absolute; left: 0; top: -4%; width: 100%; height: 118%; object-fit: cover; object-position: 50% 62%">
+<picture><source media="(max-width: 640px)" srcset="{{heroImg}}"><img class="ta-heropar" src="{{heroImg}}" alt="" style="position: absolute; left: 0; top: -4%; width: 100%; height: 118%; object-fit: cover; object-position: 50% 62%"></picture>
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 30, 20, 0.66) 0%, rgba(10, 30, 20, 0.38) 34%, rgba(10, 30, 20, 0.50) 58%, rgba(8, 26, 17, 0.86) 100%), linear-gradient(90deg, rgba(10, 30, 20, 0) 40%, rgba(10, 30, 20, 0.35) 100%)"></div>
 </div>
 <div class="ta-herox ta-heroup" style="position: relative; box-sizing: border-box; max-width: 1240px; min-height: 880px; margin: 0 auto; padding: calc(82px + clamp(40px, 6cqi, 88px)) clamp(20px, 4cqi, 40px) clamp(28px, 3.5cqi, 48px); display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
@@ -2590,15 +2590,15 @@ class Component extends DCLogic {
     const B = this.props.base || '/';
     const URLS = { home: B, heat: B + 'teplovi-nasosy/', solar: B + 'sonyachni-stantsii/', ev: B + 'zaryadni-stantsii/', credit: B + 'kredyty/' };
     const SVC = {
-      heat: { title: 'Теплові насоси', sub: 'у Львові та області — під ключ', lead: 'Опалення й гаряча вода за рахунок тепла повітря. Розрахунок, монтаж, запуск і сервіс.', img: '/_blob/76cf2841f7d367cd383eecd5eb37a33a', obj: 'Тепловий насос 12 кВт, с. Колочава, Закарпатська обл.' },
-      solar: { title: 'Сонячні станції', sub: 'для дому й бізнесу — під ключ', lead: 'Власна електроенергія і світло під час відключень. Розраховуємо станцію під ваше споживання.', img: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', obj: 'Сонячна станція 30 кВт, с. Ластівка, Львівська обл.' },
-      credit: { title: 'Кредит від\u00A00%', sub: 'на світло для приватного будинку', lead: 'Пояснюємо державну програму «Доступні кредити 5–7–9%» простими словами — і підбираємо обладнання з урахуванням її умов.', img: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', obj: '' },
-      ev: { title: 'Зарядні станції', sub: 'для електромобілів — удома й для бізнесу', lead: 'Домашні станції 7–22 кВт і швидкі DC-станції. Можна поєднати із сонячною станцією.', img: '/_blob/8f2af6843b0a6094fe99789fa1116c53', obj: '' }
+      heat: { title: 'Теплові насоси', sub: 'у Львові та області — під ключ', lead: 'Опалення й гаряча вода за рахунок тепла повітря. Розрахунок, монтаж, запуск і сервіс.', img: '/_blob/736aba09465a39dfe5c759c274be0849', obj: 'Тепловий насос 12 кВт, с. Колочава, Закарпатська обл.' },
+      solar: { title: 'Сонячні станції', sub: 'для дому й бізнесу — під ключ', lead: 'Власна електроенергія і світло під час відключень. Розраховуємо станцію під ваше споживання.', img: '/_blob/d2bce7efe40cc0144de0351291d5277d', obj: 'Сонячна станція 30 кВт, с. Ластівка, Львівська обл.' },
+      credit: { title: 'Кредит від\u00A00%', sub: 'на світло для приватного будинку', lead: 'Пояснюємо державну програму «Доступні кредити 5–7–9%» простими словами — і підбираємо обладнання з урахуванням її умов.', img: '/_blob/d2bce7efe40cc0144de0351291d5277d', obj: '' },
+      ev: { title: 'Зарядні станції', sub: 'для електромобілів — удома й для бізнесу', lead: 'Домашні станції 7–22 кВт і швидкі DC-станції. Можна поєднати із сонячною станцією.', img: '/_blob/213e0468667161418ec0522e9f40c6b9', obj: '' }
     };
     const sv = SVC[page] || null;
     const pageVals = {
       isHome: !sv, isSvc: !!sv,
-      heroImg: sv ? sv.img : '/_blob/9f6a3cecaf9c33a6c058c8f5f038abb9',
+      heroImg: sv ? sv.img : '/_blob/d0358c9435363d7b31152d0ed979377f',
       heroChip: sv ? 'Львів · з 2001 року · під ключ' : 'Львів · працюємо з 2001 року',
       heroObj: sv ? sv.obj : 'Сонячна станція 30 кВт, с. Ластівка, Львівська обл.',
       heroObjShow: !sv || !!sv.obj,
@@ -2992,10 +2992,10 @@ class Component extends DCLogic {
       // Page frame for the catalogue and product pages
       const frame = isCat || isProd;
       const heroCat = prod ? prod.cat : 'solar';
-      const heroImgs = { heat: '/_blob/76cf2841f7d367cd383eecd5eb37a33a', solar: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', battery: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', bess: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2' };
+      const heroImgs = { heat: '/_blob/736aba09465a39dfe5c759c274be0849', solar: '/_blob/d2bce7efe40cc0144de0351291d5277d', battery: '/_blob/d2bce7efe40cc0144de0351291d5277d', bess: '/_blob/d2bce7efe40cc0144de0351291d5277d' };
       const pageFlags = frame ? {
         isHome: false, isSvc: false, showFlow: false, showHeat: false, showSolar: false, showEv: false, showCredit: false,
-        heroImg: isCat ? '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2' : heroImgs[heroCat],
+        heroImg: isCat ? '/_blob/d2bce7efe40cc0144de0351291d5277d' : heroImgs[heroCat],
         heroChip: isCat ? 'Обладнання, яке ми встановлюємо' : 'Каталог · ' + catName(prod.cat),
         heroObjShow: false, revShow: false, revEmpty: false
       } : {};

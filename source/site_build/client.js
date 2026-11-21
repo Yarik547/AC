@@ -1,9 +1,9 @@
 // Browser runtime: keeps the pre-rendered page alive (state, events, updates).
 import morphdom from 'morphdom';
 import { CHUNKS, IN_PAGE, PROP_DEFAULTS, makeComponent, setImg } from './gen/template.mjs';
-import { IMG } from './gen/img.mjs';
+import { IMG, SRCSET } from './gen/img.mjs';
 
-setImg(IMG);
+setImg(IMG, SRCSET);
 
 let comp, vals, appRoot;
 let wrappers = [];

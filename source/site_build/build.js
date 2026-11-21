@@ -77,17 +77,21 @@ async function main() {
   const man = JSON.parse(execFileSync('python3', [path.join(__dirname, 'images.py'), path.join(ROOT, 'preview/blobs.json'), path.join(GEN, 'used.json'), path.join(DIST, 'img')], { maxBuffer: 1 << 24 }).toString());
   const missing = used.filter((id) => !man[id]);
   if (missing.length) throw new Error('images without a local file: ' + missing.join(', '));
-  for (const e of Object.values(man)) { e.src = U(e.src); if (e.set) e.set = e.set.split(', ').map((x) => U(x)).join(', '); }
+  for (const e of Object.values(man)) { e.src = U(e.src); if (e.set) e.set = e.set.split(', ').map((x) => U(x)).join(', '); if (e.mset) e.mset = e.mset.split(', ').map((x) => U(x)).join(', '); }
   fs.writeFileSync(path.join(GEN, 'img.mjs'), `
 const MAN=${JSON.stringify(man)};
 const E=(s)=>String(s).replace(/[&<>"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const SIZES=[[/ta-heropar/,'100vw'],[/ta-pgal-i/,'(max-width: 900px) 90vw, 560px'],[/ta-pthumb-i/,'72px'],[/ta-pimg/,'(max-width: 820px) 45vw, 280px'],[/ta-par/,'(max-width: 900px) 100vw, 50vw'],[/ta-gimg/,'(max-width: 640px) 72vw, 300px'],[/ta-oimg-i/,'(max-width: 700px) 100vw, 640px'],[/ta-mthumb-i/,'136px'],[/ta-flogo/,'180px'],[/ta-logo/,'80px']];
 export function imgInfo(src){return src&&src.indexOf('/_blob/')===0?MAN[src.slice(7)]||null:null;}
+// The hero photo covers a box taller than the screen is wide on phones, so it is drawn wider than 100vw.
+export function heroSizes(m){if(!m||!m.w||!m.h)return '100vw';const R=m.w/m.h,d=Math.round(1040*R);return '(max-width: 640px) '+Math.round(745*R)+'px, (max-width: 1100px) '+Math.round(1215*R)+'px, '+(d>1440?'(max-width: '+d+'px) '+d+'px, ':'')+'100vw';}
 export function sizesFor(cls){for(let i=0;i<SIZES.length;i++)if(SIZES[i][0].test(cls))return SIZES[i][1];return '100vw';}
+// <source> for phones: a centre crop of the hero photo, so a phone does not download the full wide picture
+export function SRCSET(src){const m=imgInfo(src);if(m&&m.mset)return ' srcset="'+m.mset+'" sizes="(max-width: '+Math.round(745*m.mw/m.mh)+'px) '+Math.round(745*m.mw/m.mh)+'px, 100vw"';return ' srcset="'+E(m?m.src:src)+'"';}
 export function IMG(src,cls){
   const m=imgInfo(src);
   let o=' src="'+E(m?m.src:src)+'"';
-  if(m&&m.set)o+=' srcset="'+m.set+'" sizes="'+sizesFor(cls)+'"';
+  if(m&&m.set)o+=' srcset="'+m.set+'" sizes="'+(/ta-heropar/.test(cls)?heroSizes(m):sizesFor(cls))+'"';
   if(/ta-heropar/.test(cls))o+=' fetchpriority="high"';
   else if(!/ta-logo/.test(cls))o+=' loading="lazy"';
   return o+' decoding="async"';
@@ -146,7 +150,7 @@ ${designCss}`;
   // 6. Pre-render every page
   const tpl = await import(pathToFileURL(path.join(GEN, 'template.mjs')).href + '?v=' + Date.now());
   const img = await import(pathToFileURL(path.join(GEN, 'img.mjs')).href + '?v=' + Date.now());
-  tpl.setImg(img.IMG);
+  tpl.setImg(img.IMG, img.SRCSET);
   class DCLogic {
     constructor(p) { this.props = p || {}; }
     setState(u) { const p = typeof u === 'function' ? u(this.state, this.props) : u; this.state = Object.assign({}, this.state, p); }
@@ -205,7 +209,8 @@ ${designCss}`;
       '<meta name="format-detection" content="telephone=no">',
       `<link rel="preload" href="${fonts.cyrillic}" as="font" type="font/woff2" crossorigin>`,
       `<link rel="preload" href="${fonts.latin}" as="font" type="font/woff2" crossorigin>`,
-      hero && hero.set ? `<link rel="preload" as="image" href="${hero.src}" imagesrcset="${hero.set}" imagesizes="100vw" fetchpriority="high">` : '',
+      hero && hero.set && hero.mset ? `<link rel="preload" as="image" media="(max-width: 640px)" imagesrcset="${hero.mset}" imagesizes="${Math.round(745 * hero.mw / hero.mh)}px" fetchpriority="high">` : '',
+      hero && hero.set ? `<link rel="preload" as="image"${hero.mset ? ' media="(min-width: 641px)"' : ''} href="${hero.src}" imagesrcset="${hero.set}" imagesizes="${img.heroSizes(hero)}" fetchpriority="high">` : '',
       `<style>${css}</style>`,
       `<link rel="icon" href="${U('favicon.svg')}" type="image/svg+xml">`,
       `<link rel="icon" href="${U('favicon-32.png')}" sizes="32x32" type="image/png">`,
@@ -236,7 +241,7 @@ ${designCss}`;
   fs.mkdirSync(path.join(DIST, 'og'), { recursive: true });
   if (!noOg) {
     const blobs = Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync(path.join(ROOT, 'preview/blobs.json'), 'utf8'))).map(([k, v]) => [k, path.resolve(ROOT, v)]));
-    const heroFile = { home: blobs['9f6a3cecaf9c33a6c058c8f5f038abb9'], heat: blobs['76cf2841f7d367cd383eecd5eb37a33a'], solar: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], ev: blobs['8f2af6843b0a6094fe99789fa1116c53'], credit: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], catalog: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'] };
+    const heroFile = { home: blobs['d0358c9435363d7b31152d0ed979377f'], heat: blobs['736aba09465a39dfe5c759c274be0849'], solar: blobs['d2bce7efe40cc0144de0351291d5277d'], ev: blobs['213e0468667161418ec0522e9f40c6b9'], credit: blobs['d2bce7efe40cc0144de0351291d5277d'], catalog: blobs['d2bce7efe40cc0144de0351291d5277d'] };
     const spec = { font_dir: fontSrc, logo: blobs['0b85442bc566a74d30e892c7ea73a51c'], favicon_svg: path.join(__dirname, 'favicon.svg'), out_dir: path.join(DIST, 'og'),
       cards: PAGES.map((P) => (P.product ? { out: ogName(P), img: blobs[P.og.img.slice(7)], title: P.og.title, sub: P.og.sub, kind: 'product' } : { out: ogName(P), img: heroFile[P.page], title: P.og.title, sub: P.og.sub })) };
     fs.writeFileSync(path.join(GEN, 'og.json'), JSON.stringify(spec));

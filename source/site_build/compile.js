@@ -82,6 +82,12 @@ function compileTemplate(src) {
         code += `o+=IMG(${expr},${lit(a.class || '')});`;
         continue;
       }
+      if (name === 'source' && k === 'srcset') {
+        const parts = splitHoles(raw);
+        const expr = parts.map((p) => (p.s != null ? lit(p.s) : `S2(${look(p.h, sv)})`)).join('+') || "''";
+        code += `o+=SRCSET(${expr});`;
+        continue;
+      }
       if (name === 'select' && k === 'value') {
         selVar = 'sv' + ++varN;
         const parts = splitHoles(raw);
@@ -134,7 +140,8 @@ const S2=(v)=>v==null||typeof v==='function'?'':String(v);
 const T=(v)=>v==null||v===false||v===true||typeof v==='function'?'':String(v).replace(ESC,(c)=>EM[c]);
 const A=(v)=>S2(v).replace(ESC,(c)=>EM[c]);
 let IMG=(src,cls)=>' src="'+A(src)+'"';
-export function setImg(f){IMG=f;}
+let SRCSET=(src)=>' srcset="'+A(src)+'"';
+export function setImg(f,g){IMG=f;if(g)SRCSET=g;}
 export const CHUNKS=[${chunks.join(',\n')}];
 export const IN_PAGE=${inPage};
 export const ROOT_OPEN=${lit(openTag(root))};
