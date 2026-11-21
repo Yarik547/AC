@@ -47,7 +47,9 @@ const write = (rel, data) => { const p = path.join(DIST, rel); fs.mkdirSync(path
 async function main() {
   const noOg = process.argv.includes('--no-og');
   fs.mkdirSync(DIST, { recursive: true });
-  for (const f of GENERATED) fs.rmSync(path.join(DIST, f), { recursive: true, force: true });
+  // --no-og keeps the share images and icons from the previous full build
+  const KEEP = noOg ? new Set(['og', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) : new Set();
+  for (const f of GENERATED) if (!KEEP.has(f)) fs.rmSync(path.join(DIST, f), { recursive: true, force: true });
   fs.mkdirSync(GEN, { recursive: true });
 
   // 1. Compile the design component
