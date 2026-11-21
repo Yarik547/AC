@@ -23,7 +23,7 @@ p{{text-wrap:balance;margin:0 0 34px;font-size:30px;line-height:1.3;color:#D7EBD
 .f{{display:flex;gap:14px;align-items:center;font-size:26px;font-weight:700}}
 .pill{{background:#F5C542;color:#1C2B22;border-radius:999px;padding:10px 22px}}
 .u{{color:#BFE3CB;font-weight:600}}
-</style></head><body><div class="bg"></div><div class="sh"></div><div class="c">
+{extra}</style></head><body><div class="bg"></div><div class="sh"></div><div class="c">
 <div class="lg"><img src="{logo}"></div><h1>{title}</h1><p>{sub}</p>
 <div class="f"><span class="pill">068 409 02 75</span><span class="u">techno-as.com.ua</span></div></div></body></html>"""
 
@@ -31,8 +31,15 @@ with sync_playwright() as pw:
     b = pw.chromium.launch()
     pg = b.new_page(viewport={'width': 1200, 'height': 630})
     for c in spec['cards']:
-        doc = CARD.format(fd=fd, img=pathlib.Path(c['img']).as_uri(), logo=pathlib.Path(spec['logo']).as_uri(),
-                          title=html.escape(c['title']), sub=html.escape(c['sub']))
+        extra = ''
+        if c.get('kind') == 'product':
+            # product photo on a light panel to the right, text on a solid green panel to the left
+            extra = ('.bg{{background:#F1F8F4 url(%s) no-repeat 91%% 52%%/auto 76%%}}'
+                     '.sh{{background:linear-gradient(90deg,#0E2618 0,#133224 58%%,rgba(14,38,24,0) 58.05%%)}}'
+                     'h1{{font-size:50px}}p{{font-size:26px}}.c{{width:600px}}') % pathlib.Path(c['img']).as_uri()
+            extra = extra.replace('{{', '{').replace('}}', '}')
+        doc = CARD.replace('{extra}', '{{EXTRA}}').format(fd=fd, img=pathlib.Path(c['img']).as_uri(), logo=pathlib.Path(spec['logo']).as_uri(),
+                          title=html.escape(c['title']), sub=html.escape(c['sub'])).replace('{EXTRA}', extra)
         tmp = out_dir / '_og.html'
         tmp.write_text(doc, encoding='utf-8')
         pg.goto(tmp.as_uri())

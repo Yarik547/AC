@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
-<title>Техно-АС — теплові насоси, сонячні та зарядні станції у Львові</title>
+<title>AS techno — теплові насоси, сонячні та зарядні станції у Львові</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -385,6 +385,205 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 @keyframes taWave2{0%,100%{transform:rotate(0)}20%{transform:rotate(-18deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-14deg)}80%{transform:rotate(6deg)}}
 .ta-mfx-trick .tm-flames,.ta-mfx-ret .tm-flames,.ta-mfx-fly .tm-flames{transform:scaleY(1.9)}
 @media (prefers-reduced-motion: reduce){.ta-mfx-dizzy .tm-stars,.ta-mfx-drag .tm-legs,.ta-mfx-drag .tm-armR,.ta-mfx-fly .tm-armR,.ta-mfx-new .ta-masc-tilt,.ta-mfx-trick .ta-masc-tilt,.ta-mfx-pop .ta-masc-fly{animation:none}}
+.ta-hero-c .ta-herox{min-height:0 !important;padding-bottom:clamp(36px,4.4cqi,60px) !important;gap:22px !important}
+.ta-h1c{margin:0;max-width:1000px;font-weight:300;font-size:clamp(36px,5.4cqi,76px);line-height:1.06;letter-spacing:-.03em}
+.ta-hero-p .ta-herox{padding-top:calc(82px + clamp(18px,2.6cqi,36px)) !important;padding-bottom:clamp(24px,3cqi,40px) !important}
+.ta-hero-p .ta-h1c{font-size:clamp(30px,3.8cqi,54px);font-weight:400;letter-spacing:-.02em}
+.ta-lead-c{margin:0;max-width:760px;font-size:clamp(17px,1.5cqi,21px);line-height:1.5;opacity:.94;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.ta-b4sec{position:relative;background:#FFFFFF}
+.ta-wrap4{box-sizing:border-box;max-width:1240px;margin:0 auto;padding:clamp(56px,7cqi,112px) clamp(20px,4cqi,40px);display:flex;flex-direction:column;gap:32px}
+#catalog .ta-wrap4,#product .ta-wrap4{padding-top:clamp(28px,3.6cqi,52px);gap:28px}
+.ta-thead{display:flex;flex-direction:column;gap:14px}
+.ta-thead-row{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px}
+.ta-thead-row>div{display:flex;flex-direction:column;gap:14px}
+.ta-eyebrow{margin:0;font-size:15px;font-weight:700;letter-spacing:.03em;color:#1F6E3F}
+.ta-h2{margin:0;font-weight:300;font-size:clamp(34px,4cqi,56px);line-height:1.1;letter-spacing:-.02em}
+.ta-h3{margin:0;font-size:22px;font-weight:700;line-height:1.3}
+.ta-h2s{margin:0 0 16px;font-size:clamp(24px,2.4cqi,30px);font-weight:600;line-height:1.2;letter-spacing:-.01em}
+.ta-tlead{margin:0;max-width:760px;font-size:18px;line-height:1.55;color:#44564B}
+.ta-tool-dark{background:#133224;color:#FFFFFF}
+.ta-tool-dark .ta-eyebrow{color:#F5C542}
+.ta-tool-dark .ta-tlead{color:#CFE3D6}
+.ta-allcat{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1.5px solid #9CCAAE;background:#FFFFFF;color:#1F6E3F;font-weight:700;font-size:17px;text-decoration:none}
+
+.ta-cchips{display:flex;flex-wrap:wrap;gap:8px}
+.ta-cchip{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 10px 0 18px;border-radius:999px;border:1.5px solid #CFE3D6;background:#FFFFFF;color:#1C2B22;font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.ta-cchip:hover{border-color:#26834C}
+.ta-cchip[aria-pressed="true"]{background:#26834C;border-color:#26834C;color:#FFFFFF}
+.ta-cchip-n{min-width:20px;padding:2px 8px;border-radius:99px;background:#EEF6F1;color:#1F6E3F;font-size:13px;font-weight:700;text-align:center}
+.ta-cchip[aria-pressed="true"] .ta-cchip-n{background:#1A5C35;color:#FFFFFF}
+.ta-cchip:focus-visible,.ta-tchip:focus-visible,.ta-tapp:focus-visible,.ta-pthumb:focus-visible,.ta-pcard-a:focus-visible,.ta-pm:focus-visible,.ta-allcat:focus-visible{outline:3px solid rgba(40,135,79,.45);outline-offset:3px}
+
+.ta-prods{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ta-prods-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ta-pcard{display:flex;min-width:0}
+.ta-pcard-a{display:flex;flex-direction:column;width:100%;border-radius:22px;background:#FFFFFF;border:1px solid #E1EEE6;color:#1C2B22;text-decoration:none;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.ta-pcard-a:hover{transform:translateY(-3px);border-color:#CFE3D6;box-shadow:0 20px 40px -26px rgba(16,40,26,.5)}
+.ta-pcard-img{display:block;aspect-ratio:1/1;box-sizing:border-box;padding:7%;background:#F4F9F6}
+.ta-pimg{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.ta-evimg{display:flex;align-items:center;justify-content:center;aspect-ratio:auto;height:150px;color:#1F6E3F;background:linear-gradient(135deg,#EEF6F1,#D9EEE1)}
+.ta-pcard-b{flex:1 1 auto;display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px}
+.ta-pcard-sub{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#1F6E3F}
+.ta-pcard-n{font-size:17.5px;font-weight:700;line-height:1.3}
+.ta-pcard-t{font-size:15px;line-height:1.5;color:#44564B}
+.ta-pcard-specs{display:flex;flex-direction:column;gap:4px}
+.ta-pcard-sp{display:flex;justify-content:space-between;gap:12px;padding-top:5px;border-top:1px dashed #DCEAE1;font-size:14px;line-height:1.4;color:#5A6E61}
+.ta-pcard-sp b{font-weight:600;color:#1C2B22;text-align:right}
+.ta-pcard-f{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.ta-pprice{padding:4px 10px;border-radius:99px;background:#FFF4CF;color:#5C4500;font-size:13.5px;font-weight:700}
+.ta-pmore{display:inline-flex;align-items:center;gap:4px;color:#1F6E3F;font-size:15px;font-weight:700}
+.ta-pcard-a:hover .ta-pmore svg{transform:translateX(3px)}
+.ta-pmore svg{transition:transform .2s ease}
+.ta-cnote{margin:0;max-width:760px;font-size:15px;line-height:1.55;color:#5A6E61}
+
+.ta-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:15px;color:#5A6E61}
+.ta-crumbs a{color:#1F6E3F;font-weight:600;text-decoration:none}
+.ta-crumbs a:hover{text-decoration:underline}
+.ta-pmain{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4cqi,56px);align-items:start}
+.ta-pgal-m{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:28px;background:#F4F9F6;overflow:hidden}
+.ta-pgal-i{display:block;width:86%;height:86%;object-fit:contain;mix-blend-mode:multiply}
+.ta-pthumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ta-pthumb{width:84px;height:84px;padding:6px;box-sizing:border-box;border-radius:16px;border:2px solid transparent;background:#F4F9F6;cursor:pointer}
+.ta-pthumb[aria-pressed="true"]{border-color:#26834C}
+.ta-pthumb-i{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.ta-pinfo{position:sticky;top:96px;display:flex;flex-direction:column;gap:18px}
+.ta-pinfo-sub{margin:0;font-size:13.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#1F6E3F}
+.ta-pinfo-h{position:absolute !important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ta-pinfo-t{margin:0;font-size:19px;line-height:1.55;color:#2E4034}
+.ta-pspecs{margin:0;border-top:1px solid #E1EEE6}
+.ta-pspec{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #E1EEE6;font-size:16px;line-height:1.45}
+.ta-pspec dt{color:#5A6E61}
+.ta-pspec dd{margin:0;font-weight:600;text-align:right}
+.ta-pcta{display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:24px;background:#133224;color:#FFFFFF}
+.ta-pcta-p{margin:0;display:flex;flex-direction:column;gap:2px}
+.ta-pcta-p b{font-size:22px;font-weight:700}
+.ta-pcta-p span{font-size:15px;color:#CFE3D6}
+.ta-pcta .ta-qform{width:100%}
+.ta-pcta-m{display:flex;flex-wrap:wrap;gap:8px}
+.ta-pm{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none}
+.ta-pm:hover{background:rgba(255,255,255,.1)}
+.ta-pmore2{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:28px 56px;align-items:start}
+.ta-pkit-t{border-top:1px solid #E1EEE6}
+.ta-pkit-r{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.7fr) 96px;gap:14px;padding:12px 0;border-bottom:1px solid #E1EEE6;font-size:15.5px;line-height:1.45}
+.ta-pkit-r span:first-child{font-weight:600}
+.ta-pkit-hd{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#5A6E61}
+.ta-pkit-n{margin:14px 0 0;font-size:14.5px;line-height:1.5;color:#5A6E61}
+.ta-pfeats{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.5}
+.ta-psvc{display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:24px;background:#EEF6F1}
+.ta-psvc p{margin:0;font-size:16.5px;line-height:1.55}
+.ta-psvc-a{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;border:1.5px solid #9CCAAE;background:#FFFFFF;color:#1F6E3F;font-weight:700;font-size:16px;text-decoration:none}
+.ta-rel-h{margin:8px 0 -12px}
+
+.ta-hp,.ta-ev{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,2.6cqi,32px);align-items:stretch}
+.ta-hp-ctl,.ta-ev-ctl{box-sizing:border-box;padding:clamp(22px,2.6cqi,32px);border-radius:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);--sun:#F5C542}
+.ta-hp-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.ta-hp-row label{font-size:16px;color:#CFE3D6}
+.ta-hp-tv{font-size:36px;font-weight:300;line-height:1.1}
+.ta-hp-scale{display:flex;justify-content:space-between;margin-top:4px;font-size:13px;color:#9CC2AB}
+.ta-hp-l{margin:22px 0 10px;font-size:16px;color:#CFE3D6}
+.ta-ev-ctl .ta-hp-l:first-child{margin-top:0}
+.ta-hp-chips,.ta-ev-ph{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ta-hp-chip{display:flex;flex-direction:column;gap:2px}
+.ta-hp-chip small{font-size:13px;font-weight:500;opacity:.8}
+.ta-ev-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ta-hp-out{box-sizing:border-box;display:flex;flex-direction:column;gap:14px;padding:clamp(22px,2.6cqi,32px);border-radius:26px;background:#FFFFFF;color:#1C2B22}
+.ta-hp-big{margin:0;display:flex;flex-direction:column;gap:2px}
+.ta-hp-big span{font-size:16px;color:#5A6E61}
+.ta-hp-big b{font-size:clamp(30px,3.2cqi,46px);font-weight:300;line-height:1.1;letter-spacing:-.02em;color:#1F6E3F}
+.ta-hp-bar{display:flex;height:18px;border-radius:99px;overflow:hidden;background:#EEF6F1}
+.ta-hp-bar span{display:block;height:100%;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.ta-hp-bar-el{background:#1C2B22}
+.ta-hp-bar-air{background:linear-gradient(90deg,#7EDC9F,#26834C)}
+.ta-hp-leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;color:#44564B}
+.ta-dot-el,.ta-dot-air{display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:50%;vertical-align:middle}
+.ta-dot-el{background:#1C2B22}
+.ta-dot-air{background:#26834C}
+.ta-hp-save{margin:0;font-size:16.5px;line-height:1.5}
+.ta-hp-save b{color:#1F6E3F}
+.ta-hp-warn{margin:0;padding:12px 14px;border-radius:14px;background:#FFF4CF;color:#5C4500;font-size:15px;line-height:1.5}
+.ta-hp-note{margin:0;font-size:13.5px;line-height:1.5;color:#5A6E61}
+.ta-tool-dark .ta-hpb .ta-hp-note{color:#9CC2AB}
+.ta-ev-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ta-ev-facts span{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:16px;background:#F4F9F6}
+.ta-ev-facts small{font-size:13px;line-height:1.3;color:#5A6E61}
+.ta-ev-facts b{font-size:18px;font-weight:700}
+.ta-hpb,.ta-evw{display:flex;flex-direction:column;gap:14px}
+.ta-hpb-t{border-top:1px solid rgba(255,255,255,.16)}
+.ta-hpb-r{display:grid;grid-template-columns:1.3fr .9fr .8fr 1.4fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:15.5px;line-height:1.45;color:#E4F0E8}
+.ta-hpb-hd{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9CC2AB}
+.ta-evw-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.ta-evw-steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ta-evw-steps li{display:flex;gap:12px;padding:18px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:16px;line-height:1.5;color:#E4F0E8}
+.ta-evw-n{flex:0 0 34px;height:34px;border-radius:10px;background:#F5C542;color:#1C2B22;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+.ta-tchip{min-height:46px;padding:6px 12px;border-radius:14px;border:1.5px solid #CFE3D6;background:#FFFFFF;color:#1C2B22;font:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.ta-tchip:hover{border-color:#26834C}
+.ta-tchip[aria-pressed="true"]{background:#26834C;border-color:#26834C;color:#FFFFFF}
+.ta-tchip-s{min-height:40px;padding:4px 12px;font-size:14.5px}
+.ta-tchip-d{background:transparent;border-color:rgba(255,255,255,.28);color:#FFFFFF}
+.ta-tchip-d:hover{border-color:rgba(255,255,255,.6)}
+.ta-tchip-d[aria-pressed="true"]{background:#F5C542;border-color:#F5C542;color:#1C2B22}
+.ta-bat{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(16px,2.6cqi,32px)}
+.ta-bat-ctl{box-sizing:border-box;padding:clamp(22px,2.6cqi,32px);border-radius:26px;background:#F4F9F6}
+.ta-bat-l{margin:0 0 10px;font-size:16px;font-weight:700}
+.ta-bat-l~.ta-bat-l{margin-top:22px}
+.ta-bat-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ta-bat-apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ta-tapp{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:60px;padding:8px 12px;border-radius:14px;border:1.5px solid #CFE3D6;background:#FFFFFF;color:#1C2B22;font:inherit;font-size:14.5px;font-weight:700;line-height:1.3;text-align:left;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.ta-tapp small{font-size:12.5px;font-weight:600;color:#5A6E61}
+.ta-tapp:hover{border-color:#26834C}
+.ta-tapp[aria-pressed="true"]{background:#26834C;border-color:#26834C;color:#FFFFFF}
+.ta-tapp[aria-pressed="true"] small{color:#CFE3D6}
+.ta-bat-out{box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:clamp(22px,2.6cqi,32px);border-radius:26px;background:#133224;color:#FFFFFF}
+.ta-bat-k{margin:0;font-size:16px;color:#CFE3D6}
+.ta-bat-h{margin:0;font-size:clamp(38px,4.4cqi,60px);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:#F5C542}
+.ta-bat-bar{height:14px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.ta-bat-bar span{display:block;height:100%;border-radius:99px;background:#F5C542;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.ta-bat-scale{display:flex;justify-content:space-between;font-size:13px;color:#9CC2AB}
+.ta-bat-n{margin:6px 0 0;font-size:14.5px;line-height:1.5;color:#CFE3D6}
+.ta-pv{display:flex;flex-direction:column;gap:16px;padding:clamp(22px,2.6cqi,32px);border-radius:26px;border:1px solid #E1EEE6}
+.ta-pv-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.ta-pv-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ta-pv-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 24px;font-size:16px;color:#44564B}
+.ta-pv-sum b{font-size:20px;font-weight:700;color:#1C2B22}
+.ta-pv-sum span:first-child b{font-size:28px;color:#1F6E3F}
+.ta-pv-bars{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;height:230px}
+.ta-pv-b{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;height:100%}
+.ta-pv-v{font-size:12px;color:#5A6E61;white-space:nowrap}
+.ta-pv-col{flex:1 1 auto;display:flex;align-items:flex-end;width:100%;border-radius:8px;background:#F4F9F6}
+.ta-pv-col span{display:block;width:100%;border-radius:8px;background:linear-gradient(180deg,#F5C542,#E3A225);transition:height .45s cubic-bezier(.2,.8,.2,1)}
+.ta-pv-m{font-size:13px;font-weight:600;color:#44564B}
+
+@container (max-width:1100px){.ta-prods{grid-template-columns:repeat(3,minmax(0,1fr))}.ta-pv-v{font-size:10.5px}}
+@container (max-width:900px){.ta-pmain,.ta-pmore2,.ta-hp,.ta-ev,.ta-bat{grid-template-columns:minmax(0,1fr)}.ta-pinfo{position:static}.ta-evw-steps{grid-template-columns:minmax(0,1fr)}.ta-prods-3{grid-template-columns:minmax(0,1fr)}.ta-prods-3 .ta-pcard-a{flex-direction:row}.ta-prods-3 .ta-evimg{height:auto;width:110px;flex:0 0 110px}}
+@container (max-width:820px){.ta-prods{grid-template-columns:repeat(2,minmax(0,1fr))}.ta-prods-3{grid-template-columns:minmax(0,1fr)}}
+@container (max-width:700px){.ta-hpb-hd{display:none}.ta-hpb-r{grid-template-columns:1fr 1fr;gap:4px 14px}.ta-hpb-r span:first-child,.ta-hpb-r span:last-child{grid-column:1/-1}.ta-hpb-r span:nth-child(2)::before{content:"Працює: ";color:#9CC2AB}.ta-hpb-r span:nth-child(3)::before{content:"Вода: ";color:#9CC2AB}.ta-pv-v{display:none}.ta-pv-bars{height:180px;gap:4px}.ta-pv-m{font-size:11.5px}.ta-bat-apps{grid-template-columns:repeat(2,minmax(0,1fr))}.ta-pkit-hd{display:none}.ta-pkit-r{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px}.ta-pkit-r span:nth-child(2){grid-column:1/-1;order:3;color:#44564B}}
+@container (max-width:560px){.ta-prods{gap:10px}.ta-pcard-a{border-radius:18px}.ta-pcard-b{padding:12px 12px 14px;gap:6px}.ta-pcard-n{font-size:15.5px}.ta-pcard-specs,.ta-pmore,.ta-pcard .ta-pcard-t{display:none}.ta-prods-3 .ta-pcard-t{display:block}.ta-pprice{font-size:12px;padding:3px 8px}.ta-cchips{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(-1 * clamp(20px,4cqi,40px));padding:2px clamp(20px,4cqi,40px) 8px;scrollbar-width:none}.ta-cchips::-webkit-scrollbar{display:none}.ta-cchip{flex:0 0 auto}.ta-bat-chips{grid-template-columns:repeat(2,minmax(0,1fr))}.ta-ev-facts b{font-size:16px}.ta-pthumb{width:64px;height:64px}.ta-pv-sum span:first-child{flex-basis:100%}}
+
+.tm-bulbw{transform-box:fill-box;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.7,.5,1),opacity .25s ease}
+.ta-masc:not(.ta-masc-lit) .tm-bulbw{transform:translateY(16px) scale(0);opacity:0}
+.tm-wrench{display:none}
+.ta-masc-spot .tm-wrench{display:inline}
+.ta-masc-spot .tm-armL{transform-box:fill-box;transform-origin:88% 8%;animation:taFix .5s ease-in-out infinite alternate}
+@keyframes taFix{from{transform:rotate(-14deg)}to{transform:rotate(16deg)}}
+.ta-masc-open .ta-masc-tilt{animation:taPull .8s cubic-bezier(.3,.6,.3,1)}
+@keyframes taPull{0%{transform:rotate(0)}35%{transform:rotate(12deg) translateX(8px)}70%{transform:rotate(-4deg)}100%{transform:rotate(0)}}
+.ta-mplq{position:absolute;right:calc(100% + 12px);bottom:30%;width:300px;box-sizing:border-box;padding:18px 16px 12px;border-radius:16px;background:#FFFFFF;color:#1C2B22;font-size:15.5px;line-height:1.5;text-align:left;pointer-events:auto;box-shadow:0 24px 50px -22px rgba(16,40,26,.55),0 0 0 2px #26834C;transform:rotate(-1deg);animation:taPlq .8s cubic-bezier(.2,.9,.25,1.1) both}
+.ta-mplq::before{content:"";position:absolute;left:16px;right:16px;top:-6px;height:10px;border-radius:4px;background:repeating-linear-gradient(135deg,#F5C542 0 10px,#1C2B22 10px 20px)}
+.ta-mplq-rope{position:absolute;right:-16px;bottom:22px;width:22px;height:3px;border-radius:2px;background:#9C7A47;transform:rotate(14deg);transform-origin:0 50%}
+@keyframes taPlq{0%{transform:translateX(120vw) rotate(14deg)}55%{transform:translateX(-14px) rotate(-4deg)}78%{transform:translateX(5px) rotate(1deg)}100%{transform:translateX(0) rotate(-1deg)}}
+.ta-mtag{position:fixed;z-index:16;left:var(--tag-x,-9999px);top:var(--tag-y,-9999px);width:min(330px,calc(100vw - 24px));box-sizing:border-box;padding:16px 16px 12px;border-radius:18px;background:#1C2B22;color:#FFFFFF;font-family:'Manrope','Segoe UI',Arial,sans-serif;font-size:15.5px;line-height:1.5;text-align:left;box-shadow:0 22px 44px -18px rgba(0,0,0,.6);animation:taTag .35s ease both}
+.ta-mtag .ta-mbub-n{color:#F5C542}
+.ta-mtag .ta-mbub-x{color:#CFE3D6}
+.ta-mtag .ta-mbub-x:hover{background:rgba(255,255,255,.1)}
+.ta-mtag .ta-mbub-b{background:rgba(255,255,255,.12);color:#FFFFFF}
+.ta-mtag .ta-mbub-b:hover{background:rgba(255,255,255,.2)}
+.ta-mtag .ta-mbub-p{background:#F5C542;color:#1C2B22}
+@keyframes taTag{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.ta-mspot{position:fixed;z-index:14;left:var(--spot-x,-9999px);top:var(--spot-y,-9999px);width:var(--spot-w,0px);height:var(--spot-h,0px);border-radius:18px;pointer-events:none;box-shadow:0 0 0 3px #F5C542,0 0 0 200vmax rgba(10,25,18,.26);animation:taSpot 1.4s ease-in-out infinite}
+@keyframes taSpot{50%{box-shadow:0 0 0 7px rgba(245,197,66,.85),0 0 0 200vmax rgba(10,25,18,.26)}}
+@media (max-width:640px){.ta-mplq{right:-2px;bottom:calc(100% + 14px);width:min(330px,calc(100vw - 20px));font-size:15px}.ta-mplq-rope{right:30px;bottom:-16px;width:3px;height:18px;transform:none}}
+@media (prefers-reduced-motion: reduce){.ta-mplq,.ta-mtag,.ta-mspot,.ta-masc-open .ta-masc-tilt,.ta-masc-spot .tm-armL{animation:none !important}.tm-bulbw{transition:none}}
 </style>
 </helmet>
 <div class="ta-root" style="position: relative">
@@ -392,15 +591,15 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 
 <header class="ta-hdr {{menuCls}}" style="position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(215, 232, 221, 0.7)">
 <div class="ta-hdr-in" style="box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: 10px clamp(20px, 4cqi, 40px); display: flex; align-items: center; justify-content: space-between; gap: 16px 32px">
-<a href="{{navHome}}" aria-label="Техно-АС — на головну" style="display: flex; align-items: center">
-<img class="ta-logo" src="/_blob/0b85442bc566a74d30e892c7ea73a51c" alt="Техно-АС" style="height: 44px; width: auto; display: block">
+<a href="{{navHome}}" aria-label="AS techno — на головну" style="display: flex; align-items: center">
+<img class="ta-logo" src="/_blob/0b85442bc566a74d30e892c7ea73a51c" alt="AS techno" style="height: 44px; width: auto; display: block">
 </a>
 <nav class="ta-nav" aria-label="Розділи сайту" style="display: flex; flex-wrap: wrap; gap: 4px 32px; font-size: 16px; font-weight: 600">
 <a class="ta-link" href="{{navHeat}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Теплові насоси</a>
 <a class="ta-link" href="{{navSolar}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Сонячні станції</a>
 <a class="ta-link" href="{{navEv}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Зарядні станції</a>
 <a class="ta-link" href="{{navCredit}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Кредит 0%</a>
-<a class="ta-link ta-nav-x" href="#portfolio" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Об’єкти</a>
+<a class="ta-link" href="{{navCat}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Каталог</a>
 <a class="ta-link ta-nav-x" href="#contacts" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Контакти</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 14px">
@@ -421,8 +620,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <a class="ta-mitem" href="{{navSolar}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14l-2-9H7z"></path><path d="M6 15.5h12M10.5 11l-.8 9M13.5 11l.8 9"></path><path d="M12 2.5v2M7.2 4.5l1.2 1.4M16.8 4.5l-1.2 1.4"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Сонячні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="{{navEv}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5l1.6-5.2A2 2 0 0 1 7.5 10h9a2 2 0 0 1 1.9 1.3l1.6 5.2"></path><rect x="3" y="16" width="18" height="3.5" rx="1.2"></rect><path d="M12.6 3.5l-2.2 3.2h2.4l-1.4 2.8"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Зарядні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="{{navCredit}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"></path><circle cx="7" cy="7" r="2.5"></circle><circle cx="17" cy="17" r="2.5"></circle></svg></span><span style="flex: 1 1 auto; min-width: 0">Кредит від 0%</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
-<a class="ta-mitem" href="#calc" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: {{sun}}; display: flex; align-items: center; justify-content: center; color: #1C2B22"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><rect x="8" y="5.5" width="8" height="4" rx="1"></rect><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.6"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Калькулятор вартості</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
-<a class="ta-mitem" href="#portfolio" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Наші об’єкти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-mitem" href="{{navCat}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></svg></span><span style="flex: 1 1 auto; min-width: 0">Каталог обладнання</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-mitem" href="{{navCalc}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: {{sun}}; display: flex; align-items: center; justify-content: center; color: #1C2B22"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><rect x="8" y="5.5" width="8" height="4" rx="1"></rect><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.6"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Калькулятор вартості</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-mitem" href="{{navObj}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Наші об’єкти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="#contacts" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-12a7 7 0 0 1 14 0c0 5.7-7 12-7 12z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span style="flex: 1 1 auto; min-width: 0">Контакти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <div style="display: flex; gap: 8px; margin-top: 6px; padding: 8px 4px 4px; border-top: 1px solid #E3EFE7">
 <a class="ta-btn ta-ghost" href="tel:+380684090275" style="flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; border-radius: 16px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 16px; text-decoration: none; white-space: nowrap"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Подзвонити</a>
@@ -437,7 +637,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </sc-if>
 </header>
 
-<section id="top" style="position: relative; overflow: hidden; margin-top: -69px; background: #1D3A2A; color: #FFFFFF">
+<section id="top" class="{{heroCls}}" style="position: relative; overflow: hidden; margin-top: -69px; background: #1D3A2A; color: #FFFFFF">
 <div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden">
 <img class="ta-heropar" src="{{heroImg}}" alt="" style="position: absolute; left: 0; top: -4%; width: 100%; height: 118%; object-fit: cover; object-position: 50% 62%">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 30, 20, 0.66) 0%, rgba(10, 30, 20, 0.38) 34%, rgba(10, 30, 20, 0.50) 58%, rgba(8, 26, 17, 0.86) 100%), linear-gradient(90deg, rgba(10, 30, 20, 0) 40%, rgba(10, 30, 20, 0.35) 100%)"></div>
@@ -456,10 +656,14 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <span class="ta-h1s-s" style="font-weight: 400; font-size: clamp(20px, 2.2cqi, 32px); line-height: 1.25; letter-spacing: -0.01em; opacity: 0.92">{{svcSub}}</span>
 </h1>
 </sc-if>
+<sc-if value="{{isFrame}}" hint-placeholder-val="{{false}}">
+<h1 class="ta-h1c">{{frameTitle}}</h1>
+</sc-if>
 </div>
+<sc-if value="{{isFull}}" hint-placeholder-val="{{true}}">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px 48px">
 <sc-if value="{{heroObjShow}}" hint-placeholder-val="{{true}}">
-<a class="ta-glass ta-objcard ta-btn" href="#portfolio" style="box-sizing: border-box; width: 320px; display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
+<a class="ta-glass ta-objcard ta-btn" href="{{navObj}}" style="box-sizing: border-box; width: 320px; display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: {{sun}}">РЕАЛЬНИЙ ОБ’ЄКТ</span>
 <span style="font-size: 18px; font-weight: 600; line-height: 1.35">{{heroObj}}</span>
 <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; opacity: 0.9">Усі наші об’єкти<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
@@ -478,7 +682,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <input id="ta-qphone" class="ta-qin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ваш телефон" value="{{qPhone}}" onChange="{{onQPhone}}" aria-invalid="{{qInvalid}}">
 <button type="button" class="ta-qbtn ta-btn" onClick="{{qSubmit}}"><span class="ta-desk-i">Передзвоніть мені</span><span class="ta-mob-i">Передзвоніть</span></button>
 </div>
-<a class="ta-btn ta-glass-l ta-deskonly" href="#calc" style="display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 26px; border-radius: 999px; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати ціну</a>
+<a class="ta-btn ta-glass-l ta-deskonly" href="{{navCalc}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 26px; border-radius: 999px; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати ціну</a>
 </div>
 <sc-if value="{{qMsgShow}}" hint-placeholder-val="{{false}}">
 <p class="ta-qmsg {{qMsgCls}}" aria-live="polite">{{qMsg}}</p>
@@ -495,11 +699,11 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <span class="ta-hcard-v" style="font-size: 40px; font-weight: 300; line-height: 1.1">25 років</span>
 <span class="ta-hcard-sub" style="font-size: 15px; opacity: 0.88">досвіду — з 2001 року</span>
 </div>
-<a class="ta-glass ta-hcard ta-btn" href="#portfolio" style="display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
+<a class="ta-glass ta-hcard ta-btn" href="{{navObj}}" style="display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
 <span class="ta-hcard-v" style="font-size: 40px; font-weight: 300; line-height: 1.1">24 об’єкти</span>
 <span class="ta-hcard-sub" style="font-size: 15px; opacity: 0.88">у портфоліо →</span>
 </a>
-<a class="ta-glass ta-hcard ta-btn" href="#map" style="display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
+<a class="ta-glass ta-hcard ta-btn" href="{{navMap}}" style="display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; border-radius: 22px; color: #FFFFFF; text-decoration: none">
 <span class="ta-hcard-v" style="font-size: 40px; font-weight: 300; line-height: 1.1">3 області</span>
 <span class="ta-hcard-sub" style="font-size: 15px; opacity: 0.88">мапа наших об’єктів →</span>
 </a>
@@ -508,6 +712,10 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <span class="ta-hcard-sub" style="font-size: 15px; color: #44564B">консультація інженера →</span>
 </a>
 </div>
+</sc-if>
+<sc-if value="{{isCat}}" hint-placeholder-val="{{false}}">
+<p class="ta-lead-c">{{frameLead}}</p>
+</sc-if>
 </div>
 </section>
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
@@ -515,11 +723,128 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <a class="ta-qt" href="{{navHeat}}" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.5); color: #1C2B22; text-decoration: none"><span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"></path><path d="M5.5 9.5V20h13V9.5"></path><path d="M12 17.5c-1.6 0-2.5-1-2.5-2.3 0-1.5 1.4-2.2 1.7-3.7 1.6.8 3.3 2.2 3.3 3.8 0 1.3-1 2.2-2.5 2.2z"></path></svg></span><span style="font-weight: 700; font-size: 15px; line-height: 1.25">Теплові насоси</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A8C80" style="position: absolute; top: 16px; right: 14px" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-qt" href="{{navSolar}}" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.5); color: #1C2B22; text-decoration: none"><span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14l-2-9H7z"></path><path d="M6 15.5h12M10.5 11l-.8 9M13.5 11l.8 9"></path><path d="M12 2.5v2M7.2 4.5l1.2 1.4M16.8 4.5l-1.2 1.4"></path></svg></span><span style="font-weight: 700; font-size: 15px; line-height: 1.25">Сонячні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A8C80" style="position: absolute; top: 16px; right: 14px" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-qt" href="{{navEv}}" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.5); color: #1C2B22; text-decoration: none"><span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5l1.6-5.2A2 2 0 0 1 7.5 10h9a2 2 0 0 1 1.9 1.3l1.6 5.2"></path><rect x="3" y="16" width="18" height="3.5" rx="1.2"></rect><path d="M12.6 3.5l-2.2 3.2h2.4l-1.4 2.8"></path></svg></span><span style="font-weight: 700; font-size: 15px; line-height: 1.25">Зарядні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A8C80" style="position: absolute; top: 16px; right: 14px" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
-<a class="ta-qt" href="#portfolio" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.5); color: #1C2B22; text-decoration: none"><span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span style="font-weight: 700; font-size: 15px; line-height: 1.25">Наші об’єкти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A8C80" style="position: absolute; top: 16px; right: 14px" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
-<a class="ta-qt" href="#calc" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 20px; background: #133224; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.6); color: #FFFFFF; text-decoration: none"><span aria-hidden="true" style="flex: 0 0 42px; width: 42px; height: 42px; border-radius: 13px; background: {{sun}}; display: flex; align-items: center; justify-content: center; color: #1C2B22"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><rect x="8" y="5.5" width="8" height="4" rx="1"></rect><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.6"></path></svg></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.25"><span style="font-weight: 700; font-size: 15px">Калькулятор вартості</span><span style="font-size: 13px; opacity: 0.8">Ціна й економія за хвилину</span></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-qt" href="{{navObj}}" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.5); color: #1C2B22; text-decoration: none"><span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span style="font-weight: 700; font-size: 15px; line-height: 1.25">Наші об’єкти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A8C80" style="position: absolute; top: 16px; right: 14px" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-qt" href="{{navCalc}}" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 20px; background: #133224; box-shadow: 0 14px 30px -18px rgba(16, 40, 26, 0.6); color: #FFFFFF; text-decoration: none"><span aria-hidden="true" style="flex: 0 0 42px; width: 42px; height: 42px; border-radius: 13px; background: {{sun}}; display: flex; align-items: center; justify-content: center; color: #1C2B22"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><rect x="8" y="5.5" width="8" height="4" rx="1"></rect><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.6"></path></svg></span><span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.25"><span style="font-weight: 700; font-size: 15px">Калькулятор вартості</span><span style="font-size: 13px; opacity: 0.8">Ціна й економія за хвилину</span></span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
 </nav>
 </sc-if>
 
+<sc-if value="{{isCat}}" hint-placeholder-val="{{false}}">
+<section id="catalog" class="ta-b4sec" aria-label="Обладнання">
+<div class="ta-wrap4">
+<div class="ta-cchips" role="group" aria-label="Розділи каталогу">
+<sc-for list="{{catChips}}" as="c" hint-placeholder-count="6">
+<button type="button" class="ta-cchip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}<span class="ta-cchip-n">{{c.n}}</span></button>
+</sc-for>
+</div>
+<ul class="ta-prods">
+<sc-for list="{{catList}}" as="p" hint-placeholder-count="8">
+<li class="ta-pcard"><a class="ta-pcard-a" href="{{p.href}}">
+<span class="ta-pcard-img"><img class="ta-pimg" src="{{p.img}}" alt="{{p.name}}"></span>
+<span class="ta-pcard-b">
+<span class="ta-pcard-sub">{{p.sub}}</span>
+<span class="ta-pcard-n">{{p.name}}</span>
+<span class="ta-pcard-specs"><sc-for list="{{p.specs}}" as="x" hint-placeholder-count="3"><span class="ta-pcard-sp"><span>{{x.k}}</span><b>{{x.v}}</b></span></sc-for></span>
+<span class="ta-pcard-f"><span class="ta-pprice">Ціна за запитом</span><span class="ta-pmore">Детальніше<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</span>
+</a></li>
+</sc-for>
+<sc-if value="{{catShowEv}}" hint-placeholder-val="{{true}}">
+<sc-for list="{{evCards}}" as="e" hint-placeholder-count="3">
+<li class="ta-pcard ta-pcard-ev"><a class="ta-pcard-a" href="{{e.href}}">
+<span class="ta-pcard-img ta-evimg" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="10" height="18" rx="2"></rect><path d="M7 7h4M10 11l-2 3h3l-2 3"></path><path d="M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-2-2"></path></svg></span>
+<span class="ta-pcard-b">
+<span class="ta-pcard-sub">{{e.sub}}</span>
+<span class="ta-pcard-n">{{e.name}}</span>
+<span class="ta-pcard-t">{{e.short}}</span>
+<span class="ta-pcard-specs"><sc-for list="{{e.specs}}" as="x" hint-placeholder-count="2"><span class="ta-pcard-sp"><span>{{x.k}}</span><b>{{x.v}}</b></span></sc-for></span>
+<span class="ta-pcard-f"><span class="ta-pprice">Модель — під ваше авто</span><span class="ta-pmore">Підібрати<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</span>
+</a></li>
+</sc-for>
+</sc-if>
+</ul>
+<p class="ta-cnote">Ціни не публікуємо: вони залежать від комплектації, курсу й монтажу. Інженер безкоштовно порахує вартість під ваш об’єкт.</p>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{isProd}}" hint-placeholder-val="{{false}}">
+<section id="product" class="ta-b4sec" aria-label="{{pName}}">
+<div class="ta-wrap4">
+<nav class="ta-crumbs" aria-label="Ви тут"><a href="{{catHome}}">Головна</a><span aria-hidden="true">/</span><a href="{{navCat}}">Каталог</a><span aria-hidden="true">/</span><span>{{pCat}}</span></nav>
+<div class="ta-pmain">
+<div class="ta-pgal">
+<div class="ta-pgal-m"><img class="ta-pgal-i" src="{{pImg}}" alt="{{pName}}"></div>
+<sc-if value="{{pHasThumbs}}" hint-placeholder-val="{{true}}">
+<div class="ta-pthumbs" role="group" aria-label="Фото товару">
+<sc-for list="{{pThumbs}}" as="t" hint-placeholder-count="3">
+<button type="button" class="ta-pthumb" aria-pressed="{{t.pressed}}" aria-label="{{t.label}}" onClick="{{t.pick}}"><img class="ta-pthumb-i" src="{{t.src}}" alt=""></button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<div class="ta-pinfo">
+<p class="ta-pinfo-sub">{{pCat}} · {{pSub}}</p>
+<h2 class="ta-pinfo-h">Коротко</h2>
+<p class="ta-pinfo-t">{{pShort}}</p>
+<dl class="ta-pspecs">
+<sc-for list="{{pSpecs}}" as="x" hint-placeholder-count="5"><div class="ta-pspec"><dt>{{x.k}}</dt><dd>{{x.v}}</dd></div></sc-for>
+</dl>
+<div class="ta-pcta">
+<p class="ta-pcta-p"><b>Ціна за запитом</b><span>Порахуємо вартість із монтажем під ваш об’єкт</span></p>
+<div class="ta-qform ta-qform-l" role="group" aria-label="Дізнатися ціну: передзвонимо">
+<label class="ta-sr" for="ta-pphone">Ваш телефон</label>
+<input id="ta-pphone" class="ta-qin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ваш телефон" value="{{pPhone}}" onChange="{{onPPhone}}" aria-invalid="{{pInvalid}}">
+<button type="button" class="ta-qbtn ta-btn" onClick="{{pSubmit}}">Дізнатися ціну</button>
+</div>
+<sc-if value="{{pMsgShow}}" hint-placeholder-val="{{false}}"><p class="ta-qmsg ta-qmsg-l {{pMsgCls}}" aria-live="polite">{{pMsg}}</p></sc-if>
+<div class="ta-pcta-m">
+<a class="ta-pm" href="tel:+380684090275">Подзвонити</a>
+<a class="ta-pm" href="viber://chat?number=%2B380684090275">Viber</a>
+<a class="ta-pm" href="https://t.me/+380684090275" target="_blank" rel="noopener">Telegram</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ta-pmore2">
+<sc-if value="{{pHasKit}}" hint-placeholder-val="{{true}}">
+<div class="ta-pkit">
+<h2 class="ta-h2s">Що входить у комплект</h2>
+<div class="ta-pkit-t" role="table" aria-label="Комплект">
+<div class="ta-pkit-r ta-pkit-hd" role="row"><span role="columnheader">Обладнання</span><span role="columnheader">Модель</span><span role="columnheader">К-сть</span></div>
+<sc-for list="{{pKit}}" as="k" hint-placeholder-count="4"><div class="ta-pkit-r" role="row"><span role="cell">{{k.t}}</span><span role="cell">{{k.n}}</span><span role="cell">{{k.q}}</span></div></sc-for>
+</div>
+<p class="ta-pkit-n">Комплектацію узгоджуємо перед замовленням і можемо змінити під ваш дах, споживання чи бюджет.</p>
+</div>
+</sc-if>
+<sc-if value="{{pHasFeats}}" hint-placeholder-val="{{false}}">
+<div class="ta-pkit">
+<h2 class="ta-h2s">Переваги</h2>
+<ul class="ta-pfeats"><sc-for list="{{pFeats}}" as="f" hint-placeholder-count="3"><li>{{f.t}}</li></sc-for></ul>
+</div>
+</sc-if>
+<div class="ta-psvc">
+<p><b>Монтаж під ключ.</b> Підбираємо обладнання, встановлюємо, запускаємо й обслуговуємо у Львові та області.</p>
+<a class="ta-btn ta-ghost ta-psvc-a" href="{{pSvcHref}}">{{pSvcName}}: як ми працюємо</a>
+</div>
+</div>
+<sc-if value="{{pHasRelated}}" hint-placeholder-val="{{true}}">
+<h2 class="ta-h2s ta-rel-h">Схожі товари</h2>
+<ul class="ta-prods ta-prods-r">
+<sc-for list="{{pRelated}}" as="p" hint-placeholder-count="4">
+<li class="ta-pcard"><a class="ta-pcard-a" href="{{p.href}}">
+<span class="ta-pcard-img"><img class="ta-pimg" src="{{p.img}}" alt="{{p.name}}"></span>
+<span class="ta-pcard-b">
+<span class="ta-pcard-sub">{{p.sub}}</span>
+<span class="ta-pcard-n">{{p.name}}</span>
+<span class="ta-pcard-f"><span class="ta-pprice">Ціна за запитом</span></span>
+</span>
+</a></li>
+</sc-for>
+</ul>
+</sc-if>
+</div>
+</section>
+</sc-if>
 <sc-if value="{{revShow}}" hint-placeholder-val="{{true}}">
 <section id="reviews" aria-labelledby="reviews-title" style="position: relative; overflow: hidden; background: #FFFFFF">
 <div class="ta-reveal ta-sec" style="box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 40px) 0; display: flex; flex-direction: column; gap: 28px">
@@ -652,7 +977,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <p style="margin: 0; font-size: 16px; color: #4F6457"><strong style="color: #1C2B22">Обладнання:</strong> Panasonic, LG Therma V, Samsung EHS, Mitsubishi Electric Ecodan, Daikin Altherma 3, Altek, Hyundai</p>
 </div>
 <button type="button" class="ta-mobonly ta-btn" onClick="{{heatToggle}}" aria-expanded="{{heatExp}}" style="align-self: flex-start; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: #1F6E3F; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">{{heatLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{heatChev}}"></path></svg></button>
-<a class="ta-btn ta-ghost ta-scta" href="#calc" onClick="{{goCalcHeat}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати тепловий насос<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="ta-btn ta-ghost ta-scta" href="{{navCalc}}" onClick="{{goCalcHeat}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати тепловий насос<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </section>
@@ -678,7 +1003,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <p style="margin: 0; font-size: 16px; color: #4F6457"><strong style="color: #1C2B22">Обладнання:</strong> Deye, Huawei, Solis, Trina Solar, Risen, акумулятори Dyness і Pylontech</p>
 </div>
 <button type="button" class="ta-mobonly ta-btn" onClick="{{solarToggle}}" aria-expanded="{{solarExp}}" style="align-self: flex-start; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: #1F6E3F; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">{{solarLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{solarChev}}"></path></svg></button>
-<a class="ta-btn ta-ghost ta-scta" href="#calc" onClick="{{goCalcSolar}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати сонячну станцію<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="ta-btn ta-ghost ta-scta" href="{{navCalc}}" onClick="{{goCalcSolar}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати сонячну станцію<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 <sc-if value="{{liveShow}}" hint-placeholder-val="{{false}}">
 <div style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 14px 30px -20px rgba(20, 50, 32, 0.5)">
 <span class="ta-livedot" aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #2FBF71"></span>
@@ -713,11 +1038,11 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <h2 id="ev-title" style="margin: 0; font-weight: 300; font-size: clamp(34px, 4cqi, 56px); line-height: 1.1; letter-spacing: -0.02em">Швидкісні зарядні станції</h2>
 <p class="ta-lead" style="margin: 0; font-size: 20px; color: #44564B">Зарядні станції для електромобілів — вдома та на комерційних об’єктах. Можна поєднати із сонячною станцією і заряджати авто від сонця.</p>
 <p class="ta-hide-m" style="margin: 0; font-size: 16px; color: #4F6457"><strong style="color: #1C2B22">Роз’єми:</strong> Type 2, CCS2, GB/T</p>
-<a class="ta-btn ta-ghost ta-scta" href="#calc" onClick="{{goCalcEv}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати зарядну станцію<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="ta-btn ta-ghost ta-scta" href="{{navCalc}}" onClick="{{goCalcEv}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати зарядну станцію<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <sc-if value="{{evPhoto}}" hint-placeholder-val="{{false}}">
-<div class="ta-media" style="position: relative; overflow: hidden; border-radius: 24px; isolation: isolate; aspect-ratio: 16 / 10"><img class="ta-par" src="{{evPhoto}}" alt="Зарядна станція для електромобіля, змонтована Техно-АС" style="position: absolute; left: 0; top: -6%; width: 100%; height: 112%; object-fit: cover"></div>
+<div class="ta-media" style="position: relative; overflow: hidden; border-radius: 24px; isolation: isolate; aspect-ratio: 16 / 10"><img class="ta-par" src="{{evPhoto}}" alt="Зарядна станція для електромобіля, змонтована AS techno" style="position: absolute; left: 0; top: -6%; width: 100%; height: 112%; object-fit: cover"></div>
 </sc-if>
 <sc-if value="{{evPhotoSlot}}" hint-placeholder-val="{{true}}">
 <div class="ta-media" style="box-sizing: border-box; aspect-ratio: 16 / 10; border-radius: 24px; border: 2px dashed #9CCAAE; background: #F4F9F6; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; color: #44564B">
@@ -739,6 +1064,172 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </div>
 </div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showHeatTool}}" hint-placeholder-val="{{false}}">
+<section id="heattool" class="ta-b4sec ta-tool-dark" aria-labelledby="heattool-title">
+<div class="ta-wrap4">
+<div class="ta-thead">
+<p class="ta-eyebrow">Тепловий насос у мороз</p>
+<h2 id="heattool-title" class="ta-h2">Скільки тепла дає 1 кВт·год світла</h2>
+<p class="ta-tlead">Насос не створює тепло, а забирає його з повітря — навіть морозного. Посуньте температуру надворі й подивіться, як змінюється ефективність.</p>
+</div>
+<div class="ta-hp">
+<div class="ta-hp-ctl">
+<div class="ta-hp-row"><label for="hp-t">Температура надворі</label><b class="ta-hp-tv">{{hpTText}}</b></div>
+<input id="hp-t" class="ta-range" type="range" min="-25" max="15" step="1" value="{{hpT}}" onChange="{{onHpT}}" aria-valuetext="{{hpTText}}" style="--p: {{hpTPct}}%">
+<div class="ta-hp-scale"><span>−25 °C</span><span>0 °C</span><span>+15 °C</span></div>
+<p class="ta-hp-l">Чим опалюєте</p>
+<div class="ta-hp-chips" role="group" aria-label="Тип опалення">
+<sc-for list="{{hpWChips}}" as="c" hint-placeholder-count="2"><button type="button" class="ta-cr-chip ta-hp-chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}"><span>{{c.label}}</span><small>вода {{c.sub}}</small></button></sc-for>
+</div>
+</div>
+<div class="ta-hp-out" aria-live="polite">
+<p class="ta-hp-big"><span>1 кВт·год світла</span><b>→ {{hpCop}} кВт·год тепла</b></p>
+<div class="ta-hp-bar" aria-hidden="true"><span class="ta-hp-bar-el" style="width: {{hpElPct}}%"></span><span class="ta-hp-bar-air" style="width: {{hpAirPct}}%"></span></div>
+<div class="ta-hp-leg"><span><i class="ta-dot-el"></i>з розетки — {{hpElPct}}%</span><span><i class="ta-dot-air"></i>з повітря — {{hpAirPct}}%</span></div>
+<p class="ta-hp-save">Це на <b>{{hpSave}}%</b> менше електроенергії, ніж потрібно електрокотлу для того самого тепла.</p>
+<sc-if value="{{hpCold}}" hint-placeholder-val="{{false}}"><p class="ta-hp-warn">У сильний мороз частину тепла може додавати вбудований електронагрівач. Ми враховуємо це, коли підбираємо потужність.</p></sc-if>
+<p class="ta-hp-note">Орієнтовні значення для інверторного насоса «повітря–вода». У конкретної моделі вони інші — інженер покаже точні цифри.</p>
+</div>
+</div>
+<div class="ta-hpb">
+<h3 class="ta-h3">Які моделі ставимо і до якого морозу вони гріють</h3>
+<div class="ta-hpb-t" role="table" aria-label="Моделі теплових насосів">
+<div class="ta-hpb-r ta-hpb-hd" role="row"><span role="columnheader">Модель</span><span role="columnheader">Працює</span><span role="columnheader">Гаряча вода</span><span role="columnheader">Особливість</span></div>
+<sc-for list="{{hpBrands}}" as="b" hint-placeholder-count="5"><div class="ta-hpb-r" role="row"><span role="cell"><b>{{b.name}}</b></span><span role="cell">{{b.min}}</span><span role="cell">{{b.water}}</span><span role="cell">{{b.note}}</span></div></sc-for>
+</div>
+<p class="ta-hp-note">Дані виробників. «—» — виробник не вказує окремо.</p>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showSolTool}}" hint-placeholder-val="{{false}}">
+<section id="soltool" class="ta-b4sec" aria-labelledby="soltool-title">
+<div class="ta-wrap4">
+<div class="ta-thead">
+<p class="ta-eyebrow">Світло під час відключень</p>
+<h2 id="soltool-title" class="ta-h2">Скільки протримається акумулятор</h2>
+<p class="ta-tlead">Позначте, що має працювати, коли вимкнуть світло, — і побачите, на скільки вистачить заряду.</p>
+</div>
+<div class="ta-bat">
+<div class="ta-bat-ctl">
+<p class="ta-bat-l">Акумулятор</p>
+<div class="ta-bat-chips" role="group" aria-label="Ємність акумулятора">
+<sc-for list="{{batChips}}" as="c" hint-placeholder-count="4"><button type="button" class="ta-tchip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+<p class="ta-bat-l">Що працює</p>
+<div class="ta-bat-apps" role="group" aria-label="Прилади">
+<sc-for list="{{batApps}}" as="a" hint-placeholder-count="9"><button type="button" class="ta-tapp" aria-pressed="{{a.pressed}}" onClick="{{a.pick}}"><span>{{a.label}}</span><small>{{a.w}}</small></button></sc-for>
+</div>
+</div>
+<div class="ta-bat-out" aria-live="polite">
+<p class="ta-bat-k">Вистачить на</p>
+<p class="ta-bat-h">{{batHours}}</p>
+<div class="ta-bat-bar" aria-hidden="true"><span style="width: {{batPct}}%"></span></div>
+<div class="ta-bat-scale" aria-hidden="true"><span>0</span><span>1 доба</span><span>2 доби</span></div>
+<p class="ta-bat-n">Навантаження {{batLoad}}, акумулятор {{batKwhText}} (використовуємо 90% ємності). Без урахування сонця: вдень панелі ще й підзаряджають батарею.</p>
+</div>
+</div>
+<div class="ta-pv">
+<div class="ta-pv-head">
+<h3 class="ta-h3">Скільки виробляє станція у Львові</h3>
+<div class="ta-pv-chips" role="group" aria-label="Потужність станції">
+<sc-for list="{{pvChips}}" as="c" hint-placeholder-count="5"><button type="button" class="ta-tchip ta-tchip-s" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+</div>
+<div class="ta-pv-sum"><span><b>{{pvYear}}</b> кВт·год за рік</span><span>червень: <b>{{pvJun}}</b></span><span>грудень: <b>{{pvDec}}</b></span></div>
+<ol class="ta-pv-bars" aria-label="Виробіток станції {{pvKwText}} по місяцях">
+<sc-for list="{{pvBars}}" as="b" hint-placeholder-count="12"><li class="ta-pv-b" aria-label="{{b.label}}"><span class="ta-pv-v">{{b.v}}</span><span class="ta-pv-col"><span style="height: {{b.h}}%"></span></span><span class="ta-pv-m">{{b.m}}</span></li></sc-for>
+</ol>
+<p class="ta-hp-note">Дані PVGIS (Європейська комісія) для Львова: панелі на південь під кутом 38°, втрати в системі 14%.</p>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showEvTool}}" hint-placeholder-val="{{false}}">
+<section id="evtool" class="ta-b4sec ta-tool-dark" aria-labelledby="evtool-title">
+<div class="ta-wrap4">
+<div class="ta-thead">
+<p class="ta-eyebrow">Підбір зарядки</p>
+<h2 id="evtool-title" class="ta-h2">Яка станція потрібна вашому авто</h2>
+<p class="ta-tlead">Швидкість домашньої зарядки обмежує і саме авто, і ваша мережа. Оберіть авто та кількість фаз у будинку.</p>
+</div>
+<div class="ta-ev">
+<div class="ta-ev-ctl">
+<p class="ta-hp-l">Авто</p>
+<div class="ta-ev-cars" role="group" aria-label="Авто">
+<sc-for list="{{evCars}}" as="c" hint-placeholder-count="7"><button type="button" class="ta-cr-chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+<p class="ta-hp-l">Мережа в будинку</p>
+<div class="ta-ev-ph" role="group" aria-label="Кількість фаз">
+<sc-for list="{{evPhChips}}" as="c" hint-placeholder-count="2"><button type="button" class="ta-cr-chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for>
+</div>
+</div>
+<div class="ta-hp-out" aria-live="polite">
+<p class="ta-hp-big"><span>Радимо станцію</span><b>{{evStation}} кВт</b></p>
+<div class="ta-ev-facts">
+<span><small>Заряд 20 → 80%</small><b>{{evTime}}</b></span>
+<span><small>За годину зарядки</small><b>{{evKmH}}</b></span>
+<span><small>Авто приймає</small><b>до {{evCarAc}} кВт</b></span>
+</div>
+<sc-if value="{{evLimited}}" hint-placeholder-val="{{false}}"><p class="ta-hp-warn">Однофазна мережа обмежує заряд до 7,4 кВт. З трьома фазами {{evCarName}} заряджався б швидше.</p></sc-if>
+<sc-if value="{{evOver}}" hint-placeholder-val="{{false}}"><p class="ta-hp-save">Ваше авто братиме до {{evEff}} кВт, а станція — з запасом на наступне авто.</p></sc-if>
+<p class="ta-hp-note"><b>Роз’єм:</b> {{evConn}}. Акумулятор у розрахунку — {{evBat}} кВт·год. Дані орієнтовні: точну модель і версію авто перевіримо під час консультації.</p>
+</div>
+</div>
+<div class="ta-evw">
+<h3 class="ta-h3">Як встановлюємо</h3>
+<div class="ta-evw-tabs" role="group" aria-label="Де ставимо станцію">
+<sc-for list="{{evWhereTabs}}" as="t" hint-placeholder-count="3"><button type="button" class="ta-tchip ta-tchip-d" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button></sc-for>
+</div>
+<ol class="ta-evw-steps"><sc-for list="{{evSteps}}" as="x" hint-placeholder-count="3"><li><span class="ta-evw-n">{{x.n}}</span><span>{{x.t}}</span></li></sc-for></ol>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showSvcProducts}}" hint-placeholder-val="{{false}}">
+<section id="products" class="ta-b4sec" aria-labelledby="products-title">
+<div class="ta-wrap4">
+<div class="ta-thead ta-thead-row">
+<div><p class="ta-eyebrow">Обладнання</p><h2 id="products-title" class="ta-h2">{{svcProdTitle}}</h2></div>
+<a class="ta-btn ta-ghost ta-allcat" href="{{navCat}}">{{svcProdMore}}<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<ul class="ta-prods">
+<sc-for list="{{svcProducts}}" as="p" hint-placeholder-count="8">
+<li class="ta-pcard"><a class="ta-pcard-a" href="{{p.href}}">
+<span class="ta-pcard-img"><img class="ta-pimg" src="{{p.img}}" alt="{{p.name}}"></span>
+<span class="ta-pcard-b">
+<span class="ta-pcard-sub">{{p.sub}}</span>
+<span class="ta-pcard-n">{{p.name}}</span>
+<span class="ta-pcard-specs"><sc-for list="{{p.specs}}" as="x" hint-placeholder-count="3"><span class="ta-pcard-sp"><span>{{x.k}}</span><b>{{x.v}}</b></span></sc-for></span>
+<span class="ta-pcard-f"><span class="ta-pprice">Ціна за запитом</span><span class="ta-pmore">Детальніше<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</span>
+</a></li>
+</sc-for>
+</ul>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showEvKits}}" hint-placeholder-val="{{false}}">
+<section id="products" class="ta-b4sec" aria-labelledby="products-title">
+<div class="ta-wrap4">
+<div class="ta-thead"><p class="ta-eyebrow">Обладнання</p><h2 id="products-title" class="ta-h2">Які станції ставимо</h2><p class="ta-tlead">Конкретну модель підбираємо під ваше авто, мережу й місце встановлення.</p></div>
+<ul class="ta-prods ta-prods-3">
+<sc-for list="{{evCards}}" as="e" hint-placeholder-count="3">
+<li class="ta-pcard ta-pcard-ev"><a class="ta-pcard-a" href="#contacts">
+<span class="ta-pcard-img ta-evimg" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="10" height="18" rx="2"></rect><path d="M7 7h4M10 11l-2 3h3l-2 3"></path><path d="M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-2-2"></path></svg></span>
+<span class="ta-pcard-b">
+<span class="ta-pcard-sub">{{e.sub}}</span>
+<span class="ta-pcard-n">{{e.name}}</span>
+<span class="ta-pcard-t">{{e.short}}</span>
+<span class="ta-pcard-specs"><sc-for list="{{e.specs}}" as="x" hint-placeholder-count="2"><span class="ta-pcard-sp"><span>{{x.k}}</span><b>{{x.v}}</b></span></sc-for></span>
+<span class="ta-pcard-f"><span class="ta-pprice">Ціна за запитом</span><span class="ta-pmore">Замовити<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></span>
+</span>
+</a></li>
+</sc-for>
+</ul>
 </div>
 </section>
 </sc-if>
@@ -812,7 +1303,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </ul>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px">
 <a class="ta-btn ta-solid" href="#contacts" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: {{primary}}; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">Порадитися з інженером</a>
-<a class="ta-btn ta-ghost" href="#calc" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати станцію</a>
+<a class="ta-btn ta-ghost" href="{{navCalc}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати станцію</a>
 </div>
 </div>
 </div>
@@ -820,6 +1311,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </section>
 </sc-if>
 
+<sc-if value="{{showHow}}" hint-placeholder-val="{{true}}">
 <section id="how" class="ta-sheet" aria-labelledby="how-title" style="position: relative; overflow: hidden; background: #FFFFFF">
 <div class="ta-reveal ta-sec" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px">
@@ -839,7 +1331,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </ol>
 </div>
 </section>
+</sc-if>
 
+<sc-if value="{{showCalc}}" hint-placeholder-val="{{true}}">
 <section id="calc" class="ta-sheet" aria-labelledby="calc-title" style="position: relative; overflow: hidden; background: #133224; color: #FFFFFF; --sun: {{sun}}">
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
 <div class="ta-glowB" style="position: absolute; right: -220px; top: -240px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 197, 66, 0.15) 0%, rgba(245, 197, 66, 0) 64%)"></div>
@@ -1219,7 +1713,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </a>
 </div>
 </section>
+</sc-if>
 
+<sc-if value="{{showPortfolio}}" hint-placeholder-val="{{true}}">
 <section id="portfolio" class="ta-sheet" aria-labelledby="portfolio-title" style="position: relative; overflow: hidden; background: #EEF6F1">
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
 <div class="ta-glowA" style="position: absolute; left: -200px; top: -220px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 68%)"></div>
@@ -1343,7 +1839,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </div>
 </section>
+</sc-if>
 
+<sc-if value="{{showFaq}}" hint-placeholder-val="{{true}}">
 <section id="faq" class="ta-sheet" aria-labelledby="faq-title" style="position: relative; overflow: hidden; background: #FFFFFF">
 <div class="ta-reveal ta-sec ta-faqgrid" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 32px 80px; align-items: start">
 <div class="ta-faqintro" style="position: sticky; top: 120px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
@@ -1366,6 +1864,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </div>
 </section>
+</sc-if>
 
 <section id="contacts" class="ta-sheet" aria-labelledby="contacts-title" style="position: relative; overflow: hidden; background: #FFFFFF">
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
@@ -1451,18 +1950,19 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <footer class="ta-foot" style="background: {{primary}}; color: #FFFFFF">
 <div style="box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: 56px clamp(20px, 4cqi, 40px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 40px; font-size: 15px">
 <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
-<span style="display: flex; padding: 8px 14px; border-radius: 14px; background: #FFFFFF"><img class="ta-flogo" src="/_blob/71ab7f73609ec6c90075f7685f252e05" alt="Техно-АС" style="height: 40px; width: auto; display: block"></span>
+<span style="display: flex; padding: 8px 14px; border-radius: 14px; background: #FFFFFF"><img class="ta-flogo" src="/_blob/71ab7f73609ec6c90075f7685f252e05" alt="AS techno" style="height: 40px; width: auto; display: block"></span>
 <span>© 2026 ПП «Техно-АС», Львів</span>
 </span>
 <nav aria-label="Розділи сайту внизу" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-weight: 600">
 <a class="ta-flink" href="{{navHeat}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Теплові насоси</a>
 <a class="ta-flink" href="{{navSolar}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Сонячні станції</a>
 <a class="ta-flink" href="{{navEv}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Зарядні станції</a>
-<a class="ta-flink" href="#calc" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Калькулятор</a>
+<a class="ta-flink" href="{{navCat}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Каталог</a>
+<a class="ta-flink" href="{{navCalc}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Калькулятор</a>
 <a class="ta-flink" href="{{navCredit}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Кредит від 0%</a>
-<a class="ta-flink" href="#portfolio" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Об’єкти</a>
+<a class="ta-flink" href="{{navObj}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Об’єкти</a>
 <a class="ta-flink" href="#contacts" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Контакти</a>
-<sc-if value="{{mascotOffNow}}" hint-placeholder-val="{{false}}"><button type="button" class="ta-flink" onClick="{{mascotShow}}" style="margin: 0; padding: 8px 0; border: 0; background: none; color: #FFFFFF; font: inherit; font-weight: 600; text-align: left; cursor: pointer">Показати Інженера IS</button></sc-if>
+<sc-if value="{{mascotOffNow}}" hint-placeholder-val="{{false}}"><button type="button" class="ta-flink" onClick="{{mascotShow}}" style="margin: 0; padding: 8px 0; border: 0; background: none; color: #FFFFFF; font: inherit; font-weight: 600; text-align: left; cursor: pointer">Показати Інженера AS</button></sc-if>
 </nav>
 </div>
 </footer>
@@ -1513,15 +2013,15 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </sc-if>
 <sc-if value="{{mascotOn}}" hint-placeholder-val="{{true}}">
 <div class="ta-masc {{mascotCls}}">
-<sc-if value="{{mascotOpen}}" hint-placeholder-val="{{false}}">
-<div class="ta-mbub" role="dialog" aria-label="Порада Інженера IS">
-<p class="ta-mbub-n">Інженер IS</p>
+<sc-if value="{{mascotPlq}}" hint-placeholder-val="{{false}}">
+<div class="ta-mplq" role="dialog" aria-label="Порада Інженера AS">
+<span class="ta-mplq-rope" aria-hidden="true"></span>
+<p class="ta-mbub-n">Інженер AS</p>
 <p class="ta-mbub-t">{{mascotTip.text}}</p>
 <div class="ta-mbub-a">
-<sc-if value="{{mascotTip.hasCta}}" hint-placeholder-val="{{true}}"><a class="ta-mbub-b ta-mbub-p" href="{{mascotTip.href}}" onClick="{{mascotClose}}">{{mascotTip.cta}}</a></sc-if>
-<button type="button" class="ta-mbub-b" onClick="{{mascotNext}}">Ще порада</button>
-</div>
+<sc-if value="{{mascotTip.hasCta}}" hint-placeholder-val="{{false}}"><a class="ta-mbub-b ta-mbub-p" href="{{mascotTip.href}}" onClick="{{mascotClose}}">{{mascotTip.cta}}</a></sc-if>
 <button type="button" class="ta-mbub-hide" onClick="{{mascotHide}}">Сховати Інженера</button>
+</div>
 <button type="button" class="ta-mbub-x" onClick="{{mascotClose}}" aria-label="Закрити"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 </sc-if>
@@ -1579,7 +2079,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <circle cx="132" cy="158" r="5" fill="url(#tmBtn)"></circle>
 <path d="M84 150c-4 10-4 26 0 38" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".18" fill="none"></path>
 <path d="M104 176l-4 9h7l-3 8" fill="none" stroke="#F5C542" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
-<g class="tm-armL"><path d="M80 146c-14 8-20 22-18 36" stroke="url(#tmLeg)" stroke-width="15" stroke-linecap="round" fill="none"></path><circle cx="62" cy="186" r="9" fill="url(#tmSkin)"></circle></g>
+<g class="tm-armL"><g class="tm-wrench"><path d="M60 182L39 160" stroke="url(#tmMetal)" stroke-width="7" stroke-linecap="round"></path><path d="M42 149a9.5 9.5 0 1 0-1 16.5" fill="none" stroke="url(#tmMetal)" stroke-width="6.5" stroke-linecap="round"></path><path d="M60 182L39 160" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity=".35"></path></g><path d="M80 146c-14 8-20 22-18 36" stroke="url(#tmLeg)" stroke-width="15" stroke-linecap="round" fill="none"></path><circle cx="62" cy="186" r="9" fill="url(#tmSkin)"></circle></g>
 <g class="tm-armR"><path d="M140 144c14-4 24-16 27-30" stroke="url(#tmLeg)" stroke-width="15" stroke-linecap="round" fill="none"></path><rect x="164" y="84" width="8" height="20" rx="4" fill="url(#tmSkin)" transform="rotate(12 168 100)"></rect><circle cx="168" cy="108" r="10" fill="url(#tmSkin)"></circle><path d="M161 106c3 3 9 3 12 0" stroke="#D9976E" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"></path></g>
 <circle cx="66" cy="96" r="8" fill="url(#tmSkin)"></circle>
 <circle cx="154" cy="96" r="8" fill="url(#tmSkin)"></circle>
@@ -1613,9 +2113,21 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </button>
 </div>
 </sc-if>
+<sc-if value="{{mascotTag}}" hint-placeholder-val="{{false}}">
+<span class="ta-mspot" aria-hidden="true"></span>
+<div class="ta-mtag" role="dialog" aria-label="Порада Інженера AS">
+<p class="ta-mbub-n">Інженер AS</p>
+<p class="ta-mbub-t">{{mascotTip.text}}</p>
+<div class="ta-mbub-a">
+<sc-if value="{{mascotTip.hasCta}}" hint-placeholder-val="{{false}}"><a class="ta-mbub-b ta-mbub-p" href="{{mascotTip.href}}" onClick="{{mascotClose}}">{{mascotTip.cta}}</a></sc-if>
+<button type="button" class="ta-mbub-b" onClick="{{mascotClose}}">Зрозуміло</button>
+</div>
+<button type="button" class="ta-mbub-x" onClick="{{mascotClose}}" aria-label="Закрити"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"site":{"editor":null,"default":false},"base":{"editor":null,"default":"/"},"mascot":{"editor":"enum","default":"always","options":["always","tips","off"],"section":"Інженер IS"},"$preview":{"width":1440,"height":12900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"product":{"editor":null,"default":"panasonic-aquarea"},"site":{"editor":null,"default":false},"base":{"editor":null,"default":"/"},"mascot":{"editor":"enum","default":"always","options":["always","tips","off"],"section":"Інженер AS"},"$preview":{"width":1440,"height":12900}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -2093,7 +2605,10 @@ class Component extends DCLogic {
       showFlow: !sv || page === 'solar', showHeat: !sv || page === 'heat', showSolar: !sv || page === 'solar', showEv: !sv || page === 'ev',
       navHome: site ? URLS.home : '#top',
       navHeat: site ? URLS.heat : '#heat', navSolar: site ? URLS.solar : '#solar', navEv: site ? URLS.ev : '#ev',
-      navCredit: site ? URLS.credit : 'Credit.dc.html', showCredit: page === 'credit'
+      navCredit: site ? URLS.credit : 'Credit.dc.html', showCredit: page === 'credit',
+      navCalc: (site && (page === 'catalog' || page === 'product')) ? URLS.home + '#calc' : '#calc',
+      navObj: (site && (page === 'catalog' || page === 'product')) ? URLS.home + '#portfolio' : '#portfolio',
+      navMap: (site && (page === 'catalog' || page === 'product')) ? URLS.home + '#map' : '#map'
     };
     const hasMore = !showAll && filtered.length > limit;
 
@@ -2133,7 +2648,7 @@ class Component extends DCLogic {
     const evKm = s.evKm ?? 1500;
     const evDist = s.evDist ?? 15;
     const SITE_URL = 'https://www.techno-as.com.ua/';
-    const shareText = m.summary + ' Орієнтовно, за середніми цінами по ринку на листопад 2026 року. Точний розрахунок — Техно-АС, 068 409 02 75.';
+    const shareText = m.summary + ' Орієнтовно, за середніми цінами по ринку на листопад 2026 року. Точний розрахунок — AS techno, 068 409 02 75.';
     const calcTabs = [
       { id: 'heat', label: 'Тепловий насос' },
       { id: 'solar', label: 'Сонячна станція' },
@@ -2175,7 +2690,7 @@ class Component extends DCLogic {
       cxParts: m.parts || [],
       shareTg: 'https://t.me/share/url?url=' + encodeURIComponent(SITE_URL) + '&text=' + encodeURIComponent(shareText),
       shareViber: 'viber://forward?text=' + encodeURIComponent(shareText + ' ' + SITE_URL),
-      shareMail: 'mailto:?subject=' + encodeURIComponent('Мій розрахунок — Техно-АС') + '&body=' + encodeURIComponent(shareText + '\n\n' + SITE_URL),
+      shareMail: 'mailto:?subject=' + encodeURIComponent('Мій розрахунок — AS techno') + '&body=' + encodeURIComponent(shareText + '\n\n' + SITE_URL),
       shareCopy: () => {
         const done = () => { this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 2200); };
         try { navigator.clipboard.writeText(shareText + ' ' + SITE_URL).then(done, () => {}); } catch (e) {}
@@ -2236,33 +2751,30 @@ class Component extends DCLogic {
     const nbsp = ' ';
     const tis = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, nbsp) + nbsp + 'тис.' + nbsp + 'грн';
     const mMode = this.props.mascot || 'always';
-    const MT = {
-      top: [{ text: 'Привіт! Я Інженер IS. Коли лампочка над моєю головою світиться, у мене є порада саме для цього місця сторінки.' }],
-      reviews: [{ text: 'Тут наші клієнти розповідають, як усе працює в них удома.' }],
-      flow: [{ text: 'Перемикай вкладки «День», «Ніч» і «Без світла» — побачиш, звідки в домі береться енергія, навіть коли вимкнули світло.' }],
-      heat: [{ text: 'Тепловий насос «повітря — вода» працює і в мороз: до −20…−25' + nbsp + '°C, залежно від моделі.', cta: 'Порахувати', href: '#calc' }],
-      solar: [{ text: 'Гібридна станція з акумулятором тримає світло в домі, коли вимикають мережу.', cta: 'Порахувати', href: '#calc' }],
-      ev: [{ text: 'Для зарядки на 7,4' + nbsp + 'кВт вистачить однофазної мережі, для 11 і 22' + nbsp + 'кВт потрібні три фази.', cta: 'Розрахувати', href: '#calc' }],
-      credit: [{ text: 'Компенсація залежить від комплектації. Найбільша, 30%, — за сонячну станцію разом із генератором і акумулятором.' }],
-      how: [{ text: 'Консультація безкоштовна: інженер з’ясує, що потрібно саме вашому дому, і лише тоді рахує вартість.', cta: 'Залишити заявку', href: '#contacts' }],
-      calc: [{ text: 'Посунь повзунок — і я одразу все перерахую. Це середні ціни по ринку, точну суму назве інженер.' }],
-      portfolio: [{ text: 'Тисни на місто на мапі — покажу фото наших об’єктів там.', cta: 'До мапи', href: '#map' }],
-      map: [{ text: 'Тисни на точку або на місто в списку — покажу фото об’єктів.' }],
-      faq: [{ text: 'Не знайшли відповіді? Напишіть нам у Viber чи Telegram.', cta: 'Написати у Viber', href: 'viber://chat?number=%2B380684090275' }],
-      contacts: [{ text: 'Інженер на зв’язку: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.', cta: 'Подзвонити', href: 'tel:+380684090275' }]
+    // Інженер AS: one tip per part of the page. The bulb shows only while a tip is unread.
+    // A tip with a target makes him fly to that block on the site and point at it; otherwise he pulls out a sign.
+    const TIPS = {
+      top: { text: 'Привіт! Я Інженер AS. Коли над моєю головою світиться лампочка — маю для тебе пораду. Тисни на мене!' },
+      flow: { text: 'Перемикай «День», «Ніч» і «Без світла» — побачиш, звідки береться енергія в домі.', target: '#flow [role=tablist]' },
+      heattool: { text: 'Посунь температуру надворі — покажу, скільки тепла дає 1 кВт·год світла навіть у мороз.', target: '#hp-t' },
+      soltool: { text: 'Увімкни прилади, без яких не обійтися, — порахую, скільки протримається акумулятор.', target: '.ta-bat-apps' },
+      evtool: { text: 'Обери своє авто — підкажу, яка станція потрібна і скільки триватиме заряд.', target: '.ta-ev-cars' },
+      products: { text: 'Це обладнання, яке ми встановлюємо. Ціну інженер рахує під ваш будинок — це безкоштовно.', target: '.ta-prods' },
+      catalog: { text: 'Обери розділ — покажу лише потрібне обладнання.', target: '.ta-cchips' },
+      product: { text: 'Ціна залежить від комплектації й монтажу. Тисни «Дізнатися ціну» — інженер порахує.', target: '.ta-pcta' },
+      credit: { text: 'Компенсація залежить від комплектації. Найбільша, 30%, — за сонячну станцію разом із генератором і акумулятором.' },
+      calc: { text: 'Рухай повзунки — я одразу все перерахую. Це середні ціни по ринку, точну суму назве інженер.', target: '#calc .ta-range' },
+      portfolio: { text: 'Тисни на місто на мапі — покажу фото наших об’єктів там.', target: '#map' },
+      contacts: { text: 'Інженер на зв’язку: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.', cta: 'Подзвонити', href: 'tel:+380684090275' }
     };
-    const MG = [
-      { id: 'credit', text: 'Можна взяти кредит від 0% на автономне живлення будинку, а держава компенсує до 30% тіла кредиту.', cta: 'Про кредит', href: pageVals.navCredit },
-      { id: 'calc', text: 'Порахуй вартість за хвилину в калькуляторі — без реєстрації й дзвінків.', cta: 'До калькулятора', href: '#calc' },
-      { id: 'map', text: 'Наші об’єкти є у Львові й області, на Тернопільщині та Закарпатті.', cta: 'Мапа', href: '#map' }
-    ];
     const mSec = s.mascotSec || 'top';
-    const mPool = (MT[mSec] || []).concat(MG.filter((g) => g.id !== mSec && !(g.id === 'map' && mSec === 'portfolio') && !(g.id === 'credit' && page === 'credit')));
-    const mTip = mPool[(s.mascotIdx || 0) % mPool.length];
+    const mTipRaw = TIPS[mSec] || null;
     const mSeen = s.mascotSeen || {};
-    const mOpen = !!s.mascotOpen;
-    const mLit = !mSeen[mSec];
-    const mCls = [site ? 'ta-masc-live' : '', (mLit || mOpen) ? 'ta-masc-lit' : '', (mMode === 'tips' && !mOpen && !mLit) ? 'ta-masc-out' : '', (oc || menuOpen) ? 'ta-masc-hidden' : ''].filter(Boolean).join(' ');
+    const mLit = !!mTipRaw && !mSeen[mSec];
+    const mOpen = !!s.mascotOpen && !!mTipRaw;
+    const mSpot = mOpen && site && !!mTipRaw.target;
+    const mTip = mTipRaw || { text: '' };
+    const mCls = [site ? 'ta-masc-live' : '', mLit ? 'ta-masc-lit' : '', mOpen ? 'ta-masc-open' : '', mSpot ? 'ta-masc-spot' : '', (mMode === 'tips' && !mOpen && !mLit) ? 'ta-masc-out' : '', (oc || menuOpen) ? 'ta-masc-hidden' : ''].filter(Boolean).join(' ');
     const qDigits = (s.qPhone || '').replace(/\D/g, '');
     const qMsgs = { sending: 'Надсилаємо…', sent: 'Дякуємо! Інженер вам передзвонить.', mail: 'Ми відкрили вашу пошту з готовим листом — натисніть «Надіслати».', fail: 'Не вдалося надіслати. Подзвоніть: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.' };
     const HOW = [
@@ -2288,11 +2800,17 @@ class Component extends DCLogic {
       mascotOffNow: mMode !== 'off' && !!s.mascotOff,
       mascotCls: mCls,
       mascotOpen: mOpen,
+      mascotPlq: mOpen && !mSpot,
+      mascotTag: mSpot,
+      mascotPoke: s.mascotPoke || 0,
       mascotExp: mOpen ? 'true' : 'false',
-      mascotAria: mOpen ? 'Сховати пораду Інженера IS' : (mLit ? 'Інженер IS: є порада' : 'Інженер IS: порада'),
-      mascotTip: { text: mTip.text, hasCta: !!mTip.cta, cta: mTip.cta || '', href: mTip.href || '#' },
-      mascotToggle: () => this.setState({ mascotOpen: !mOpen, mascotSeen: Object.assign({}, mSeen, { [mSec]: true }) }),
-      mascotNext: () => this.setState({ mascotIdx: (s.mascotIdx || 0) + 1 }),
+      mascotAria: mOpen ? 'Сховати пораду Інженера AS' : (mLit ? 'Інженер AS: є порада' : 'Інженер AS'),
+      mascotTip: { text: mTip.text, hasCta: !!mTip.cta, cta: mTip.cta || '', href: mTip.href || '#', target: mTip.target || '' },
+      mascotToggle: () => {
+        if (mOpen) { this.setState({ mascotOpen: false }); return; }
+        if (mLit) { this.setState({ mascotOpen: true, mascotSeen: Object.assign({}, mSeen, { [mSec]: true }) }); return; }
+        this.setState({ mascotPoke: (s.mascotPoke || 0) + 1 });
+      },
       mascotClose: () => this.setState({ mascotOpen: false }),
       mascotHide: () => { this.setState({ mascotOff: true, mascotOpen: false }); try { window.localStorage.setItem('ta-masc', 'off'); } catch (e) {} },
       mascotShow: () => { this.setState({ mascotOff: false }); try { window.localStorage.removeItem('ta-masc'); } catch (e) {} },
@@ -2330,6 +2848,174 @@ class Component extends DCLogic {
       flowPinCls: flowPinned ? 'ta-pin' : '',
       flowInCls: flowPinned ? 'ta-sec ta-pin-in' : 'ta-reveal ta-sec'
     };
+    const PRODUCTS = [{"id": "merezheva-ses-5-kvt", "cat": "solar", "sub": "Мережева", "name": "Мережева сонячна станція 5 кВт", "short": "Однофазна станція без акумуляторів: вдень будинок бере світло з даху, а не з мережі. Під час відключень не працює.", "specs": [["Потужність", "5 кВт"], ["Мережа", "1 фаза"], ["Панелі", "12 шт. по 435 Вт"], ["Площа панелей", "≈ 30 м²"], ["Виробіток", "до 6 000 кВт·год на рік"]], "kit": [["Мережевий інвертор", "PROSOLAX X1-5.0-T-D", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-54HTH-435M (435 Вт, монокристал)", "12 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 5, "imgs": ["/_blob/8f3b8530876b3c529d9c8d9a60028e9b"]}, {"id": "merezheva-ses-10-kvt", "cat": "solar", "sub": "Мережева", "name": "Мережева сонячна станція 10 кВт", "short": "Трифазна станція для будинку: суттєво зменшує рахунки за світло. Найпопулярніший розмір для приватного дому.", "specs": [["Потужність", "10 кВт"], ["Мережа", "3 фази"], ["Панелі", "24 шт. по 435 Вт"], ["Площа панелей", "≈ 56 м²"], ["Виробіток", "до 12 000 кВт·год на рік"]], "kit": [["Мережевий інвертор", "Solis 3P10K-4G (2 MPPT, моніторинг, гарантія 5 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-54HTH-435M (435 Вт, монокристал)", "24 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 10, "imgs": ["/_blob/9321d0adc06e0f7bdc341c9baca76641", "/_blob/fa7ca958825f9613812fd2a16c3e9b43"]}, {"id": "merezheva-ses-15-kvt", "cat": "solar", "sub": "Мережева", "name": "Мережева сонячна станція 15 кВт", "short": "Для великого будинку чи малого бізнесу. Панелі ставимо на дах або на металеву конструкцію.", "specs": [["Потужність", "15 кВт"], ["Мережа", "3 фази"], ["Панелі", "36 шт. по 435 Вт"], ["Площа панелей", "≈ 92 м²"], ["Виробіток", "до 18 000 кВт·год на рік"]], "kit": [["Мережевий інвертор", "Solis-15K (2 MPPT, моніторинг, гарантія 5 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-54HTH-435M (435 Вт, монокристал)", "36 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 15, "imgs": ["/_blob/c4df0a2cf3e22a7be80bc8db5b4334b1", "/_blob/d34901b31942025e346801a15b400de7", "/_blob/45ec84939fa8254920bef4ab11b880a3"]}, {"id": "merezheva-ses-20-kvt", "cat": "solar", "sub": "Мережева", "name": "Мережева сонячна станція 20 кВт", "short": "Висока генерація для будинку з великим споживанням або для бізнесу. Інвертор Deye, панелі Longi.", "specs": [["Потужність", "20 кВт"], ["Мережа", "3 фази"], ["Панелі", "36 шт. по 580 Вт"], ["Площа панелей", "≈ 91 м²"], ["Виробіток", "до 24 000 кВт·год на рік"]], "kit": [["Мережевий інвертор", "Deye SUN-20K-G04", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-580M (580 Вт, монокристал)", "36 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 20, "imgs": ["/_blob/1af607c9b58ffd0ca17c58adfe7e6232", "/_blob/35a6ec69d50af217a74f876d32264343", "/_blob/70dd4e22fee428d9b33e47be1ba2ce9e"]}, {"id": "merezheva-ses-30-kvt", "cat": "solar", "sub": "Мережева", "name": "Мережева сонячна станція 30 кВт", "short": "Для підприємців і ФОП: зменшує витрати на електроенергію. До інвертора можна підключити до 40 кВт панелей.", "specs": [["Потужність", "30 кВт"], ["Мережа", "3 фази"], ["Панелі", "52 шт. по 580 Вт"], ["Площа панелей", "≈ 150 м²"]], "kit": [["Мережевий інвертор", "Deye SUN-30K-G04", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-580M (580 Вт, монокристал)", "52 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 30, "imgs": ["/_blob/b46c1ebff4887f3e70cad4660b8c4e56", "/_blob/2347b78c3b3c16a64326a0fa5f4cf57e"]}, {"id": "promyslova-ses-100-kvt-solis", "cat": "solar", "sub": "Промислова", "name": "Промислова сонячна станція 100 кВт, Solis", "short": "Для заводів, складів, офісів: покриває значну частину денного споживання. Без акумуляторів, Smart Meter обмежує віддачу в мережу.", "specs": [["Потужність", "100 кВт"], ["Мережа", "3 фази"], ["Панелі", "174 шт. по 580 Вт"], ["Площа панелей", "≈ 560 м²"], ["Інвертор", "Solis, 10 MPPT, гарантія 5 років"]], "kit": [["Мережевий інвертор", "Solis 3P-100K-5G (10 MPPT, гарантія 5 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-585M (580 Вт, монокристал)", "174 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 100, "imgs": ["/_blob/6fe4088b469ec2f8289fc846fd1be692"]}, {"id": "promyslova-ses-100-kvt-huawei", "cat": "solar", "sub": "Промислова", "name": "Промислова сонячна станція 100 кВт, Huawei", "short": "Та сама станція на 100 кВт, але з інвертором Huawei і гарантією 10 років на нього.", "specs": [["Потужність", "100 кВт"], ["Мережа", "3 фази"], ["Панелі", "174 шт. по 580 Вт"], ["Площа панелей", "≈ 560 м²"], ["Інвертор", "Huawei, 10 MPPT, гарантія 10 років"]], "kit": [["Мережевий інвертор", "Huawei SUN2000-100KTL-M1 (10 MPPT, гарантія 10 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-580M (580 Вт, монокристал)", "174 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 100, "imgs": ["/_blob/5259f8ce1f2cc797fb35367a2c0178cc"]}, {"id": "gibrydna-ses-5-kvt", "cat": "solar", "sub": "Гібридна", "name": "Гібридна сонячна станція 5 кВт", "short": "Сонце вдень, акумулятор уночі й під час відключень. Гібридний інвертор сам вирішує, звідки брати енергію.", "specs": [["Потужність", "5 кВт"], ["Мережа", "1 фаза"], ["Панелі", "12 шт. по 410 Вт"], ["Акумулятор", "Deye Pro-B 5,1 кВт·год"]], "kit": [["Гібридний інвертор", "Deye SUN-5K-SG01LP1-EU (5 кВт, 1 фаза, 2 MPPT, гарантія 5 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-410M (410 Вт, монокристал)", "12 шт."], ["Акумулятор", "Deye Pro-B 5,1 кВт·год", "1 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 5, "imgs": ["/_blob/77277d2658fac5180ed0dd00728c5ded"]}, {"id": "gibrydna-ses-5-kvt-shvydkyi-zariad", "cat": "solar", "sub": "Гібридна", "name": "Гібридна станція 5 кВт зі швидким зарядом АКБ", "short": "Заряджає акумулятори струмом 80 А — встигає наповнити їх навіть за короткий зимовий день.", "specs": [["Потужність", "5 кВт"], ["Панелі", "10 шт. Risen 395 Вт"], ["Акумулятори", "2 шт. по 2,4 кВт·год"], ["Заряд АКБ", "80 А"], ["Ресурс АКБ", "6 000 циклів"]], "kit": [["Гібридний інвертор", "Axioma 5 кВт", "1 шт."], ["Сонячні панелі", "Risen 395 Вт", "10 шт."], ["Акумулятори", "2,4 кВт·год", "2 шт."], ["Кріплення", "Алюмінієві рейки, з’єднувачі, притиски", "10 шт."], ["Електрофурнітура", "Кабель 6 мм², конектори MC4, кронштейни під АКБ, захист", "1 комплект"]], "feats": [], "kw": 5, "imgs": ["/_blob/4e9b28236a3312290d79f81caf242d88", "/_blob/15b7645629338f00052267f412aa861d"]}, {"id": "gibrydna-ses-8-kvt", "cat": "solar", "sub": "Гібридна", "name": "Гібридна сонячна станція 8 кВт", "short": "Інвертор Deye і два літій-залізо-фосфатні акумулятори Dyness: світло вдень і вночі, автоматичний перехід на батареї.", "specs": [["Потужність", "8 кВт"], ["Мережа", "1 фаза"], ["Панелі", "20 шт. по 580 Вт"], ["Акумулятори", "2 × Dyness 5 кВт·год"]], "kit": [["Гібридний інвертор", "Deye SUN-8K-SG01LP1-EU (8 кВт, 1 фаза, 2 MPPT, гарантія 5 років)", "1 шт."], ["Сонячні панелі", "Longi Solar LR5-72HTH-580M (580 Вт, монокристал)", "20 шт."], ["Акумулятори", "Dyness 5 кВт·год", "2 шт."], ["Кріплення", "Комплект під скатний дах", "1 комплект"], ["Електрофурнітура", "Кабель для панелей, система захисту, щиток", "1 комплект"]], "feats": [], "kw": 8, "imgs": ["/_blob/1a60e743bab353bf1e1ca222adafc5d9", "/_blob/7607cf86f695b419bf2ea2a67610ca11"]}, {"id": "prosolax-x3-pro-15-kvt", "cat": "solar", "sub": "Гібридна", "name": "Гібридна станція PROSOLAX X3 PRO 15 кВт", "short": "Готовий трифазний комплект з акумулятором на 17,4 кВт·год. Працює з мережею або повністю автономно.", "specs": [["Потужність", "15 кВт"], ["Мережа", "3 фази"], ["Акумулятор", "17,4 кВт·год"], ["Режими", "з мережею або автономно"]], "kit": [], "feats": [], "kw": 15, "imgs": ["/_blob/f0380de87cde619980c815b121b15e78", "/_blob/f66d4216d5839b4d418e5ae7336f3e40", "/_blob/a5870a070b334e033b7f754532876bd6"]}, {"id": "gibrydna-ses-20-kvt", "cat": "solar", "sub": "Гібридна", "name": "Гібридна сонячна станція 20 кВт", "short": "Трифазний комплект Deye з акумуляторами на 21 кВт·год — для великого будинку чи бізнесу.", "specs": [["Потужність", "20 кВт"], ["Мережа", "3 фази"], ["Акумулятори", "21 кВт·год"], ["Інвертор", "Deye, серія LV"]], "kit": [], "feats": [], "kw": 20, "imgs": ["/_blob/4cad30e685f329137df208fd196046bb", "/_blob/5b6490dd940561720b639906c005079b", "/_blob/317c87f959bb5b43f442f717d1317026"]}, {"id": "power-bank-fox", "cat": "solar", "sub": "Гібридна", "name": "Повербанк для квартири FOX ESS, 5 і 10 кВт", "short": "Інвертор і акумулятори в одному корпусі. Тихий — без вентиляторів, можна поставити в підвалі чи гаражі.", "specs": [["1 фаза", "5 кВт, АКБ 5,2 кВт·год (до 10,4)"], ["3 фази", "10 кВт, АКБ 10,4 кВт·год"], ["Акумулятори", "LiFePO4"], ["Шум", "без вентиляторів"]], "kit": [], "feats": ["Простий монтаж", "Вбудована стабілізація напруги", "Швидкий заряд акумуляторів LiFePO4", "Можна встановити в підвалі або гаражі"], "kw": 10, "imgs": ["/_blob/36a18d4beebc37e7176bfbbcd554a28a", "/_blob/05e7631da4cd950aed0e972da1b9ca35", "/_blob/998a766dd7112b2a07a853cb534a325d"]}, {"id": "avtonomna-systema-12-kvt", "cat": "solar", "sub": "Автономна", "name": "Автономна система для будинку, 12 кВт·год", "short": "Резервне живлення від акумуляторів: до 2,5 години роботи приладів на 5 кВт. Заряджається від мережі та сонця.", "specs": [["Інвертор", "Anern 6,2 кВт"], ["Запас енергії", "до 12 кВт·год"], ["Акумулятори", "4 × AGM Ventura 12-250"], ["Панелі", "6 шт. по 435 Вт"]], "kit": [["Сонячні панелі", "Longi Solar LR5-54HTH-435M (435 Вт, монокристал)", "6 шт."], ["Автономний інвертор", "Anern AN-SCI02-PRO-6200 (6,2 кВт, чиста синусоїда)", "1 шт."], ["Акумулятори", "Ventura GPL 12-250 AGM", "4 шт."], ["Кріплення", "Алюмінієві рейки, з’єднувачі, притиски", "1 комплект"], ["Електрофурнітура", "Кабель 6 мм², MC4, перемички, захист", "1 комплект"], ["Монтаж", "Встановлення й запуск під ключ", "—"]], "feats": [], "kw": 6, "imgs": ["/_blob/a604c99f44d864b027f460497624704f"]}, {"id": "dyness-b3", "cat": "battery", "sub": "LiFePO4", "name": "Акумулятор Dyness B3, 3,6 кВт·год", "short": "Серверний модуль 19″ для гібридних і автономних інверторів. Легко нарощувати.", "specs": [["Ємність", "3,6 кВт·год (75 А·год)"], ["Напруга", "48 В"], ["Ресурс", "6 000 циклів"], ["Струм", "37 А (пік 50 А)"], ["Вага", "30 кг"], ["Розміри", "480 × 360 × 130 мм"]], "kit": [], "feats": ["Сумісний з Deye, Victron, Growatt, Solis, SMA, GoodWe та іншими", "Вбудована BMS", "Розряд від −20 до +55 °C"], "kw": 3.6, "imgs": ["/_blob/f3f315c3b16f8e11231bc8fd66f9440a", "/_blob/a820e461aa65c35b80ea7158d376d19f", "/_blob/7a550f8a52f84f14b5b528067f62c3e4"]}, {"id": "pylontech-us3000c", "cat": "battery", "sub": "LiFePO4", "name": "Акумулятор Pylontech US3000C, 3,55 кВт·год", "short": "Один із найпоширеніших акумуляторів для сонячних станцій. Працює з більшістю інверторів.", "specs": [["Ємність", "3,55 кВт·год (корисна 3,37)"], ["Глибина розряду", "90%"], ["Напруга", "48 В"], ["Струм", "37 А (макс. 74 А)"], ["Зв’язок", "RS485 / CAN"], ["Вага", "35 кг"]], "kit": [], "feats": ["У комплекті: силовий і комунікаційний кабелі, інструкція"], "kw": 3.55, "imgs": ["/_blob/1742a3a256f714ea30186297a84c53fa", "/_blob/597027b5d0fcb9d61b3b42f06eba4706", "/_blob/c1c404b3fdfd5e58fa7ec9dd026dcd38"]}, {"id": "dyness-bx51100", "cat": "battery", "sub": "LiFePO4", "name": "Акумулятор Dyness BX51100, 5,12 кВт·год", "short": "Настінний модуль на 5,12 кВт·год. Сумісний з більшістю гібридних інверторів, легко масштабується.", "specs": [["Ємність", "5,12 кВт·год (100 А·год)"], ["Напруга", "51,2 В"], ["Ресурс", "6 000 циклів"], ["Струм", "50 А (пік 75 А)"], ["Вага", "50 кг"], ["Розміри", "558 × 545 × 190 мм"]], "kit": [], "feats": [], "kw": 5.12, "imgs": ["/_blob/29c1610dda30b9f455e2fb53ebfb1b8a", "/_blob/eb02986cec1fee23a8b70316038b87e2"]}, {"id": "deye-ge-f60", "cat": "bess", "sub": "BESS", "name": "Система накопичення енергії Deye GE-F60, 61,44 кВт·год", "short": "Шафа з акумуляторами для бізнесу, ферм, готелів і АЗС. Модульна: одну систему можна наростити до 360 кВт·год.", "specs": [["Ємність", "61,44 кВт·год"], ["Модулі", "по 5,12 кВт·год, 51,2 В"], ["Ресурс", "≥ 6 000 циклів"], ["Розширення", "до 360 кВт·год"], ["Розміри", "735 × 1045 × 2235 мм"]], "kit": [], "feats": ["Аерозольне пожежогасіння, датчики диму й газу", "Вбудована система керування батареями", "Заряд від 0 до +55 °C"], "kw": 61.44, "imgs": ["/_blob/25774dc13050696547512d398cb19171"]}, {"id": "solax-aelio-50-100", "cat": "bess", "sub": "BESS", "name": "Система накопичення енергії SolaX AELIO, 50 кВт / 100 кВт·год", "short": "Комерційна система для пікового згладжування й резервного живлення. Можна наростити до мегават-годин.", "specs": [["Потужність", "50 кВт"], ["Ємність", "100 кВт·год"], ["Шафа", "до 200 кВт·год"], ["Захист", "IP66 інвертор, IP55 шафа"]], "kit": [], "feats": ["Чотирирівневий протипожежний захист", "Моніторинг через SolaX Cloud", "Захист від перенапруг на AC і DC"], "kw": 100, "imgs": ["/_blob/b60004cb1ea03ec7a0f8865f76d986cc"]}, {"id": "stromherz-s-50k", "cat": "bess", "sub": "BESS", "name": "Система накопичення енергії Stromherz, 65,28 кВт·год", "short": "Гібридна система австрійського виробника для підприємств, ферм і комерційних зарядних станцій.", "specs": [["Ємність", "65,28 кВт·год"], ["Потужність", "50 кВт, 3 фази"], ["Гарантія", "інвертор 5 р., АКБ і BMS 10 р."]], "kit": [], "feats": [], "kw": 65.28, "imgs": ["/_blob/7d8ad312b8edd1be368366c8d929967b", "/_blob/97feee23c281dda7530c38c90c205732"]}, {"id": "panasonic-aquarea", "cat": "heat", "sub": "Повітря–вода", "name": "Теплові насоси Panasonic Aquarea", "short": "Опалення й гаряча вода. Серія T-Cap працює до −28 °C, High Performance — до −20 °C.", "specs": [["Працює до", "−28 °C (T-Cap)"], ["Вода", "20–55 °C"], ["Фреон", "R32 / R410"], ["ТЕН", "3 кВт"], ["Гарантія", "36 місяців"]], "kit": [], "feats": ["Нижчі витрати на опалення", "Легко поєднати з наявною системою опалення", "Добре працює разом із сонячними панелями"], "kw": 0, "imgs": ["/_blob/61fc4fbfcd8eb583d0033b7ba184cf7d", "/_blob/2b68bc445f5ff29b9282b98aa614ea06", "/_blob/8343a10e53b9fea7f1acb4223308fa1a"]}, {"id": "lg-therma-v", "cat": "heat", "sub": "Повітря–вода", "name": "Теплові насоси LG Therma V", "short": "Інверторні насоси «повітря–вода» з рівною потужністю навіть у мороз.", "specs": [["Тип", "повітря–вода"], ["Компресор", "інверторний"], ["Режими", "опалення, гаряча вода"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/7c0fee6f5a594588eba5747005345903"]}, {"id": "samsung-ehs", "cat": "heat", "sub": "Повітря–вода", "name": "Теплові насоси Samsung EHS", "short": "Лінійка від 4,4 до 16 кВт. Є версії з вбудованим баком на 200 і 260 л — вистачить сім’ї до 6 людей.", "specs": [["Потужність", "4,4–16 кВт"], ["Живлення", "1 або 3 фази"], ["Бак ГВП", "200 або 260 л"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/7b3299ddcc0bfa0f0d3dc196d9fc28c2", "/_blob/5acf545cc89bac743cf4dae50aef6c04", "/_blob/4df0612e039e5e0f0f75b6a7788c3d22"]}, {"id": "samsung-ehs-mono-ht", "cat": "heat", "sub": "Повітря–вода", "name": "Тепловий насос Samsung EHS Mono HT", "short": "Моноблок у темно-сірому корпусі, висотою близько метра — можна поставити під вікном.", "specs": [["Гаряча вода", "до 70 °C"], ["Працює", "ефективно при −25 °C"], ["Шум", "35 дБ"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/33bfd52d7b42be4d4820787814d43a5e", "/_blob/9da97869725061c8d838e0ecfc8c6629", "/_blob/9e0858457a13bdb18d34eade5dd584cb"]}, {"id": "mitsubishi-ecodan", "cat": "heat", "sub": "Повітря–вода", "name": "Теплові насоси Mitsubishi Electric Ecodan", "short": "Опалення, гаряча вода і охолодження влітку. 100% потужності при −15 °C.", "specs": [["Працює до", "−28 °C"], ["Потужність", "до 23 кВт"], ["При −15 °C", "100% потужності"], ["Гарантія", "5 років"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/7a202f32e6b03fa4aad4890964d5fdf4", "/_blob/10de87166bc0a1eaa7ffe52745a97702", "/_blob/19ade8efeb7e8a314f4571610c977430"]}, {"id": "daikin-altherma-3-rw", "cat": "heat", "sub": "Повітря–вода", "name": "Теплові насоси Daikin Altherma 3 R W", "short": "Реверсивний насос: гріє, охолоджує й дає гарячу воду до 75 °C. Компактний блок.", "specs": [["Потужність", "4–8 кВт"], ["Працює", "від −25 до +43 °C"], ["Гаряча вода", "до 75 °C"], ["SCOP", "4,54 (35 °C) · 3,29 (55 °C)"], ["Фреон", "R32"], ["Живлення", "1 фаза"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/1fde75dcd3d78a8b7e1da8b76e52b964", "/_blob/65a606a04b12a346039c2f210103ad23", "/_blob/3319f5b7ac98fb086aed68d88b6acd35"]}, {"id": "altek-pro-split", "cat": "heat", "sub": "Повітря–вода", "name": "Інверторні теплові насоси ALTEK Pro SPLIT", "short": "Опалення, гаряча вода й кондиціювання. Компоненти Carel і Panasonic, керування зі смартфона.", "specs": [["Моделі", "12 і 19 кВт (1 фаза), 32 кВт (3 фази)"], ["Працює", "від −30 до +45 °C"], ["COP", "до 4,48"], ["Термін служби", "понад 25 років"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/b60d90f5bd3742c6a8d02db2c5ed4cd1", "/_blob/ee73548f3baca4e2702494838dd16dae", "/_blob/b1959375749269c05db9504c440735f3"]}, {"id": "hyundai-nc-clima-multi", "cat": "heat", "sub": "Гібридний", "name": "Тепловий насос мульти-спліт HYUNDAI + NC clima", "short": "Один зовнішній блок гріє бак гарячої води і до трьох кондиціонерів у кімнатах.", "specs": [["Виходи", "бак ГВП + 3 внутрішні блоки"], ["Керування", "Wi-Fi, застосунок"], ["Дезінфекція", "нагрів води до 70 °C"]], "kit": [], "feats": ["Режими ECO, «Відпустка», Smart", "Гібридний режим з електронагрівачем лише в мороз"], "kw": 0, "imgs": ["/_blob/ba67d30b389d09bbbb372e40c03b1cd7", "/_blob/d8d8fa66082197dd82c55ab405fdc4f5", "/_blob/b92f9288c840dc757bc0b2df5828bfce"]}, {"id": "altek-pool-220v", "cat": "heat", "sub": "Для басейну", "name": "Тепловий насос для басейну Altek Pool 220V", "short": "Інверторний моноблок для підігріву відкритих басейнів на 15–110 м³.", "specs": [["Потужність", "6,5–25,3 кВт"], ["Басейн", "15–110 м³"], ["COP", "5,9–13,2"], ["Працює", "від −5 до +43 °C"], ["Фреон", "R32"]], "kit": [], "feats": [], "kw": 0, "imgs": ["/_blob/4c8ed2401ebd19ee73c71ab23ccd44b9"]}];
+    const EV_KITS = [{"id": "ev-ac7", "name": "Домашня зарядна станція до 7,4 кВт", "sub": "AC · 1 фаза", "short": "Настінна станція в гараж чи у двір. Підходить для будинку з однофазним вводом.", "specs": [["Роз’єм", "Type 2"], ["За годину", "≈ 35–45 км пробігу"]]}, {"id": "ev-ac22", "name": "Зарядна станція 11–22 кВт", "sub": "AC · 3 фази", "short": "Для будинку з трифазним вводом або парковки офісу: авто заряджається за кілька годин.", "specs": [["Роз’єм", "Type 2"], ["За годину", "≈ 60–120 км пробігу"]]}, {"id": "ev-dc", "name": "Швидка DC-станція для бізнесу", "sub": "DC", "short": "Для АЗС, готелів, ТЦ і парковок: заряд за десятки хвилин, оплата через застосунок.", "specs": [["Роз’єми", "CCS2, GB/T"], ["Заряд", "за десятки хвилин"]]}];
+    const PCATS = [["solar", "Сонячні станції"], ["battery", "Акумулятори"], ["bess", "Для бізнесу"], ["heat", "Теплові насоси"], ["ev", "Зарядні станції"]];
+    // Catalogue, product pages and the tools that make each service page its own.
+    const b4 = (() => {
+      const isCat = page === 'catalog';
+      const isProd = page === 'product';
+      const isHeatP = page === 'heat', isSolarP = page === 'solar', isEvP = page === 'ev';
+      const dec1 = (n) => (Math.round(n * 10) / 10).toString().replace('.', ',');
+      const int = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, nbsp);
+      const catUrl = site ? B + 'katalog/' : 'Catalog.dc.html';
+      const pUrl = (p) => (site ? B + 'katalog/' + p.id + '/' : 'Product.dc.html');
+      const catName = (c) => (PCATS.find((x) => x[0] === c) || ['', ''])[1];
+      const card = (p) => ({ id: p.id, name: p.name, sub: p.sub, img: p.imgs[0], href: pUrl(p), specs: p.specs.slice(0, 3).map((x) => ({ k: x[0], v: x[1] })) });
+      const evHref = site ? URLS.ev + '#evtool' : '#evtool';
+      const evCards = EV_KITS.map((e) => ({ id: e.id, name: e.name, sub: e.sub, short: e.short, href: evHref, specs: e.specs.map((x) => ({ k: x[0], v: x[1] })) }));
+
+      // Catalogue page
+      const cf = s.catF || 'all';
+      const cnt = (c) => (c === 'all' ? PRODUCTS.length + EV_KITS.length : c === 'ev' ? EV_KITS.length : PRODUCTS.filter((p) => p.cat === c).length);
+      const catChips = [['all', 'Усе']].concat(PCATS).map((c) => ({ label: c[1], n: String(cnt(c[0])), pressed: cf === c[0] ? 'true' : 'false', pick: () => this.setState({ catF: c[0] }) }));
+      const catList = PRODUCTS.filter((p) => cf === 'all' || p.cat === cf).map(card);
+      const catShowEv = cf === 'all' || cf === 'ev';
+
+      // Product page
+      const prod = isProd ? (PRODUCTS.find((p) => p.id === this.props.product) || PRODUCTS[0]) : null;
+      const pi = prod ? Math.min(s.pImg || 0, prod.imgs.length - 1) : 0;
+      const pDigits = (s.pPhone || '').replace(/\D/g, '');
+      const pMsgs = { sending: 'Надсилаємо…', sent: 'Дякуємо! Інженер передзвонить і назве ціну.', mail: 'Ми відкрили вашу пошту з готовим листом — натисніть «Надіслати».', fail: 'Не вдалося надіслати. Подзвоніть: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.' };
+      const svcOf = { solar: ['Сонячні станції', URLS.solar], battery: ['Сонячні станції', URLS.solar], bess: ['Сонячні станції', URLS.solar], heat: ['Теплові насоси', URLS.heat] };
+      const prodVals = prod ? {
+        pName: prod.name, pSub: prod.sub, pCat: catName(prod.cat), pShort: prod.short,
+        pImg: prod.imgs[pi],
+        pThumbs: prod.imgs.map((src, i) => ({ src, pressed: i === pi ? 'true' : 'false', label: 'Фото ' + (i + 1) + ' з ' + prod.imgs.length, pick: () => this.setState({ pImg: i }) })),
+        pHasThumbs: prod.imgs.length > 1,
+        pSpecs: prod.specs.map((x) => ({ k: x[0], v: x[1] })),
+        pKit: prod.kit.map((x) => ({ t: x[0], n: x[1], q: x[2] })), pHasKit: prod.kit.length > 0,
+        pFeats: prod.feats.map((t) => ({ t })), pHasFeats: prod.feats.length > 0,
+        pSvcName: (svcOf[prod.cat] || svcOf.solar)[0], pSvcHref: site ? (svcOf[prod.cat] || svcOf.solar)[1] : '#',
+        pRelated: PRODUCTS.filter((p) => p.cat === prod.cat && p.id !== prod.id).slice(0, 4).map(card),
+        pHasRelated: PRODUCTS.some((p) => p.cat === prod.cat && p.id !== prod.id),
+        pPhone: s.pPhone || '', pInvalid: s.pErr ? 'true' : 'false',
+        onPPhone: (e) => this.setState({ pPhone: e.target.value, pErr: false }),
+        pSubmit: () => {
+          if (pDigits.length < 10) { this.setState({ pErr: true }); return; }
+          this.sendLead({ name: '', phone: s.pPhone, service: 'Товар: ' + prod.name, note: '', page: page + ':' + prod.id }, 'pVia');
+        },
+        pMsgShow: !!s.pErr || !!s.pVia,
+        pMsg: s.pErr ? 'Вкажіть номер телефону повністю, наприклад 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.' : (pMsgs[s.pVia] || ''),
+        pMsgCls: s.pErr || s.pVia === 'fail' ? 'ta-qerr' : ''
+      } : {};
+
+      // Products block on the service pages
+      const svcCats = isHeatP ? ['heat'] : isSolarP ? ['solar', 'battery'] : [];
+      const svcProducts = PRODUCTS.filter((p) => svcCats.indexOf(p.cat) >= 0).filter((p, i, a) => !isSolarP || ['merezheva-ses-10-kvt', 'gibrydna-ses-8-kvt', 'gibrydna-ses-20-kvt', 'power-bank-fox', 'merezheva-ses-30-kvt', 'avtonomna-systema-12-kvt', 'dyness-bx51100', 'pylontech-us3000c'].indexOf(p.id) >= 0).map(card);
+      const svcCount = PRODUCTS.filter((p) => svcCats.indexOf(p.cat) >= 0).length;
+
+      // Heat pump: how much heat 1 kWh gives at a given outdoor temperature (typical air-to-water inverter unit)
+      const hpT = s.hpT ?? -7;
+      const hpW = s.hpW || 'floor';
+      const tw = hpW === 'rad' ? 55 : 35;
+      const cop = Math.max(1.5, Math.min(5.2, 0.45 * (tw + 278) / (tw + 5 - hpT)));
+      const hpAirPct = Math.round((1 - 1 / cop) * 100);
+      const HP_BRANDS = [
+        ['Panasonic Aquarea T-Cap', 'до −28 °C', 'до 55 °C', 'Повна потужність у мороз'],
+        ['Mitsubishi Electric Ecodan', 'до −28 °C', '—', '100% потужності при −15 °C'],
+        ['ALTEK Pro SPLIT', 'до −30 °C', '—', 'COP до 4,48, моделі 12–32 кВт'],
+        ['Daikin Altherma 3 R W', 'до −25 °C', 'до 75 °C', 'Гріє, охолоджує, гаряча вода'],
+        ['Samsung EHS Mono HT', 'ефективно при −25 °C', 'до 70 °C', 'Тихий: 35 дБ']
+      ];
+      const heatTool = {
+        hpT, hpTText: (hpT > 0 ? '+' : hpT < 0 ? '−' : '') + Math.abs(hpT) + nbsp + '°C', hpTPct: ((hpT + 25) / 40 * 100).toFixed(1),
+        onHpT: (e) => this.setState({ hpT: +e.target.value }),
+        hpWChips: [['floor', 'Тепла підлога', '35 °C'], ['rad', 'Радіатори', '55 °C']].map((c) => ({ label: c[1], sub: c[2], pressed: hpW === c[0] ? 'true' : 'false', pick: () => this.setState({ hpW: c[0] }) })),
+        hpCop: dec1(cop), hpAirPct: String(hpAirPct), hpElPct: String(100 - hpAirPct),
+        hpSave: String(hpAirPct),
+        hpCold: hpT <= -20,
+        hpBrands: HP_BRANDS.map((r) => ({ name: r[0], min: r[1], water: r[2], note: r[3] }))
+      };
+
+      // Solar: how long the battery lasts, and what a station makes in Lviv each month
+      const BATS = [5, 10, 15, 20];
+      const bat = s.batKwh || 10;
+      const APPS = [
+        ['fridge', 'Холодильник', 80], ['light', 'Світло, LED', 100], ['router', 'Роутер і зарядки', 30], ['boiler', 'Котел: насос і автоматика', 120],
+        ['tv', 'Телевізор', 100], ['laptop', 'Ноутбук', 60], ['washer', 'Пральна машина', 500], ['pump', 'Насос свердловини', 300], ['water', 'Бойлер', 2000]
+      ];
+      const appsOn = s.batApps || { fridge: 1, light: 1, router: 1, boiler: 1 };
+      const watts = APPS.reduce((a, x) => a + (appsOn[x[0]] ? x[2] : 0), 0);
+      const hours = watts > 0 ? bat * 900 / watts : 0;
+      const hText = watts === 0 ? '—' : hours >= 48 ? 'понад 2 доби' : hours >= 24 ? '≈ ' + Math.floor(hours / 24) + nbsp + 'доба ' + Math.round(hours % 24) + nbsp + 'год' : '≈ ' + dec1(hours) + nbsp + 'год';
+      const PV = [40.8, 52.6, 86.8, 117.4, 121.9, 125.1, 131.8, 131.7, 108.7, 82.8, 44.3, 33.6];
+      const MON = ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру'];
+      const pvKw = s.pvGenKw || 10;
+      const solTool = {
+        batChips: BATS.map((b) => ({ label: b + nbsp + 'кВт·год', pressed: bat === b ? 'true' : 'false', pick: () => this.setState({ batKwh: b }) })),
+        batApps: APPS.map((x) => ({ label: x[1], w: x[2] >= 1000 ? dec1(x[2] / 1000) + nbsp + 'кВт' : x[2] + nbsp + 'Вт', pressed: appsOn[x[0]] ? 'true' : 'false', pick: () => this.setState({ batApps: Object.assign({}, appsOn, { [x[0]]: appsOn[x[0]] ? 0 : 1 }) }) })),
+        batHours: hText, batLoad: watts >= 1000 ? dec1(watts / 1000) + nbsp + 'кВт' : watts + nbsp + 'Вт',
+        batPct: String(Math.max(2, Math.min(100, hours / 48 * 100)).toFixed(1)),
+        batKwhText: bat + nbsp + 'кВт·год',
+        pvChips: [5, 10, 15, 20, 30].map((k) => ({ label: k + nbsp + 'кВт', pressed: pvKw === k ? 'true' : 'false', pick: () => this.setState({ pvGenKw: k }) })),
+        pvBars: PV.map((v, i) => ({ m: MON[i], h: (v / 131.8 * 100).toFixed(1), v: int(v * pvKw), label: MON[i] + ': ' + int(v * pvKw) + ' кВт·год' })),
+        pvYear: int(1077.5 * pvKw), pvJun: int(125.1 * pvKw), pvDec: int(33.6 * pvKw),
+        pvKwText: pvKw + nbsp + 'кВт'
+      };
+
+      // EV: which home charger fits the car, and how long it charges
+      const CARS = [
+        ['leaf', 'Nissan Leaf', 40, 6.6, 'Type 2 — авто з Європи; Type 1 — авто зі США, потрібен перехідник'],
+        ['tesla', 'Tesla Model 3 / Y', 75, 11, 'Type 2 — авто з Європи; авто зі США — через перехідник'],
+        ['id4', 'Volkswagen ID.4', 77, 11, 'Type 2'],
+        ['ioniq', 'Hyundai Ioniq 5 / Kia EV6', 77, 11, 'Type 2'],
+        ['zoe', 'Renault Zoe', 52, 22, 'Type 2'],
+        ['gbt', 'Авто з Китаю', 60, 7, 'GB/T — потрібна станція з таким роз’ємом або перехідник'],
+        ['other', 'Інше авто', 60, 11, 'Уточнимо під час консультації']
+      ];
+      const car = CARS.find((c) => c[0] === s.evCar) || CARS[2];
+      const ph = s.evPh || '3';
+      const lim = ph === '1' ? 7.4 : 22;
+      const eff = Math.min(car[3], lim);
+      const station = ph === '1' ? '7,4' : (car[3] >= 22 ? '22' : '11');
+      const tH = car[2] * 0.6 / eff * 1.1;
+      const evTabs = [
+        ['home', 'Приватний будинок', ['Оглядаємо щиток і перевіряємо, яку потужність дозволяє ваше підключення.', 'Тягнемо окрему лінію від щитка з автоматом і захистом від витоку струму.', 'Монтуємо станцію на стіну чи стійку, налаштовуємо застосунок і показуємо, як заряджати.']],
+        ['osbb', 'ОСББ чи паркінг', ['Допомагаємо з рішенням співвласників і погодженням місця.', 'Робимо окремий облік електроенергії для зарядки.', 'Прокладаємо лінію від щитової до паркомісця й запускаємо станцію.']],
+        ['biz', 'Бізнес', ['Рахуємо, скільки авто на день і яку потужність потрібно підвести.', 'Підбираємо AC чи швидкі DC-станції з оплатою через застосунок.', 'Можна поєднати із сонячною станцією та накопичувачем енергії.']]
+      ];
+      const evTab = evTabs.find((t) => t[0] === s.evWhere) || evTabs[0];
+      const evTool = {
+        evCars: CARS.map((c) => ({ label: c[1], pressed: car[0] === c[0] ? 'true' : 'false', pick: () => this.setState({ evCar: c[0] }) })),
+        evPhChips: [['1', '1 фаза'], ['3', '3 фази']].map((p) => ({ label: p[1], pressed: ph === p[0] ? 'true' : 'false', pick: () => this.setState({ evPh: p[0] }) })),
+        evStation: station, evCarName: car[1], evCarAc: dec1(car[3]), evEff: dec1(eff),
+        evLimited: eff < car[3], evOver: car[3] < +station.replace(',', '.'),
+        evTime: tH >= 1 ? '≈ ' + dec1(tH) + nbsp + 'год' : '≈ ' + Math.round(tH * 60) + nbsp + 'хв',
+        evKmH: '≈ ' + Math.round(eff * 6) + nbsp + 'км',
+        evConn: car[4], evBat: String(car[2]),
+        evWhereTabs: evTabs.map((t) => ({ label: t[1], pressed: evTab[0] === t[0] ? 'true' : 'false', pick: () => this.setState({ evWhere: t[0] }) })),
+        evSteps: evTab[2].map((t, i) => ({ n: String(i + 1), t }))
+      };
+
+      // Page frame for the catalogue and product pages
+      const frame = isCat || isProd;
+      const heroCat = prod ? prod.cat : 'solar';
+      const heroImgs = { heat: '/_blob/76cf2841f7d367cd383eecd5eb37a33a', solar: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', battery: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', bess: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2' };
+      const pageFlags = frame ? {
+        isHome: false, isSvc: false, showFlow: false, showHeat: false, showSolar: false, showEv: false, showCredit: false,
+        heroImg: isCat ? '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2' : heroImgs[heroCat],
+        heroChip: isCat ? 'Обладнання, яке ми встановлюємо' : 'Каталог · ' + catName(prod.cat),
+        heroObjShow: false, revShow: false, revEmpty: false
+      } : {};
+      return {
+        ...pageFlags,
+        isFrame: frame, isFull: !frame, isCat, isProd,
+        heroCls: isProd ? 'ta-hero-c ta-hero-p' : isCat ? 'ta-hero-c' : '',
+        frameTitle: isCat ? 'Каталог обладнання' : (prod ? prod.name : ''),
+        frameLead: isCat ? 'Сонячні станції, акумулятори, теплові насоси й зарядні станції, які ми постачаємо й монтуємо у Львові та області. Ціну рахуємо під ваш об’єкт.' : (prod ? prod.short : ''),
+        navCat: catUrl, catHome: site ? URLS.home : '#top',
+        showHow: !isProd, showCalc: !frame, showPortfolio: !frame, showFaq: !frame,
+        catChips, catList, catShowEv, evCards, catEmpty: catList.length === 0 && !catShowEv,
+        ...prodVals,
+        showSvcProducts: svcCats.length > 0, svcProducts,
+        svcProdTitle: isHeatP ? 'Теплові насоси, які ми ставимо' : 'Станції й акумулятори',
+        svcProdMore: 'Увесь каталог' + (svcCount > svcProducts.length ? ' · ' + svcCount + nbsp + 'позицій' : ''),
+        showEvKits: isEvP,
+        showHeatTool: isHeatP, showSolTool: isSolarP, showEvTool: isEvP,
+        ...heatTool, ...solTool, ...evTool
+      };
+    })();
     return {
       ...calc,
       ...tog('heat'),
@@ -2347,6 +3033,7 @@ class Component extends DCLogic {
       projects,
       ...objVals,
       ...pageVals,
+      ...b4,
       mapPins, mapRefs, mapList, faqs,
       mapOpen: !!selLoc, mapCard, mapClose: () => this.setState({ mapSel: null }), mapHintCls: selLoc ? 'ta-maphint-off' : '', mapListCls: selLoc ? 'ta-mlist-off' : '',
       evPhoto: EV_PHOTO, evPhotoSlot: !EV_PHOTO && !this.props.site,

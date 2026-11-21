@@ -1,5 +1,5 @@
 // Builds the static site into ../dist from the Claude Design component.
-// usage: node build.js [--no-og] [--base=/AStecho/] [--out=../dist] [--site=https://…] [--noindex]
+// usage: node build.js [--no-og] [--base=/AC/] [--out=../dist] [--site=https://…] [--noindex]
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -18,28 +18,42 @@ const NOINDEX = process.argv.includes('--noindex');
 const U = (p) => BASE + String(p).replace(/^\//, '');
 // Files and folders this script writes; only these are removed before a build,
 // so the output folder may also hold other things (e.g. the repository root).
-const GENERATED = ['index.html', '404.html', 'assets', 'img', 'og', 'teplovi-nasosy', 'sonyachni-stantsii', 'zaryadni-stantsii', 'kredyty', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest', 'robots.txt', 'sitemap.xml', 'config.js', '_headers', '.htaccess', '.nojekyll'];
+const GENERATED = ['index.html', '404.html', 'assets', 'img', 'og', 'teplovi-nasosy', 'sonyachni-stantsii', 'zaryadni-stantsii', 'kredyty', 'katalog', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest', 'robots.txt', 'sitemap.xml', 'config.js', '_headers', '_redirects', '.htaccess', '.nojekyll'];
 const PHONE = '+380684090275';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const PAGES = [
-  { page: 'home', url: '/', title: 'Техно-АС — теплові насоси, сонячні та зарядні станції у Львові',
+  { page: 'home', url: '/', title: 'AS techno — теплові насоси, сонячні та зарядні станції у Львові',
     desc: 'Теплові насоси, сонячні станції та зарядні станції для електромобілів у Львові й області. Працюємо з 2001 року. Калькулятор вартості та консультація інженера.',
     og: { title: 'Тепло, світло і заряд для вашого дому', sub: 'Теплові насоси, сонячні та зарядні станції у Львові й області' } },
-  { page: 'heat', url: '/teplovi-nasosy/', title: 'Теплові насоси у Львові — розрахунок і монтаж під ключ | Техно-АС', crumb: 'Теплові насоси',
+  { page: 'heat', url: '/teplovi-nasosy/', title: 'Теплові насоси у Львові — розрахунок і монтаж під ключ | AS techno', crumb: 'Теплові насоси',
     desc: 'Тепловий насос для будинку у Львові та області: розрахунок, монтаж, запуск і сервіс. Порахуйте вартість у калькуляторі або отримайте консультацію інженера.',
     service: 'Монтаж теплових насосів', og: { title: 'Теплові насоси під ключ', sub: 'Опалення й гаряча вода за рахунок тепла повітря' } },
-  { page: 'solar', url: '/sonyachni-stantsii/', title: 'Сонячні станції для дому й бізнесу у Львові | Техно-АС', crumb: 'Сонячні станції',
+  { page: 'solar', url: '/sonyachni-stantsii/', title: 'Сонячні станції для дому й бізнесу у Львові | AS techno', crumb: 'Сонячні станції',
     desc: 'Сонячні станції під ключ для дому й бізнесу: власна електроенергія і світло під час відключень. Розрахунок під ваше споживання, монтаж у Львові та області.',
     service: 'Монтаж сонячних електростанцій', og: { title: 'Сонячні станції під ключ', sub: 'Власна електроенергія і світло під час відключень' } },
-  { page: 'ev', url: '/zaryadni-stantsii/', title: 'Зарядні станції для електромобілів у Львові | Техно-АС', crumb: 'Зарядні станції',
+  { page: 'ev', url: '/zaryadni-stantsii/', title: 'Зарядні станції для електромобілів у Львові | AS techno', crumb: 'Зарядні станції',
     desc: 'Домашні зарядні станції 7–22 кВт і швидкі DC-станції для бізнесу. Підбір, монтаж і підключення у Львові та області, можна поєднати із сонячною станцією.',
     service: 'Монтаж зарядних станцій для електромобілів', og: { title: 'Зарядні станції для електромобілів', sub: 'Удома й для бізнесу: від 7 кВт до швидких DC' } },
-  { page: 'credit', url: '/kredyty/', title: 'Кредит від 0% на сонячну станцію й генератор — умови 2026 | Техно-АС', crumb: 'Кредит від 0%',
+  { page: 'credit', url: '/kredyty/', title: 'Кредит від 0% на сонячну станцію й генератор — умови 2026 | AS techno', crumb: 'Кредит від 0%',
     desc: 'Як узяти кредит від 0% за програмою «Доступні кредити 5–7–9%» на автономне живлення будинку: до 480 тис. грн, компенсація до 30%. Умови станом на листопад 2026 року.',
-    og: { title: 'Кредит від 0% на світло для дому', sub: 'До 480 тис. грн і компенсація до 30% тіла кредиту' } }
+    og: { title: 'Кредит від 0% на світло для дому', sub: 'До 480 тис. грн і компенсація до 30% тіла кредиту' } },
+  { page: 'catalog', url: '/katalog/', title: 'Каталог: сонячні станції, акумулятори, теплові насоси у Львові | AS techno', crumb: 'Каталог',
+    desc: 'Мережеві й гібридні сонячні станції, акумулятори Dyness і Pylontech, системи накопичення для бізнесу, теплові насоси Panasonic, Daikin, Mitsubishi, Samsung. Ціна з монтажем — за запитом.',
+    og: { title: 'Каталог обладнання', sub: 'Сонячні станції, акумулятори, теплові насоси й зарядні станції' } }
 ];
+// One page per product of the catalogue (data from ../products/catalog.json)
+const CATALOG = JSON.parse(fs.readFileSync(path.join(ROOT, 'products/catalog.json'), 'utf8'));
+const CATNAME = Object.fromEntries(CATALOG.cats);
+const cut = (t, n) => (t.length <= n ? t : t.slice(0, t.lastIndexOf(' ', n - 1)) + '…');
+for (const p of CATALOG.products) {
+  PAGES.push({ page: 'product', product: p.id, url: '/katalog/' + p.id + '/', crumb: p.name, cat: CATNAME[p.cat],
+    title: cut(p.name, 70) + ' — з монтажем у Львові | AS techno',
+    desc: cut(p.short + ' Ціна за запитом: порахуємо вартість із монтажем під ваш об’єкт.', 158),
+    og: { title: p.name, sub: CATNAME[p.cat] + ' · ціна з монтажем за запитом', img: p.imgs[0] } });
+}
 
+const ogName = (P) => (P.product ? 'p-' + P.product : P.page) + '.jpg';
 const hash = (buf) => crypto.createHash('sha1').update(buf).digest('hex').slice(0, 8);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const write = (rel, data) => { const p = path.join(DIST, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, data); return p; };
@@ -67,7 +81,7 @@ async function main() {
   fs.writeFileSync(path.join(GEN, 'img.mjs'), `
 const MAN=${JSON.stringify(man)};
 const E=(s)=>String(s).replace(/[&<>"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const SIZES=[[/ta-heropar/,'100vw'],[/ta-par/,'(max-width: 900px) 100vw, 50vw'],[/ta-gimg/,'(max-width: 640px) 72vw, 300px'],[/ta-oimg-i/,'(max-width: 700px) 100vw, 640px'],[/ta-mthumb-i/,'136px'],[/ta-flogo/,'180px'],[/ta-logo/,'80px']];
+const SIZES=[[/ta-heropar/,'100vw'],[/ta-pgal-i/,'(max-width: 900px) 90vw, 560px'],[/ta-pthumb-i/,'72px'],[/ta-pimg/,'(max-width: 820px) 45vw, 280px'],[/ta-par/,'(max-width: 900px) 100vw, 50vw'],[/ta-gimg/,'(max-width: 640px) 72vw, 300px'],[/ta-oimg-i/,'(max-width: 700px) 100vw, 640px'],[/ta-mthumb-i/,'136px'],[/ta-flogo/,'180px'],[/ta-logo/,'80px']];
 export function imgInfo(src){return src&&src.indexOf('/_blob/')===0?MAN[src.slice(7)]||null:null;}
 export function sizesFor(cls){for(let i=0;i<SIZES.length;i++)if(SIZES[i][0].test(cls))return SIZES[i][1];return '100vw';}
 export function IMG(src,cls){
@@ -124,7 +138,7 @@ ${designCss}`;
     '// Жива генерація станції: адреса, що віддає JSON {"power_kw": 4.2, "today_kwh": 18.5, "place": "Львів"}. Порожньо — блок прихований.',
     "window.TA_LIVE_ENDPOINT = '';",
     '',
-    "// Інженер IS: 'always' — завжди видно, 'tips' — з’являється, коли є нова порада, 'off' — вимкнено.",
+    "// Інженер AS: 'always' — завжди видно, 'tips' — з’являється, коли є нова порада, 'off' — вимкнено.",
     "window.TA_MASCOT_MODE = 'always';",
     ''
   ].join('\n'));
@@ -141,7 +155,7 @@ ${designCss}`;
   const Component = tpl.makeComponent(DCLogic);
 
   const business = {
-    '@type': 'LocalBusiness', '@id': SITE + '/#business', name: 'Техно-АС', legalName: 'ПП «Техно-АС»', url: SITE + '/',
+    '@type': 'LocalBusiness', '@id': SITE + '/#business', name: 'AS techno', alternateName: 'Техно-АС', legalName: 'ПП «Техно-АС»', url: SITE + '/',
     logo: SITE + '/img/' + path.basename(man['0b85442bc566a74d30e892c7ea73a51c'].src), image: SITE + '/og/home.jpg',
     telephone: PHONE, email: 'tehno.as.lviv@gmail.com', foundingDate: '2001',
     address: { '@type': 'PostalAddress', streetAddress: 'вул. Пасічна, 160', addressLocality: 'Львів', addressCountry: 'UA' },
@@ -151,7 +165,7 @@ ${designCss}`;
 
   const report = [];
   for (const P of PAGES) {
-    const props = Object.assign({}, tpl.PROP_DEFAULTS, { page: P.page, site: true, base: BASE });
+    const props = Object.assign({}, tpl.PROP_DEFAULTS, { page: P.page, site: true, base: BASE }, P.product ? { product: P.product } : {});
     const c = new Component(props);
     const vals = c.renderVals();
     const parts = tpl.CHUNKS.map((f, i) => {
@@ -163,11 +177,18 @@ ${designCss}`;
     const canon = SITE + P.url;
     const hero = img.imgInfo(vals.heroImg);
     const graph = [business];
-    if (P.page === 'home') graph.push({ '@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: 'Техно-АС', inLanguage: 'uk', publisher: { '@id': SITE + '/#business' } });
-    graph.push({ '@type': 'WebPage', '@id': canon + '#page', url: canon, name: P.title, description: P.desc, inLanguage: 'uk', isPartOf: { '@id': SITE + '/#website' }, about: { '@id': SITE + '/#business' }, primaryImageOfPage: SITE + '/og/' + P.page + '.jpg' });
+    if (P.page === 'home') graph.push({ '@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: 'AS techno', alternateName: 'Техно-АС', inLanguage: 'uk', publisher: { '@id': SITE + '/#business' } });
+    graph.push({ '@type': 'WebPage', '@id': canon + '#page', url: canon, name: P.title, description: P.desc, inLanguage: 'uk', isPartOf: { '@id': SITE + '/#website' }, about: { '@id': SITE + '/#business' }, primaryImageOfPage: SITE + '/og/' + ogName(P) });
     if (P.service) {
       graph.push({ '@type': 'Service', name: P.service, serviceType: P.crumb, provider: { '@id': SITE + '/#business' }, areaServed: business.areaServed, url: canon, description: P.desc });
       graph.push({ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Головна', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: P.crumb, item: canon }] });
+    }
+    if (P.page === 'catalog') {
+      graph.push({ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Головна', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: 'Каталог', item: canon }] });
+      graph.push({ '@type': 'ItemList', name: 'Каталог обладнання', itemListElement: CATALOG.products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: SITE + '/katalog/' + p.id + '/' })) });
+    }
+    if (P.page === 'product') {
+      graph.push({ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Головна', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: 'Каталог', item: SITE + '/katalog/' }, { '@type': 'ListItem', position: 3, name: P.crumb, item: canon }] });
     }
     if (Array.isArray(vals.faqs) && vals.faqs.length) {
       graph.push({ '@type': 'FAQPage', mainEntity: vals.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a + (f.link ? ' ' + f.link : '') } })) });
@@ -192,11 +213,11 @@ ${designCss}`;
       `<link rel="manifest" href="${U('site.webmanifest')}">`,
       '<meta property="og:type" content="website">',
       '<meta property="og:locale" content="uk_UA">',
-      '<meta property="og:site_name" content="Техно-АС">',
+      '<meta property="og:site_name" content="AS techno">',
       `<meta property="og:title" content="${esc(P.title)}">`,
       `<meta property="og:description" content="${esc(P.desc)}">`,
       `<meta property="og:url" content="${canon}">`,
-      `<meta property="og:image" content="${SITE}/og/${P.page}.jpg">`,
+      `<meta property="og:image" content="${SITE}/og/${ogName(P)}">`,
       '<meta property="og:image:width" content="1200">',
       '<meta property="og:image:height" content="630">',
       `<meta property="og:image:alt" content="${esc(P.og.title)}">`,
@@ -205,7 +226,7 @@ ${designCss}`;
       `<script defer src="${U('config.js')}"></script>`,
       `<script defer src="${jsUrl}"></script>`
     ].filter(Boolean).join('\n');
-    const html = `<!doctype html>\n<html lang="uk" data-page="${P.page}" data-base="${BASE}">\n<head>\n${head}\n</head>\n<body>\n${bodyHtml}\n</body>\n</html>\n`;
+    const html = `<!doctype html>\n<html lang="uk" data-page="${P.page}"${P.product ? ` data-product="${P.product}"` : ''} data-base="${BASE}">\n<head>\n${head}\n</head>\n<body>\n${bodyHtml}\n</body>\n</html>\n`;
     write(path.join(P.url, 'index.html'), html);
     report.push(`${P.url} ${Math.round(html.length / 1024)} KB`);
   }
@@ -215,9 +236,9 @@ ${designCss}`;
   fs.mkdirSync(path.join(DIST, 'og'), { recursive: true });
   if (!noOg) {
     const blobs = Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync(path.join(ROOT, 'preview/blobs.json'), 'utf8'))).map(([k, v]) => [k, path.resolve(ROOT, v)]));
-    const heroFile = { home: blobs['9f6a3cecaf9c33a6c058c8f5f038abb9'], heat: blobs['76cf2841f7d367cd383eecd5eb37a33a'], solar: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], ev: blobs['8f2af6843b0a6094fe99789fa1116c53'], credit: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'] };
+    const heroFile = { home: blobs['9f6a3cecaf9c33a6c058c8f5f038abb9'], heat: blobs['76cf2841f7d367cd383eecd5eb37a33a'], solar: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], ev: blobs['8f2af6843b0a6094fe99789fa1116c53'], credit: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], catalog: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'] };
     const spec = { font_dir: fontSrc, logo: blobs['0b85442bc566a74d30e892c7ea73a51c'], favicon_svg: path.join(__dirname, 'favicon.svg'), out_dir: path.join(DIST, 'og'),
-      cards: PAGES.map((P) => ({ out: P.page + '.jpg', img: heroFile[P.page], title: P.og.title, sub: P.og.sub })) };
+      cards: PAGES.map((P) => (P.product ? { out: ogName(P), img: blobs[P.og.img.slice(7)], title: P.og.title, sub: P.og.sub, kind: 'product' } : { out: ogName(P), img: heroFile[P.page], title: P.og.title, sub: P.og.sub })) };
     fs.writeFileSync(path.join(GEN, 'og.json'), JSON.stringify(spec));
     execFileSync('python3', [path.join(__dirname, 'og.py'), path.join(GEN, 'og.json')], { stdio: 'inherit' });
     for (const f of ['favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png']) fs.renameSync(path.join(DIST, 'og', f), path.join(DIST, f));
@@ -225,23 +246,30 @@ ${designCss}`;
 
   // 8. Service files
   write('site.webmanifest', JSON.stringify({
-    name: 'Техно-АС', short_name: 'Техно-АС', lang: 'uk', start_url: BASE, scope: BASE, display: 'standalone',
+    name: 'AS techno', short_name: 'AS techno', lang: 'uk', start_url: BASE, scope: BASE, display: 'standalone',
     background_color: '#ffffff', theme_color: '#ffffff',
     icons: [{ src: U('icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: U('icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: U('favicon.svg'), sizes: 'any', type: 'image/svg+xml' }]
   }, null, 2));
   write('robots.txt', NOINDEX ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
   write('.nojekyll', '');
-  write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${PAGES.map((P) => `  <url><loc>${SITE}${P.url}</loc><lastmod>${TODAY}</lastmod><priority>${P.page === 'home' ? '1.0' : '0.8'}</priority></url>`).join('\n')}\n</urlset>\n`);
+  write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${PAGES.map((P) => `  <url><loc>${SITE}${P.url}</loc><lastmod>${TODAY}</lastmod><priority>${P.page === 'home' ? '1.0' : P.page === 'product' ? '0.6' : '0.8'}</priority></url>`).join('\n')}\n</urlset>\n`);
   const logo404 = man['0b85442bc566a74d30e892c7ea73a51c'].src;
   write('404.html', `<!doctype html>
 <html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Сторінку не знайдено | Техно-АС</title><meta name="robots" content="noindex"><link rel="icon" href="${U('favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="${cssUrl}">
+<title>Сторінку не знайдено | AS techno</title><meta name="robots" content="noindex"><link rel="icon" href="${U('favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="${cssUrl}">
 <style>.e{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px;box-sizing:border-box;font-family:Manrope,'Segoe UI',Arial,sans-serif;color:#1C2B22;background:#EEF6F1}.e>div{max-width:520px;background:#fff;border-radius:28px;padding:40px 32px;box-shadow:0 24px 50px -30px rgba(16,40,26,.45)}.e img{height:64px}.e h1{font-size:34px;line-height:1.15;margin:28px 0 12px;letter-spacing:-.01em}.e p{font-size:18px;line-height:1.55;color:#44564B;margin:0 0 28px}.e .b{display:flex;flex-wrap:wrap;gap:12px}.e a.x{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:17px}.e .p{background:#28874F;color:#fff}.e .g{border:1.5px solid #9CCAAE;color:#1F6E3F}</style></head>
-<body><main class="e"><div><a href="${BASE}"><img src="${logo404}" alt="Техно-АС"></a><h1>Такої сторінки немає</h1><p>Можливо, посилання застаріло. Перейдіть на головну або зателефонуйте — підкажемо.</p><div class="b"><a class="x p" href="${BASE}">На головну</a><a class="x g" href="tel:${PHONE}">068 409 02 75</a></div></div></main></body></html>
+<body><main class="e"><div><a href="${BASE}"><img src="${logo404}" alt="AS techno"></a><h1>Такої сторінки немає</h1><p>Можливо, посилання застаріло. Перейдіть на головну або зателефонуйте — підкажемо.</p><div class="b"><a class="x p" href="${BASE}">На головну</a><a class="x g" href="tel:${PHONE}">068 409 02 75</a></div></div></main></body></html>
 `);
   write('_headers', `${U('assets/*')}\n  Cache-Control: public, max-age=31536000, immutable\n${U('img/*')}\n  Cache-Control: public, max-age=2592000\n${U('og/*')}\n  Cache-Control: public, max-age=2592000\n${U('config.js')}\n  Cache-Control: no-cache\n`);
+  // Old WordPress shop addresses -> new catalogue pages (301), so search engines keep the product pages
+  const REDIR = [['/shop/', '/katalog/']].concat(CATALOG.products.filter((p) => p.old).map((p) => ['/product/' + p.old + '/', '/katalog/' + p.id + '/']));
+  write('_redirects', REDIR.map(([a, b]) => `${a} ${U(b)} 301`).concat([`/product-category/* ${U('/katalog/')} 301`]).join('\n') + '\n');
   write('.htaccess', `ErrorDocument 404 ${U('404.html')}
 DirectoryIndex index.html
+<IfModule mod_alias.c>
+${REDIR.map(([a, b]) => `  Redirect 301 ${a} ${U(b)}`).join('\n')}
+  RedirectMatch 301 ^/product-category/ ${U('/katalog/')}
+</IfModule>
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType font/woff2 .woff2

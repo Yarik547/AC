@@ -1,5 +1,38 @@
 ErrorDocument 404 /AStecho/404.html
 DirectoryIndex index.html
+<IfModule mod_alias.c>
+  Redirect 301 /shop/ /AStecho/katalog/
+  Redirect 301 /product/merezheva-sonyachna-elektrostantsiya-potuzhnistyu-5-kvt/ /AStecho/katalog/merezheva-ses-5-kvt/
+  Redirect 301 /product/merezheva-sonyachna-elektrostantsiya-potuzhnistyu-10-kvt/ /AStecho/katalog/merezheva-ses-10-kvt/
+  Redirect 301 /product/merezheva-sonyachna-elektrostantsiya-potuzhnistyu-15-kvt/ /AStecho/katalog/merezheva-ses-15-kvt/
+  Redirect 301 /product/merezheva-sonyachna-elektrostantsiya-potuzhnistyu-20-kvt/ /AStecho/katalog/merezheva-ses-20-kvt/
+  Redirect 301 /product/merezheva-sonyachna-elektrostantsiya-potuzhnistyu-30-kvt/ /AStecho/katalog/merezheva-ses-30-kvt/
+  Redirect 301 /product/promyslova-sonyachna-stantsiya-potuzhnistyu-solis-3p-100k-5g-100-kvt/ /AStecho/katalog/promyslova-ses-100-kvt-solis/
+  Redirect 301 /product/promyslova-sonyachna-stantsiya-potuzhnistyu-100-kvt/ /AStecho/katalog/promyslova-ses-100-kvt-huawei/
+  Redirect 301 /product/gibrydna-sonyachna-stantsiya-5kv/ /AStecho/katalog/gibrydna-ses-5-kvt/
+  Redirect 301 /product/gibrydna-sonyachna-elektrostantsiya-5-kvt-shvydkiy-zarjad-akb/ /AStecho/katalog/gibrydna-ses-5-kvt-shvydkyi-zariad/
+  Redirect 301 /product/gibrydna-sonyachna-elektrostantsiya-8-kvt/ /AStecho/katalog/gibrydna-ses-8-kvt/
+  Redirect 301 /product/gibrydnyj-invertor-prosolax-x3-pro-15-kvt/ /AStecho/katalog/prosolax-x3-pro-15-kvt/
+  Redirect 301 /product/gibrydna-sonyachna-stantsiya-20-kvt/ /AStecho/katalog/gibrydna-ses-20-kvt/
+  Redirect 301 /product/pover-bank-dlya-kvartry-fox-5-kvt-ta-10-kvt/ /AStecho/katalog/power-bank-fox/
+  Redirect 301 /product/avtonomna-systema-dlya-budynkuk-12-kvt-avtonomnogo-zhyvlennya/ /AStecho/katalog/avtonomna-systema-12-kvt/
+  Redirect 301 /product/akkumulyator-dyness-b3-75a-3-6-kvt-48-v/ /AStecho/katalog/dyness-b3/
+  Redirect 301 /product/akumulyatorna-batareya-pylontech-us3000c/ /AStecho/katalog/pylontech-us3000c/
+  Redirect 301 /product/dyness-bx51100-5-12-kvt/ /AStecho/katalog/dyness-bx51100/
+  Redirect 301 /product/systema-nakopychennya-energiyi-deye-ge-f60/ /AStecho/katalog/deye-ge-f60/
+  Redirect 301 /product/systema-nakopychennya-energiyi-prosolax-x3-aelio-p50b100-50kvt-100kvt-god/ /AStecho/katalog/solax-aelio-50-100/
+  Redirect 301 /product/systema-nakopychennya-energiyi-stromherz-s-50k-3r-40a-ess-ua-65-28-kvt/ /AStecho/katalog/stromherz-s-50k/
+  Redirect 301 /product/teplovi-nasosy-panasonic/ /AStecho/katalog/panasonic-aquarea/
+  Redirect 301 /product/teplovi-nasosy-pv-lg/ /AStecho/katalog/lg-therma-v/
+  Redirect 301 /product/teplovi-nasosy-pv-samsung/ /AStecho/katalog/samsung-ehs/
+  Redirect 301 /product/teplovi-nasosy-samsung-mono-ehs/ /AStecho/katalog/samsung-ehs-mono-ht/
+  Redirect 301 /product/teplovi-nasosy-pv-mitsubishi-electric-ecodan/ /AStecho/katalog/mitsubishi-ecodan/
+  Redirect 301 /product/teplovi-nasosy-daikin-altherma-3-r-w/ /AStecho/katalog/daikin-altherma-3-rw/
+  Redirect 301 /product/invertornyj-teplovyj-nasos-altek-pro-split/ /AStecho/katalog/altek-pro-split/
+  Redirect 301 /product/teplovyj-nasos-multy-split-hyundai-nc-clima/ /AStecho/katalog/hyundai-nc-clima-multi/
+  Redirect 301 /product/invertornyj-teplovyj-nasos-altek-pool-220v/ /AStecho/katalog/altek-pool-220v/
+  RedirectMatch 301 ^/product-category/ /AStecho/katalog/
+</IfModule>
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType font/woff2 .woff2

@@ -72,7 +72,17 @@ function patch(strs) {
 }
 
 let lastMapCard = '';
+let lastTag = false, lastLit = false, lastPoke = 0;
 function afterRender(ovWas, ovNow) {
+  // Інженер AS: a tip with a target makes him fly to that block; a lit bulb pops in; a tap without a tip is a trick.
+  const tagNow = !!vals.mascotTag;
+  if (tagNow && !lastTag) mascotFx.spot(vals.mascotTip && vals.mascotTip.target);
+  else if (!tagNow && lastTag) mascotFx.unspot();
+  lastTag = tagNow;
+  const litNow = /\bta-masc-lit\b/.test(vals.mascotCls || '');
+  if (litNow && !lastLit) mascotFx.flash('new', 750);
+  lastLit = litNow;
+  if (vals.mascotPoke !== lastPoke) { lastPoke = vals.mascotPoke; mascotFx.flash('trick', 1300); }
   // Bring the map card into view when it opens off-screen (e.g. tapping a city in the list on a phone).
   const mapName = vals.mapOpen && vals.mapCard ? vals.mapCard.name : '';
   if (mapName && mapName !== lastMapCard) {
@@ -125,12 +135,16 @@ function boot() {
   appRoot = document.querySelector('.ta-root');
   if (!appRoot) return;
   appRoot.querySelectorAll('[data-c]').forEach((w) => { wrappers[+w.getAttribute('data-c')] = w; });
-  const props = Object.assign({}, PROP_DEFAULTS, { page: document.documentElement.getAttribute('data-page') || 'home', site: true, base: document.documentElement.getAttribute('data-base') || '/' });
+  const de = document.documentElement;
+  const props = Object.assign({}, PROP_DEFAULTS, { page: de.getAttribute('data-page') || 'home', site: true, base: de.getAttribute('data-base') || '/' });
+  if (de.getAttribute('data-product')) props.product = de.getAttribute('data-product');
   const modeOverride = window.TA_MASCOT_MODE && window.TA_MASCOT_MODE !== PROP_DEFAULTS.mascot;
   if (window.TA_MASCOT_MODE) props.mascot = window.TA_MASCOT_MODE;
   comp = new Component(props);
   // The server already rendered the same initial state, so only the event map is needed now.
   prevStrs = render();
+  lastLit = /\bta-masc-lit\b/.test(vals.mascotCls || '');
+  lastPoke = vals.mascotPoke;
   if (modeOverride) prevStrs = prevStrs.map(() => '');
   mounted = true;
   ['click', 'input', 'change'].forEach((t) => appRoot.addEventListener(t, (e) => dispatch(t, e)));
@@ -153,7 +167,7 @@ function boot() {
 }
 
 
-// Інженер IS: drag, throw with physics, return on the jetpack, small idle animations.
+// Інженер AS: drag, throw with physics, return on the jetpack, point at blocks, small idle animations.
 const mascotFx = (() => {
   const root = document.documentElement;
   const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -185,6 +199,7 @@ const mascotFx = (() => {
     return { minX: -home.l, maxX: window.innerWidth - home.l - home.w, minY: -home.t, maxY: window.innerHeight - home.t - home.h };
   }
   function startDrag() {
+    stopSpotLoop();
     mode = 'drag';
     cancelAnimationFrame(raf); raf = 0;
     cls('phys', true); cls('drag', true); cls('fly', false); cls('ret', false);
@@ -194,6 +209,75 @@ const mascotFx = (() => {
     set();
     root.style.setProperty('--masc-tilt', '0deg');
     if (comp && comp.state.mascotOpen) comp.setState({ mascotOpen: false });
+  }
+  // Pointing at a block of the page: he flies next to it, the block is lit up and the tip sits beside it.
+  let spotEl = null, spotRaf = 0, spotOff = 0;
+  const SPOT_VARS = ['--spot-x', '--spot-y', '--spot-w', '--spot-h', '--tag-x', '--tag-y'];
+  function stopSpotLoop() {
+    if (spotRaf) cancelAnimationFrame(spotRaf);
+    spotRaf = 0; spotEl = null;
+    cls('fix', false);
+    SPOT_VARS.forEach((v) => root.style.removeProperty(v));
+  }
+  function spotLayout() {
+    const rc = spotEl.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight, pad = 8;
+    root.style.setProperty('--spot-x', (rc.left - pad).toFixed(1) + 'px');
+    root.style.setProperty('--spot-y', (rc.top - pad).toFixed(1) + 'px');
+    root.style.setProperty('--spot-w', (rc.width + pad * 2).toFixed(1) + 'px');
+    root.style.setProperty('--spot-h', (rc.height + pad * 2).toFixed(1) + 'px');
+    const mw = home.w, mh = home.h;
+    const left = Math.max(6, Math.min(vw - mw - 6, rc.right - mw * 0.42));
+    const top = Math.max(64, Math.min(vh - mh - 6, rc.top - mh * 0.6));
+    const tag = document.querySelector('.ta-mtag');
+    if (tag) {
+      const tw = tag.offsetWidth, th = tag.offsetHeight;
+      const tx = Math.max(12, Math.min(vw - tw - 12, rc.left));
+      let ty = rc.bottom + 16;
+      if (ty + th > vh - 12) ty = rc.top - th - 16;
+      if (ty < 72) ty = Math.max(72, Math.min(vh - th - 12, rc.top + 16));
+      root.style.setProperty('--tag-x', tx.toFixed(1) + 'px');
+      root.style.setProperty('--tag-y', ty.toFixed(1) + 'px');
+    }
+    return { x: left - home.l, y: top - home.t, vis: rc.bottom > 40 && rc.top < vh - 40 };
+  }
+  function spotStep() {
+    spotRaf = 0;
+    if (mode !== 'spot' || !spotEl || !document.contains(spotEl)) return;
+    const L = spotLayout();
+    const k = reduce ? 1 : 0.16;
+    x += (L.x - x) * k; y += (L.y - y) * k; r += (0 - r) * k;
+    set();
+    cls('fix', Math.hypot(L.x - x, L.y - y) < 8);
+    spotOff = L.vis ? 0 : spotOff + 1;
+    if (spotOff > 40 && comp && comp.state.mascotOpen) { comp.setState({ mascotOpen: false }); return; }
+    spotRaf = requestAnimationFrame(spotStep);
+  }
+  function spot(sel) {
+    if (!sel || mode === 'drag') return;
+    const el2 = [...document.querySelectorAll(sel)].find((e) => e.getClientRects().length > 0);
+    if (!el2) { if (comp) comp.setState({ mascotOpen: false }); return; }
+    if (mode === 'home') home = measure();
+    if (!home) return;
+    cancelAnimationFrame(raf); raf = 0;
+    ['new', 'pop', 'trick', 'wave'].forEach((n) => cls(n, false));
+    y += dyNow();
+    root.style.setProperty('--masc-dy', '0px');
+    root.style.setProperty('--masc-tilt', '0deg');
+    mode = 'spot'; spotEl = el2; spotOff = 0;
+    cls('phys', true); cls('fly', false); cls('ret', false);
+    const rc = el2.getBoundingClientRect();
+    if (rc.top < 80 || rc.bottom > window.innerHeight - 60) el2.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: rc.height > window.innerHeight * 0.7 ? 'start' : 'center' });
+    spotStep();
+  }
+  function unspot() {
+    const was = mode === 'spot';
+    stopSpotLoop();
+    if (!was) return;
+    mode = 'ret'; cls('ret', true);
+    vx = vy = vr = 0;
+    t0 = performance.now(); last = t0;
+    loop();
   }
   function release(vx0, vy0) {
     cls('drag', false);
@@ -309,7 +393,7 @@ const mascotFx = (() => {
     }, wait);
   }
   return {
-    flash,
+    flash, spot, unspot,
     start() {
       document.addEventListener('pointerdown', onDown, true);
       window.addEventListener('pointermove', onMove, { passive: false });
@@ -319,14 +403,14 @@ const mascotFx = (() => {
         if (suppress && e.target && e.target.closest && e.target.closest('.ta-masc-btn')) { e.preventDefault(); e.stopPropagation(); }
         suppress = false;
       }, true);
-      window.addEventListener('resize', () => { if (mode === 'home') { x = y = r = 0; set(); } });
+      window.addEventListener('resize', () => { if (mode === 'home') { x = y = r = 0; set(); } else if (mode === 'spot') { home = null; x = y = r = 0; set(); home = measure(); } });
       if (!reduce) { tricks(); setTimeout(() => flash('wave', 1000), 1200); }
     }
   };
 })();
 
-// Scroll effects: Інженер IS flight, the section he talks about, the pinned scene.
-const SECTIONS = ['top', 'reviews', 'flow', 'heat', 'solar', 'ev', 'credit', 'how', 'calc', 'portfolio', 'map', 'faq', 'contacts'];
+// Scroll effects: Інженер AS flight, the section he talks about, the pinned scene.
+const SECTIONS = ['top', 'catalog', 'product', 'reviews', 'flow', 'heat', 'solar', 'ev', 'heattool', 'soltool', 'evtool', 'products', 'credit', 'how', 'calc', 'portfolio', 'map', 'faq', 'contacts'];
 function startScrollFx() {
   const root = document.documentElement;
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -344,8 +428,7 @@ function startScrollFx() {
     if (cur !== lastSec) {
       lastSec = cur;
       if (comp.state.mascotSec !== cur && !comp.state.mascotOpen) {
-        comp.setState({ mascotSec: cur, mascotIdx: 0 });
-        if (!(comp.state.mascotSeen || {})[cur]) mascotFx.flash('new', 750);
+        comp.setState({ mascotSec: cur });
       }
     }
   }

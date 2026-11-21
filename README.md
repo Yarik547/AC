@@ -1,6 +1,6 @@
-# Техно-АС — сайт
+# AS techno — сайт
 
-Новий сайт ПП «Техно-АС» (Львів): теплові насоси, сонячні та зарядні станції.
+Новий сайт AS techno (ПП «Техно-АС», Львів): теплові насоси, сонячні та зарядні станції.
 
 **Перегляд на GitHub Pages:** https://yarik547.github.io/AStecho/
 
@@ -47,6 +47,7 @@ node serve.js ../../dist 8766
 - `source/site_build/client.js` — оживляє готову сторінку в браузері й оновлює лише змінені блоки (morphdom).
 - `source/site_build/build.js` — сторінки, SEO-теги, Schema.org, sitemap, robots, 404, іконки.
 - `source/site_build/images.py` — WebP у кількох розмірах; `og.py` — картинки для поширення.
+- `source/products/` — каталог: `catalog.py` (назви, характеристики, комплектація, фото), `sel/` (фото товарів з оригінального сайту). `python3 catalog.py` створює `products.js` (вставляється в `Main.dc.html`) і `catalog.json` (з нього `build.js` робить сторінки `/katalog/<товар>/`).
 - `source/assets/` і `source/preview/blobs.json` — фото й відповідність між ними та адресами `/_blob/…` у дизайні.
 
 Нове фото:
