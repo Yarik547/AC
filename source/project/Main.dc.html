@@ -288,10 +288,13 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 @media (prefers-reduced-motion: reduce){.ta-spin,.ta-cell,.ta-charge,.ta-sunb,.ta-swap,.ta-livedot{animation:none}.ta-barfill{transition:none}}
 @media (prefers-reduced-motion: reduce){.ta-reveal{animation:none}.ta-btn,.ta-link,.ta-arr{transition:none}html{scroll-behavior:auto}}
 .ta-masc{position:absolute;right:28px;top:300px;z-index:15;width:104px;pointer-events:none;font-family:'Manrope','Segoe UI',Arial,sans-serif}
-.ta-masc-live{position:fixed;top:auto !important;right:22px;bottom:28px;transform:translate3d(0,var(--masc-dy,0px),0);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
+.ta-masc-live{position:fixed;top:auto !important;right:22px;bottom:28px;transform:translate3d(var(--masc-x,0px),calc(var(--masc-dy,0px) + var(--masc-y,0px)),0) rotate(var(--masc-r,0deg));transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
 .ta-masc-out{transform:translate3d(170%,var(--masc-dy,0px),0) !important;opacity:0}
 .ta-masc-hidden{display:none}
-.ta-masc-btn{position:relative;display:block;width:100%;margin:0;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.ta-masc-btn{position:relative;display:block;width:100%;margin:0;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.ta-masc-live .ta-masc-btn{cursor:grab;touch-action:none}
+.ta-mfx-drag .ta-masc-live .ta-masc-btn{cursor:grabbing}
+.ta-mfx-phys .ta-masc-live{transition:none}
 .ta-masc-btn:focus-visible{outline:3px solid rgba(38,131,76,.5);outline-offset:4px;border-radius:24px}
 .ta-masc-tilt{display:block;transform:rotate(var(--masc-tilt,0deg));transform-origin:50% 60%;transition:transform .3s ease}
 .ta-masc-fly{display:block;animation:taBob 2.6s ease-in-out infinite}
@@ -329,7 +332,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 .ta-pin{height:300vh;height:300svh;overflow:clip !important}
 .ta-pin .ta-pin-in{position:sticky !important;top:82px;height:calc(100vh - 82px);height:calc(100svh - 82px);justify-content:center;padding-top:20px !important;padding-bottom:30px !important;gap:22px !important}
 .ta-pin .ta-flowdia{width:min(100%,900px,calc((100svh - 430px) * 1.5185)) !important}
-.ta-pinbar{position:absolute;left:clamp(20px,4cqi,40px);right:clamp(20px,4cqi,40px);bottom:14px;height:4px;border-radius:4px;background:#E3EFE7;overflow:hidden}
+.ta-pinbar{position:relative;flex:0 0 auto;height:4px;margin:-6px 0 0;border-radius:4px;background:#E3EFE7;overflow:hidden}
 .ta-pinbar-f{display:block;height:100%;width:calc(var(--ta-pin-p,0) * 100%);border-radius:4px;background:#26834C}
 .ta-pinhint{display:flex;align-items:center;gap:8px;margin:-8px 0 0;font-size:14px;color:#5A6E61}
 .ta-qform{display:flex;align-items:center;gap:6px;flex:1 1 360px;max-width:460px;min-width:0;box-sizing:border-box;padding:6px;border-radius:999px;background:#FFFFFF;box-shadow:0 16px 36px -18px rgba(0,0,0,.55)}
@@ -350,10 +353,38 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 .ta-cr-chip:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
 .ta-slot{box-sizing:border-box;border:2px dashed #9CCAAE;border-radius:22px;background:rgba(238,246,241,.6);color:#44564B}
 @container (max-width: 900px){.ta-steps{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.ta-cr3{grid-template-columns:minmax(0,1fr) !important}.ta-cr2{grid-template-columns:minmax(0,1fr) !important}.ta-rev{grid-template-columns:minmax(0,1fr) !important}}
-@container (max-width: 640px){.ta-steps{grid-template-columns:minmax(0,1fr) !important;gap:10px !important}.ta-step{flex-direction:row !important;align-items:flex-start !important;gap:14px !important;padding:16px !important}.ta-step:hover{transform:none;box-shadow:none}.ta-stepn{flex:0 0 40px;width:40px !important;height:40px !important}.ta-qform{max-width:none;flex-basis:100%}.ta-qbtn{padding:0 16px;font-size:15px}.ta-qin{font-size:16px;padding-left:14px}.ta-pin .ta-pin-in{top:66px;height:calc(100vh - 66px);height:calc(100svh - 66px);justify-content:flex-start;padding-top:18px !important;padding-bottom:100px !important;gap:12px !important}.ta-pin h2{font-size:28px !important}.ta-pin .ta-lead{font-size:16px !important;line-height:1.5 !important}.ta-pin .ta-flowlist{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px !important}.ta-pin .ta-flowlist>li{flex-direction:row !important;align-items:center !important;gap:10px !important;padding:10px !important;min-height:60px;border:0 !important;border-radius:14px !important;background:#F4F9F6 !important}.ta-pin .ta-fdot{display:none}.ta-pinbar{bottom:94px}.ta-cr-chips{grid-template-columns:minmax(0,1fr) !important}}
+@container (max-width: 640px){.ta-steps{grid-template-columns:minmax(0,1fr) !important;gap:10px !important}.ta-step{flex-direction:row !important;align-items:flex-start !important;gap:14px !important;padding:16px !important}.ta-step:hover{transform:none;box-shadow:none}.ta-stepn{flex:0 0 40px;width:40px !important;height:40px !important}.ta-qform{max-width:none;flex-basis:100%}.ta-qbtn{padding:0 16px;font-size:15px}.ta-qin{font-size:16px;padding-left:14px}.ta-pin .ta-pin-in{top:66px;height:calc(100vh - 66px);height:calc(100svh - 66px);justify-content:flex-start;padding-top:16px !important;padding-bottom:96px !important;gap:10px !important}.ta-pin h2{font-size:24px !important}.ta-pin .ta-lead{font-size:15px !important;line-height:1.45 !important}.ta-pin .ta-tabs button{min-height:42px !important}.ta-pin .ta-pinbar{margin:-2px 0 0}.ta-pin .ta-flowlist{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px !important}.ta-pin .ta-flowlist>li{flex-direction:row !important;align-items:center !important;gap:8px !important;padding:8px !important;min-height:52px;border:0 !important;border-radius:14px !important;background:#F4F9F6 !important}.ta-pin .ta-flowlist>li>span:first-child{width:32px !important;height:32px !important;border-radius:10px !important}.ta-pin .ta-flowlist>li>span:first-child svg{width:19px;height:19px}.ta-pin .ta-fname{font-size:13px !important}.ta-pin .ta-fstat{font-size:11.5px !important}.ta-pin .ta-fdot{display:none}.ta-cr-chips{grid-template-columns:minmax(0,1fr) !important}}
 @media (max-height:740px){.ta-pin .ta-pinhint,.ta-pin .ta-pin-eb{display:none}}
-@media (max-height:540px){.ta-pin{height:auto}.ta-pin .ta-pin-in{position:relative !important;top:auto;height:auto}.ta-pinbar{display:none}}
+@media (max-width:640px){.ta-pin-active .ta-masc-live{opacity:0;transform:translate3d(170%,0,0) !important;pointer-events:none}}
+@media (max-height:600px){.ta-pin{height:auto}.ta-pin .ta-pin-in{position:relative !important;top:auto;height:auto}.ta-pinbar{display:none}}
 @media (prefers-reduced-motion: reduce){.ta-masc-fly,.tm-flame,.tm-armR,.tm-eyes,.ta-masc-lit .tm-glow{animation:none !important}.ta-masc-live,.ta-masc-tilt,.tm-flames{transition:none}.ta-step,.ta-step:hover{transition:none;transform:none}}
+.tm-eyes-h,.tm-eyes-x,.tm-mouth-o,.tm-stars,.tm-spark{display:none}
+.tm-look{transform:translate(var(--eye-x,0px),var(--eye-y,0px));transition:transform .18s ease}
+.ta-masc-btn:hover .tm-eyes{display:none}
+.ta-masc-btn:hover .tm-eyes-h{display:inline}
+.ta-mfx-drag .tm-mouth,.ta-mfx-fly .tm-mouth{display:none}
+.ta-mfx-drag .tm-mouth-o,.ta-mfx-fly .tm-mouth-o{display:inline}
+.ta-mfx-dizzy .tm-eyes,.ta-mfx-dizzy .tm-eyes-h{display:none !important}
+.ta-mfx-dizzy .tm-eyes-x{display:inline}
+.ta-mfx-dizzy .tm-stars{display:inline;transform-box:view-box;transform-origin:110px 46px;animation:taStars .9s linear infinite}
+@keyframes taStars{to{transform:rotate(360deg)}}
+.ta-mfx-drag .tm-legs{transform-box:fill-box;transform-origin:50% 0;animation:taKick .26s ease-in-out infinite alternate}
+@keyframes taKick{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.ta-mfx-drag .ta-masc-fly,.ta-mfx-fly .ta-masc-fly{animation:none}
+.ta-mfx-drag .tm-armR,.ta-mfx-fly .tm-armR{animation:taFlail .3s ease-in-out infinite alternate}
+@keyframes taFlail{from{transform:rotate(-14deg)}to{transform:rotate(10deg)}}
+.ta-mfx-new .tm-spark{display:inline;transform-box:view-box;transform-origin:110px 0;animation:taSpark .8s ease-out both}
+@keyframes taSpark{0%{opacity:0;transform:scale(.6)}35%{opacity:1}100%{opacity:0;transform:scale(1.3)}}
+.ta-mfx-new .ta-masc-tilt{animation:taHop .65s cubic-bezier(.3,1.5,.5,1)}
+@keyframes taHop{0%{transform:translateY(0)}40%{transform:translateY(-16px) rotate(-6deg)}100%{transform:translateY(0)}}
+.ta-mfx-pop .ta-masc-fly{animation:taSquash .45s ease}
+@keyframes taSquash{0%{transform:scale(1)}30%{transform:scale(1.12,.86)}60%{transform:scale(.94,1.08)}100%{transform:scale(1)}}
+.ta-mfx-trick .ta-masc-tilt{animation:taRoll 1.25s cubic-bezier(.6,0,.35,1)}
+@keyframes taRoll{0%{transform:rotate(0)}15%{transform:translateY(6px) rotate(-12deg)}70%{transform:translateY(-28px) rotate(372deg)}100%{transform:rotate(360deg)}}
+.ta-mfx-wave .tm-armR{animation:taWave2 1s ease-in-out}
+@keyframes taWave2{0%,100%{transform:rotate(0)}20%{transform:rotate(-18deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-14deg)}80%{transform:rotate(6deg)}}
+.ta-mfx-trick .tm-flames,.ta-mfx-ret .tm-flames,.ta-mfx-fly .tm-flames{transform:scaleY(1.9)}
+@media (prefers-reduced-motion: reduce){.ta-mfx-dizzy .tm-stars,.ta-mfx-drag .tm-legs,.ta-mfx-drag .tm-armR,.ta-mfx-fly .tm-armR,.ta-mfx-new .ta-masc-tilt,.ta-mfx-trick .ta-masc-tilt,.ta-mfx-pop .ta-masc-fly{animation:none}}
 </style>
 </helmet>
 <div class="ta-root" style="position: relative">
@@ -535,6 +566,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </div>
 <sc-if value="{{flowPinned}}" hint-placeholder-val="{{false}}">
+<div class="ta-pinbar" aria-hidden="true"><span class="ta-pinbar-f"></span></div>
+</sc-if>
+<sc-if value="{{flowPinned}}" hint-placeholder-val="{{false}}">
 <p class="ta-pinhint"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>Гортайте вниз — день зміниться на ніч, а потім на відключення</p>
 </sc-if>
 <p class="ta-lead" aria-live="polite" style="margin: 0; max-width: 760px; font-size: 20px; color: #44564B">{{flowText}}</p>
@@ -590,9 +624,6 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </li>
 </sc-for>
 </ul>
-<sc-if value="{{flowPinned}}" hint-placeholder-val="{{false}}">
-<div class="ta-pinbar" aria-hidden="true"><span class="ta-pinbar-f"></span></div>
-</sc-if>
 </div>
 </section>
 </sc-if>
@@ -1534,12 +1565,12 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <path d="M134 208h18l-3 12h-12z" fill="#26332C"></path>
 <rect x="64" y="150" width="26" height="6" rx="3" fill="#F5C542" opacity=".9"></rect>
 <rect x="130" y="150" width="26" height="6" rx="3" fill="#F5C542" opacity=".9"></rect>
-<path d="M94 206c-2 16-3 28-4 38" stroke="url(#tmLeg)" stroke-width="20" stroke-linecap="round" fill="none"></path>
+<g class="tm-legs"><path d="M94 206c-2 16-3 28-4 38" stroke="url(#tmLeg)" stroke-width="20" stroke-linecap="round" fill="none"></path>
 <path d="M126 206c2 16 3 28 4 38" stroke="url(#tmLeg)" stroke-width="20" stroke-linecap="round" fill="none"></path>
 <ellipse cx="88" cy="252" rx="15" ry="10" fill="url(#tmBoot)"></ellipse>
 <ellipse cx="132" cy="252" rx="15" ry="10" fill="url(#tmBoot)"></ellipse>
 <ellipse cx="84" cy="248" rx="5" ry="2.4" fill="#FFFFFF" opacity=".25"></ellipse>
-<ellipse cx="128" cy="248" rx="5" ry="2.4" fill="#FFFFFF" opacity=".25"></ellipse>
+<ellipse cx="128" cy="248" rx="5" ry="2.4" fill="#FFFFFF" opacity=".25"></ellipse></g>
 <path d="M78 140c0-14 12-22 32-22s32 8 32 22v52c0 16-14 26-32 26s-32-10-32-26z" fill="url(#tmSuit)"></path>
 <path d="M92 158h36v22c0 6-4 10-10 10h-16c-6 0-10-4-10-10z" fill="#1F7A45" opacity=".55"></path>
 <path d="M95 162h30" stroke="#7EDC9F" stroke-width="2" stroke-linecap="round" opacity=".6"></path>
@@ -1555,19 +1586,19 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <circle cx="110" cy="94" r="44" fill="url(#tmSkin)"></circle>
 <ellipse cx="86" cy="112" rx="10" ry="7" fill="url(#tmCheek)"></ellipse>
 <ellipse cx="134" cy="112" rx="10" ry="7" fill="url(#tmCheek)"></ellipse>
-<g class="tm-eyes">
+<g class="tm-look"><g class="tm-eyes">
 <ellipse cx="94" cy="98" rx="7.5" ry="9.5" fill="#1C2B22"></ellipse>
 <ellipse cx="126" cy="98" rx="7.5" ry="9.5" fill="#1C2B22"></ellipse>
 <circle cx="96.5" cy="94" r="2.8" fill="#FFFFFF"></circle>
 <circle cx="128.5" cy="94" r="2.8" fill="#FFFFFF"></circle>
 <circle cx="92" cy="102" r="1.3" fill="#FFFFFF" opacity=".8"></circle>
 <circle cx="124" cy="102" r="1.3" fill="#FFFFFF" opacity=".8"></circle>
-</g>
+</g><g class="tm-eyes-h"><path d="M87 100c2-6 12-6 14 0M119 100c2-6 12-6 14 0" stroke="#1C2B22" stroke-width="3.6" stroke-linecap="round" fill="none"></path></g><g class="tm-eyes-x"><path d="M89 93l10 10M99 93l-10 10M121 93l10 10M131 93l-10 10" stroke="#1C2B22" stroke-width="3.4" stroke-linecap="round"></path></g></g>
 <path d="M86 83c4-3 9-3 13-1M121 82c4-2 9-2 13 1" stroke="#8A5A3C" stroke-width="2.6" stroke-linecap="round" fill="none"></path>
 <ellipse cx="110" cy="107" rx="4" ry="3" fill="#E39C76"></ellipse>
-<path d="M98 116c6 8 18 8 24 0" fill="#9C3B2E"></path>
+<g class="tm-mouth"><path d="M98 116c6 8 18 8 24 0" fill="#9C3B2E"></path>
 <path d="M98 116c6 8 18 8 24 0" fill="none" stroke="#7A2A20" stroke-width="2.2" stroke-linecap="round"></path>
-<path d="M104 120c3 2 9 2 12 0" fill="#F08A7A"></path>
+<path d="M104 120c3 2 9 2 12 0" fill="#F08A7A"></path></g><g class="tm-mouth-o"><ellipse cx="110" cy="119" rx="6" ry="7.5" fill="#7A2A20"></ellipse><ellipse cx="110" cy="122" rx="3.6" ry="3" fill="#F08A7A"></ellipse></g>
 <path d="M64 80c0-30 20-48 46-48s46 18 46 48z" fill="url(#tmHat)"></path>
 <path d="M104 33h12v46h-12z" fill="#FFFFFF" opacity=".22"></path>
 <path d="M74 66c4-16 14-26 28-30" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".45" fill="none"></path>
@@ -1575,6 +1606,8 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <path d="M60 78h100" stroke="#FFF2B0" stroke-width="1.6" stroke-linecap="round" opacity=".8"></path>
 <path d="M110 52c-8 4-11 13-7 20 9-1 14-9 12-18z" fill="url(#tmLeaf)"></path>
 <path d="M104 70c3-5 6-9 10-13" stroke="#E8FFF0" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".8"></path>
+<g class="tm-stars"><path d="M70 50l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#FFD84A" stroke="#E0A51C" stroke-width=".8"></path><path d="M150 46l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6z" fill="#FFD84A" stroke="#E0A51C" stroke-width=".8"></path><path d="M112 22l1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#FFE680" stroke="#E0A51C" stroke-width=".8"></path></g>
+<g class="tm-spark" stroke="#FFD84A" stroke-width="2.4" stroke-linecap="round"><path d="M80 -6l-6-4M140 -6l6-4M76 12h-7M144 12h7M90 -20l-3-6M130 -20l3-6"></path></g>
 </svg>
 </span></span>
 </button>
@@ -2206,7 +2239,7 @@ class Component extends DCLogic {
     const MT = {
       top: [{ text: 'Привіт! Я Інженер IS. Коли лампочка над моєю головою світиться, у мене є порада саме для цього місця сторінки.' }],
       reviews: [{ text: 'Тут наші клієнти розповідають, як усе працює в них удома.' }],
-      flow: [{ text: 'Гортай далі: схема перемкнеться з дня на ніч, а потім на відключення світла. Так видно, звідки в домі береться енергія.' }],
+      flow: [{ text: 'Перемикай вкладки «День», «Ніч» і «Без світла» — побачиш, звідки в домі береться енергія, навіть коли вимкнули світло.' }],
       heat: [{ text: 'Тепловий насос «повітря — вода» працює і в мороз: до −20…−25' + nbsp + '°C, залежно від моделі.', cta: 'Порахувати', href: '#calc' }],
       solar: [{ text: 'Гібридна станція з акумулятором тримає світло в домі, коли вимикають мережу.', cta: 'Порахувати', href: '#calc' }],
       ev: [{ text: 'Для зарядки на 7,4' + nbsp + 'кВт вистачить однофазної мережі, для 11 і 22' + nbsp + 'кВт потрібні три фази.', cta: 'Розрахувати', href: '#calc' }],
@@ -2249,7 +2282,7 @@ class Component extends DCLogic {
     const crKit = CRK.find((k) => k.id === s.crKit) || CRK[3];
     const crAmt = s.crAmt || 300;
     const live = s.live;
-    const flowPinned = site && pageVals.showFlow;
+    const flowPinned = false;
     const extraVals = {
       mascotOn: mMode !== 'off' && !s.mascotOff,
       mascotOffNow: mMode !== 'off' && !!s.mascotOff,
