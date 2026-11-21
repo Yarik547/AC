@@ -62,7 +62,7 @@ async function main() {
   fs.writeFileSync(path.join(GEN, 'img.mjs'), `
 const MAN=${JSON.stringify(man)};
 const E=(s)=>String(s).replace(/[&<>"]/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const SIZES=[[/ta-heropar/,'100vw'],[/ta-par/,'(max-width: 900px) 100vw, 50vw'],[/ta-gimg/,'(max-width: 640px) 72vw, 300px'],[/ta-oimg-i/,'(max-width: 700px) 100vw, 640px'],[/ta-flogo/,'180px'],[/ta-logo/,'80px']];
+const SIZES=[[/ta-heropar/,'100vw'],[/ta-par/,'(max-width: 900px) 100vw, 50vw'],[/ta-gimg/,'(max-width: 640px) 72vw, 300px'],[/ta-oimg-i/,'(max-width: 700px) 100vw, 640px'],[/ta-mthumb-i/,'136px'],[/ta-flogo/,'180px'],[/ta-logo/,'80px']];
 export function imgInfo(src){return src&&src.indexOf('/_blob/')===0?MAN[src.slice(7)]||null:null;}
 export function sizesFor(cls){for(let i=0;i<SIZES.length;i++)if(SIZES[i][0].test(cls))return SIZES[i][1];return '100vw';}
 export function IMG(src,cls){

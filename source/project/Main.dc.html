@@ -164,6 +164,43 @@ input:focus,select:focus,textarea:focus{outline:2px solid #26834C;outline-offset
 @container (max-width: 700px){.ta-ov-in{align-items:flex-end !important;padding:0 !important}.ta-osheet{grid-template-columns:minmax(0,1fr) !important;border-radius:26px 26px 0 0 !important;max-height:94% !important}.ta-oimg{min-height:0 !important;aspect-ratio:4/3;max-height:46vh}.ta-obody{padding:20px 18px calc(18px + env(safe-area-inset-bottom)) !important}.ta-osheet h3{font-size:25px !important}}
 @keyframes taPing{0%{box-shadow:0 0 0 0 rgba(40,135,79,.45)}100%{box-shadow:0 0 0 14px rgba(40,135,79,0)}}
 .ta-mpin::after{content:"";position:absolute;inset:-3px;border-radius:50%;animation:taPing 2.4s ease-out infinite}
+.ta-mpinb{position:absolute;display:flex;align-items:center;gap:6px;white-space:nowrap;margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:1}
+.ta-mpinb::before{content:"";position:absolute;inset:-9px -6px}
+.ta-mpinb .ta-mpin{transition:transform .2s ease,background-color .2s ease}
+.ta-mpinb .ta-mapl{transition:background-color .2s ease,color .2s ease}
+.ta-mpinb:hover .ta-mpin{transform:scale(1.18)}
+.ta-mpinb:hover .ta-mapl{color:#1F6E3F}
+.ta-mpinb:focus-visible{outline:none}
+.ta-mpinb:focus-visible .ta-mapl{outline:2px solid #26834C;outline-offset:2px}
+.ta-mpinb[aria-pressed="true"]{z-index:2}
+.ta-mpinb[aria-pressed="true"] .ta-mpin{background:#1C2B22 !important;transform:scale(1.2)}
+.ta-mpinb[aria-pressed="true"] .ta-mapl{background:#1C2B22 !important;color:#FFFFFF !important}
+.ta-mlistb{display:flex;align-items:center;gap:14px;width:100%;min-height:52px;margin:0;padding:8px 6px 8px 0;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ta-mlistb:hover .ta-mlname,.ta-mlistb[aria-pressed="true"] .ta-mlname{color:#1F6E3F}
+.ta-mlistb[aria-pressed="true"] .ta-mldot{background:#1C2B22 !important;box-shadow:0 0 0 4px rgba(28,43,34,.16) !important}
+.ta-mlistb:focus-visible{outline:2px solid #26834C;outline-offset:2px;border-radius:8px}
+.ta-mapcol{position:relative;min-width:0}
+@keyframes taCardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ta-mapcard{display:none;box-sizing:border-box;background:#FFFFFF;border-radius:22px;padding:16px 16px 14px;margin-top:12px;box-shadow:0 0 0 1px #DCEAE1;scroll-margin:96px 0 110px;animation:taCardIn .35s cubic-bezier(.2,.8,.2,1) both}
+.ta-mapcard-d{box-sizing:border-box;background:#FFFFFF;border-radius:24px;padding:18px 18px 20px;box-shadow:0 24px 50px -34px rgba(16,40,26,.5),0 0 0 1px #DCEAE1;scroll-margin:110px 0 40px;animation:taCardIn .35s cubic-bezier(.2,.8,.2,1) both}
+.ta-mapback{display:inline-flex;align-items:center;gap:6px;margin:0 0 12px;padding:7px 12px 7px 8px;border:0;border-radius:12px;background:#EEF6F1;color:#1F6E3F;font:inherit;font-size:14px;font-weight:700;line-height:1;cursor:pointer;transition:background-color .2s ease}
+.ta-mapback:hover{background:#E1F0E7}
+.ta-mapback:focus-visible{outline:2px solid #26834C;outline-offset:2px}
+.ta-mthumbs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 10px;margin-top:16px}
+.ta-mthumbs-grid .ta-mthumb{flex:none;min-width:0}
+.ta-mthumbs-grid .ta-mthumb-w{width:100%;height:auto;aspect-ratio:4/3}
+.ta-mthumbs-grid.ta-mthumbs-one .ta-mthumb{grid-column:span 2}
+.ta-mlist-off{display:none !important}
+.ta-mthumbs{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:12px -16px 0;padding:0 16px 2px;scroll-padding-inline:16px}
+.ta-mthumbs::-webkit-scrollbar{display:none}
+.ta-mthumbs-more{padding-right:56px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 52px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 52px),transparent)}
+.ta-mthumb{flex:0 0 136px;scroll-snap-align:start;display:flex;flex-direction:column;gap:6px;margin:0;padding:0;border:0;background:none;font:inherit;color:#1C2B22;text-align:left;cursor:pointer}
+.ta-mthumb-w{position:relative;display:block;width:136px;height:98px;border-radius:14px;overflow:hidden;background:#E3EFE7}
+.ta-mthumb-i{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.ta-mthumb:hover .ta-mthumb-i{transform:scale(1.05)}
+.ta-mthumb:focus-visible{outline:none}
+.ta-mthumb:focus-visible .ta-mthumb-w{outline:2px solid #26834C;outline-offset:2px}
+.ta-maphint{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0 0;font-size:14px;color:#5A6E61}
 .ta-faq summary{list-style:none}
 .ta-faq summary::-webkit-details-marker{display:none}
 .ta-faq summary:hover{color:#1F6E3F}
@@ -172,8 +209,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #26834C;outline-offset
 .ta-faq[open]{background:#EEF6F1 !important}
 .ta-faq[open] .ta-faqchev{transform:rotate(180deg)}
 @container (max-width: 900px){.ta-mapwrap{grid-template-columns:minmax(0,1fr) !important}.ta-faqgrid{grid-template-columns:minmax(0,1fr) !important}.ta-faqintro{position:relative !important;top:auto !important}}
-@container (max-width: 640px){.ta-map{border-radius:22px !important}.ta-mapl{font-size:11px !important}.ta-mapc{font-size:10px !important}.ta-faq summary{font-size:16.5px !important;padding:14px 16px !important;min-height:58px !important}.ta-faq>div{padding:0 16px 16px !important;font-size:16px !important}.ta-pplus{width:30px !important;height:30px !important;border-radius:10px !important}.ta-map{order:-1}.ta-faqbtns{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px !important}.ta-faqbtns>a{justify-content:center;padding:0 6px !important;font-size:14px !important;gap:6px !important}.ta-faqbtns svg{display:none}.ta-mbi{flex-basis:46px !important;height:48px}}
-@media (prefers-reduced-motion: reduce){.ta-osheet,.ta-mpin::after{animation:none !important}.ta-faqchev,.ta-pplus{transition:none}}
+@container (max-width: 640px){.ta-map{border-radius:22px !important}.ta-mapl{font-size:11px !important}.ta-mapc{font-size:10px !important}.ta-faq summary{font-size:16.5px !important;padding:14px 16px !important;min-height:58px !important}.ta-faq>div{padding:0 16px 16px !important;font-size:16px !important}.ta-pplus{width:30px !important;height:30px !important;border-radius:10px !important}.ta-mapcol{order:-1}.ta-mapcard{display:block}.ta-mapcard-d{display:none !important}.ta-mlist-off{display:flex !important}.ta-mthumb{flex-basis:124px !important}.ta-mthumb-w{width:124px !important;height:92px !important}.ta-maphint-off{display:none !important}.ta-faqbtns{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px !important}.ta-faqbtns>a{justify-content:center;padding:0 6px !important;font-size:14px !important;gap:6px !important}.ta-faqbtns svg{display:none}.ta-mbi{flex-basis:46px !important;height:48px}}
+@media (prefers-reduced-motion: reduce){.ta-osheet,.ta-mpin::after,.ta-mapcard,.ta-mapcard-d{animation:none !important}.ta-faqchev,.ta-pplus{transition:none}}
 @keyframes taBarIn{from{transform:translateY(110%);opacity:0}to{transform:none;opacity:1}}
 .ta-hcards{grid-template-columns:repeat(4,minmax(0,1fr))}
 @container (max-width: 1000px){.ta-hcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -971,22 +1008,43 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <button type="button" class="ta-btn ta-ghost" onClick="{{showMore}}" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none; font-family: inherit">{{moreLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
 </div>
 </sc-if>
-<div id="map" class="ta-mapwrap" style="margin-top: clamp(56px, 7cqi, 104px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 28px 64px; align-items: center">
+<div id="map" class="ta-mapwrap" style="margin-top: clamp(56px, 7cqi, 104px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 28px 64px; align-items: start">
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <p style="margin: 0 0 -10px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Де ми працювали</p>
 <h3 style="margin: 0; font-weight: 300; font-size: clamp(28px, 3.2cqi, 44px); line-height: 1.12; letter-spacing: -0.02em">Від Яворова до Солотвина</h3>
-<p class="ta-hide-m" style="margin: 0; font-size: 18px; color: #44564B">Частина наших об’єктів на мапі: Львів із передмістям, Львівщина, Тернопільщина й Закарпаття.</p>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #CFE3D6">
+<p class="ta-hide-m" style="margin: 0; font-size: 18px; color: #44564B">Частина наших об’єктів: Львів із передмістям, Львівщина, Тернопільщина й Закарпаття. Натисніть на місто — покажемо фото.</p>
+<ul class="{{mapListCls}}" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #CFE3D6">
 <sc-for list="{{mapList}}" as="m" hint-placeholder-count="6">
-<li style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 8px 0; border-bottom: 1px solid #CFE3D6">
-<span aria-hidden="true" style="flex: 0 0 10px; width: 10px; height: 10px; border-radius: 50%; background: {{primary}}; box-shadow: 0 0 0 4px rgba(40, 135, 79, 0.16)"></span>
-<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.3"><span style="font-weight: 700; font-size: 16px">{{m.name}}</span><span style="font-size: 14px; color: #4F6457">{{m.sub}}</span></span>
+<li style="border-bottom: 1px solid #CFE3D6"><button type="button" class="ta-mlistb" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}">
+<span class="ta-mldot" aria-hidden="true" style="flex: 0 0 10px; width: 10px; height: 10px; border-radius: 50%; background: {{primary}}; box-shadow: 0 0 0 4px rgba(40, 135, 79, 0.16)"></span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.3"><span class="ta-mlname" style="font-weight: 700; font-size: 16px; transition: color .2s ease">{{m.name}}</span><span style="font-size: 14px; color: #4F6457">{{m.sub}}</span></span>
 <span style="flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #1F6E3F; white-space: nowrap">{{m.count}}</span>
-</li>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg>
+</button></li>
 </sc-for>
 </ul>
+<sc-if value="{{mapOpen}}" hint-placeholder-val="{{false}}">
+<div class="ta-mapcard-d" role="region" aria-label="{{mapCard.name}}">
+<button type="button" class="ta-mapback" onClick="{{mapClose}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>Усі місця</button>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 22px; font-weight: 800; line-height: 1.2; color: #1C2B22">{{mapCard.name}}</span>
+<span style="font-size: 15px; line-height: 1.45; color: #4F6457">{{mapCard.sub}}</span>
 </div>
-<div class="ta-map" role="img" aria-label="Мапа заходу України з позначками наших об’єктів: Львів і передмістя, Яворів, Ластівка, Чортків, Колочава, Солотвино" style="position: relative; min-width: 0; aspect-ratio: 640 / 575; border-radius: 28px; overflow: hidden; background: #E9F1EC">
+<sc-if value="{{mapCard.hasPhotos}}" hint-placeholder-val="{{true}}">
+<div class="ta-mthumbs-grid {{mapCard.gridCls}}">
+<sc-for list="{{mapCard.items}}" as="t" hint-placeholder-count="3">
+<button type="button" class="ta-mthumb" onClick="{{t.open}}"><span class="ta-mthumb-w"><img class="ta-mthumb-i" src="{{t.src}}" alt="" loading="lazy"></span><span style="font-size: 13px; font-weight: 700; line-height: 1.25">{{t.title}}</span><span style="margin-top: -4px; font-size: 12px; line-height: 1.3; color: #5A6E61">{{t.place}}</span></button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{mapCard.noPhotos}}" hint-placeholder-val="{{false}}">
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: #44564B">Фото цього об’єкта ще немає на сайті. Інженер розповість, що там стоїть: <a href="tel:+380684090275" style="color: #1F6E3F; font-weight: 700; white-space: nowrap">068 409 02 75</a>.</p>
+</sc-if>
+</div>
+</sc-if>
+</div>
+<div class="ta-mapcol">
+<div class="ta-map" role="group" aria-label="Мапа наших об’єктів: натисніть на точку, щоб побачити фото" style="position: relative; min-width: 0; aspect-ratio: 640 / 575; border-radius: 28px; overflow: hidden; background: #E9F1EC">
 <img class="ta-mapimg" src="/_blob/930f52353d61729e58b2aca769745797" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
 <span aria-hidden="true" class="ta-mapc" style="position: absolute; left: 4%; top: 6%; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #9AAEA2">ПОЛЬЩА</span>
 <span aria-hidden="true" class="ta-mapc" style="position: absolute; left: 3%; top: 84%; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #9AAEA2">УГОРЩИНА</span>
@@ -996,11 +1054,34 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <span aria-hidden="true" style="position: absolute; left: {{r.x}}%; top: {{r.y}}%; transform: {{r.tf}}; display: flex; align-items: center; gap: 5px; flex-direction: {{r.dir}}; font-size: 12px; font-weight: 600; color: #6F8577; white-space: nowrap"><span style="width: 6px; height: 6px; border-radius: 50%; background: #A9BCB0"></span><span class="ta-mapl">{{r.name}}</span></span>
 </sc-for>
 <sc-for list="{{mapPins}}" as="m" hint-placeholder-count="6">
-<span aria-hidden="true" style="position: absolute; left: {{m.x}}%; top: {{m.y}}%; transform: {{m.tf}}; display: flex; align-items: center; gap: 6px; flex-direction: {{m.dir}}; white-space: nowrap">
-<span class="ta-mpin" style="position: relative; flex: 0 0 auto; width: {{m.size}}px; height: {{m.size}}px; border-radius: 50%; background: {{primary}}; border: 3px solid #FFFFFF; box-shadow: 0 6px 14px -4px rgba(16, 60, 34, 0.55); color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-sizing: border-box">{{m.badge}}</span>
+<button type="button" class="ta-mpinb" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}" aria-label="{{m.aria}}" style="left: {{m.x}}%; top: {{m.y}}%; transform: {{m.tf}}; flex-direction: {{m.dir}}">
+<span class="ta-mpin" aria-hidden="true" style="position: relative; flex: 0 0 auto; width: {{m.size}}px; height: {{m.size}}px; border-radius: 50%; background: {{primary}}; border: 3px solid #FFFFFF; box-shadow: 0 6px 14px -4px rgba(16, 60, 34, 0.55); color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-sizing: border-box">{{m.badge}}</span>
 <span class="ta-mapl" style="padding: 3px 9px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 4px 12px -6px rgba(16, 40, 26, 0.45); font-size: 13px; font-weight: 700; color: #1C2B22">{{m.name}}</span>
-</span>
+</button>
 </sc-for>
+</div>
+<sc-if value="{{mapOpen}}" hint-placeholder-val="{{false}}">
+<div class="ta-mapcard" role="region" aria-label="{{mapCard.name}}">
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 18px; font-weight: 800; line-height: 1.25; color: #1C2B22">{{mapCard.name}}</span>
+<span style="font-size: 14px; line-height: 1.4; color: #4F6457">{{mapCard.sub}}</span>
+</div>
+<button type="button" class="ta-btn" onClick="{{mapClose}}" aria-label="Закрити" style="flex: 0 0 36px; width: 36px; height: 36px; border: 0; border-radius: 12px; background: #EEF6F1; color: #1C2B22; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<sc-if value="{{mapCard.hasPhotos}}" hint-placeholder-val="{{true}}">
+<div class="ta-mthumbs {{mapCard.thumbsCls}}">
+<sc-for list="{{mapCard.items}}" as="t" hint-placeholder-count="3">
+<button type="button" class="ta-mthumb" onClick="{{t.open}}"><span class="ta-mthumb-w"><img class="ta-mthumb-i" src="{{t.src}}" alt="" loading="lazy"></span><span style="font-size: 13px; font-weight: 700; line-height: 1.25">{{t.title}}</span><span style="margin-top: -4px; font-size: 12px; line-height: 1.3; color: #5A6E61">{{t.place}}</span></button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{mapCard.noPhotos}}" hint-placeholder-val="{{false}}">
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: #44564B">Фото цього об’єкта ще немає на сайті. Інженер розповість, що там стоїть: <a href="tel:+380684090275" style="color: #1F6E3F; font-weight: 700; white-space: nowrap">068 409 02 75</a>.</p>
+</sc-if>
+</div>
+</sc-if>
+<p class="ta-maphint {{mapHintCls}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10"></path><path d="M12 10V8.5a1.5 1.5 0 0 1 3 0V11"></path><path d="M15 11v-.5a1.5 1.5 0 0 1 3 0V15c0 3.3-2.4 6-5.6 6h-.6c-1.9 0-3.4-.8-4.5-2.3L4.7 15.4a1.6 1.6 0 0 1 2.4-2.1L9 15"></path></svg>Натисніть на точку — покажемо фото об’єктів</p>
 </div>
 </div>
 </div>
@@ -1143,9 +1224,11 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <div class="ta-osheet" role="dialog" aria-modal="true" aria-labelledby="obj-title" style="position: relative; box-sizing: border-box; width: 100%; max-width: 940px; max-height: 100%; overflow: auto; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); border-radius: 28px; background: #FFFFFF; color: #1C2B22; box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.65); font-family: 'Manrope', 'Segoe UI', Arial, sans-serif; font-size: 17px; line-height: 1.55">
 <div class="ta-oimg" style="position: relative; min-height: 420px; background: #1C2B22">
 <img class="ta-oimg-i" src="{{obj.src}}" alt="{{obj.title}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<sc-if value="{{objMulti}}" hint-placeholder-val="{{true}}">
 <span style="position: absolute; left: 16px; top: 16px; padding: 6px 12px; border-radius: 999px; background: rgba(12, 30, 20, 0.6); color: #FFFFFF; font-size: 13px; font-weight: 700">{{obj.pos}}</span>
 <button type="button" class="ta-btn" aria-label="Попередній об’єкт" onClick="{{objPrev}}" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; padding: 0; border: 0; border-radius: 16px; background: rgba(255, 255, 255, 0.94); color: #1C2B22; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
 <button type="button" class="ta-btn" aria-label="Наступний об’єкт" onClick="{{objNext}}" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; padding: 0; border: 0; border-radius: 16px; background: rgba(255, 255, 255, 0.94); color: #1C2B22; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</sc-if>
 </div>
 <div class="ta-obody" style="box-sizing: border-box; padding: 26px 28px 26px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
@@ -1184,6 +1267,8 @@ class Component extends DCLogic {
       scenario: 'day',
       showAll: false,
       menuOpen: false,
+      mapSel: null,
+      objFrom: null,
       name: '',
       phone: '',
       service: pg === 'solar' ? 'Сонячна станція' : (pg === 'ev' ? 'Зарядна станція' : 'Тепловий насос'),
@@ -1507,18 +1592,18 @@ class Component extends DCLogic {
     const filter = s.filter || 'all';
 
     const all = [
-      { kind: 'heat', src: '/_blob/012042b31c0f5c2a662a5291eb047778', title: 'Тепловий насос 9 кВт', place: 'Рудно, Львівська обл.' },
-      { kind: 'solar', src: '/_blob/c48c06165a69dcd6fa6bb58f874fe9d9', title: 'Сонячна станція 10 кВт', place: 'м. Чортків' },
-      { kind: 'heat', src: '/_blob/acd8496afe3c364ed9b0ee54e4d36731', title: 'Тепловий насос 12 кВт', place: 'с. Колочава, Закарпатська обл.' },
-      { kind: 'solar', src: '/_blob/1f04df12031f898a901f0170c0eb7152', title: 'Промислова сонячна станція 30 кВт', place: 'с. Ластівка, Львівська обл.' },
+      { kind: 'heat', src: '/_blob/012042b31c0f5c2a662a5291eb047778', title: 'Тепловий насос 9 кВт', place: 'Рудно, Львівська обл.', loc: 'lviv' },
+      { kind: 'solar', src: '/_blob/c48c06165a69dcd6fa6bb58f874fe9d9', title: 'Сонячна станція 10 кВт', place: 'м. Чортків', loc: 'chortkiv' },
+      { kind: 'heat', src: '/_blob/acd8496afe3c364ed9b0ee54e4d36731', title: 'Тепловий насос 12 кВт', place: 'с. Колочава, Закарпатська обл.', loc: 'kolochava' },
+      { kind: 'solar', src: '/_blob/1f04df12031f898a901f0170c0eb7152', title: 'Промислова сонячна станція 30 кВт', place: 'с. Ластівка, Львівська обл.', loc: 'lastivka' },
       { kind: 'heat', src: '/_blob/c9d080fb80f9e3b8c7c67e7becc43588', title: 'Теплові насоси Panasonic', place: 'для потреб ОСББ' },
-      { kind: 'solar', src: '/_blob/acb51001282e2b478825b79e8afbf55d', title: 'Сонячна станція 15 кВт', place: 'м. Львів' },
-      { kind: 'heat', src: '/_blob/e7b4a38437b56a290a8e659523d6cb3f', title: 'Тепловий насос 12 кВт', place: 'с. Кожичі' },
-      { kind: 'solar', src: '/_blob/307e0862f4a9f9397bf2077bf203af66', title: 'Сонячна станція 17 кВт', place: 'м. Львів' },
-      { kind: 'heat', src: '/_blob/a78d08859578d7bc11d597dc2e0aa855', title: 'Тепловий насос для промислових потреб', place: 'с. Оброшино' },
-      { kind: 'solar', src: '/_blob/6c210f1f1286c272765e6fd2fc0ac17f', title: 'Сонячна станція 17 кВт для власних потреб', place: 'м. Львів' },
+      { kind: 'solar', src: '/_blob/acb51001282e2b478825b79e8afbf55d', title: 'Сонячна станція 15 кВт', place: 'м. Львів', loc: 'lviv' },
+      { kind: 'heat', src: '/_blob/e7b4a38437b56a290a8e659523d6cb3f', title: 'Тепловий насос 12 кВт', place: 'с. Кожичі', loc: 'lviv' },
+      { kind: 'solar', src: '/_blob/307e0862f4a9f9397bf2077bf203af66', title: 'Сонячна станція 17 кВт', place: 'м. Львів', loc: 'lviv' },
+      { kind: 'heat', src: '/_blob/a78d08859578d7bc11d597dc2e0aa855', title: 'Тепловий насос для промислових потреб', place: 'с. Оброшине', loc: 'lviv' },
+      { kind: 'solar', src: '/_blob/6c210f1f1286c272765e6fd2fc0ac17f', title: 'Сонячна станція 17 кВт для власних потреб', place: 'м. Львів', loc: 'lviv' },
       { kind: 'heat', src: '/_blob/e8f28f498214b29243b6b6cea2d7584a', title: 'Тепловий насос 32 кВт', place: 'для опалення готелю' },
-      { kind: 'solar', src: '/_blob/5791b88bbe2c7954ac091a06f01099b3', title: 'Сонячна станція 10 кВт', place: 'м. Львів' }
+      { kind: 'solar', src: '/_blob/5791b88bbe2c7954ac091a06f01099b3', title: 'Сонячна станція 10 кВт', place: 'м. Львів', loc: 'lviv' }
     ];
     const pills = [
       { id: 'all', label: 'Усі' },
@@ -1528,47 +1613,54 @@ class Component extends DCLogic {
       ...p,
       selected: p.id === filter,
       notSelected: p.id !== filter,
-      pick: () => this.setState({ filter: p.id, obj: null })
+      pick: () => this.setState({ filter: p.id, obj: null, objFrom: null })
     }));
     const filtered = all.filter((p) => filter === 'all' || p.kind === filter);
     const limit = 8;
     const showAll = !!s.showAll;
-    const projects = filtered.map((p, i) => ({ ...p, cls: (!showAll && i >= limit) ? 'ta-extra' : '', aria: 'Відкрити об’єкт: ' + p.title + ', ' + p.place, open: () => this.setState({ obj: i }) }));
+    const projects = filtered.map((p, i) => ({ ...p, cls: (!showAll && i >= limit) ? 'ta-extra' : '', aria: 'Відкрити об’єкт: ' + p.title + ', ' + p.place, open: () => this.setState({ obj: i, objFrom: null }) }));
+    const LOC = [
+      { id: 'lviv', name: 'Львів і передмістя', sub: 'Рудно, Оброшине, Кожичі, Старе Село', n: 9, x: 46.22, y: 21.16, side: 'r', badge: '9', size: 30 },
+      { id: 'yavoriv', name: 'Яворів', sub: 'Львівська обл.', n: 1, x: 31.84, y: 17.44, side: 'l', badge: '', size: 18 },
+      { id: 'lastivka', name: 'Ластівка', sub: 'Львівська обл.', n: 1, x: 31.78, y: 46.44, side: 'l', badge: '', size: 18 },
+      { id: 'chortkiv', name: 'Чортків', sub: 'Тернопільська обл.', n: 1, x: 85.51, y: 52.22, side: 'l', badge: '', size: 18 },
+      { id: 'kolochava', name: 'Колочава', sub: 'Закарпатська обл.', n: 1, x: 38.84, y: 74.46, side: 'r', badge: '', size: 18 },
+      { id: 'solotvyno', name: 'Солотвино', sub: 'Закарпатська обл.', n: 1, x: 42.64, y: 92.21, side: 'r', badge: '', size: 18 }
+    ];
+    const objWord = (n) => n === 1 ? 'об’єкт' : (n >= 2 && n <= 4 ? 'об’єкти' : 'об’єктів');
+    const mapSel = s.mapSel || null;
+    const selLoc = LOC.find((l) => l.id === mapSel) || null;
+    const mapObjs = selLoc ? all.filter((p) => p.loc === selLoc.id) : [];
+    const pickLoc = (id) => () => this.setState({ mapSel: mapSel === id ? null : id });
+    const sheetList = s.objFrom === 'map' ? mapObjs : filtered;
     const oi = (s.obj === null || s.obj === undefined) ? -1 : s.obj;
-    const oc = oi >= 0 ? filtered[oi] : null;
+    const oc = oi >= 0 ? sheetList[oi] : null;
     const opw = oc ? (oc.title.match(/(\d+)\s?кВт/) || [])[1] : '';
-    const nObj = filtered.length || 1;
+    const nObj = sheetList.length || 1;
     const objVals = {
       objOpen: !!oc,
-      obj: oc ? { src: oc.src, title: oc.title, place: oc.place, kindLabel: oc.kind === 'heat' ? 'Тепловий насос' : 'Сонячна станція', power: opw ? opw + '\u00A0кВт' : '', pos: (oi + 1) + ' / ' + filtered.length } : { src: '', title: '', place: '', kindLabel: '', power: '', pos: '' },
+      objMulti: sheetList.length > 1,
+      obj: oc ? { src: oc.src, title: oc.title, place: oc.place, kindLabel: oc.kind === 'heat' ? 'Тепловий насос' : 'Сонячна станція', power: opw ? opw + '\u00A0кВт' : '', pos: (oi + 1) + ' / ' + sheetList.length } : { src: '', title: '', place: '', kindLabel: '', power: '', pos: '' },
       objPrev: () => this.setState({ obj: (oi - 1 + nObj) % nObj }),
       objNext: () => this.setState({ obj: (oi + 1) % nObj }),
       objClose: () => this.setState({ obj: null }),
       objToForm: () => this.setState({ obj: null, submitted: false, service: oc && oc.kind === 'heat' ? 'Тепловий насос' : 'Сонячна станція', note: oc ? 'Цікавить схожий об’єкт: ' + oc.title + ', ' + oc.place + '.' : '' })
     };
     const pinTf = (side, size) => side === 'l' ? { dir: 'row-reverse', tf: 'translate(calc(-100% + ' + size / 2 + 'px), -50%)' } : (side === 'b' ? { dir: 'column', tf: 'translate(-50%, -' + size / 2 + 'px)' } : { dir: 'row', tf: 'translate(-' + size / 2 + 'px, -50%)' });
-    const mapPins = [
-      { name: 'Львів і передмістя', x: 46.22, y: 21.16, side: 'r', badge: '9', size: 30 },
-      { name: 'Яворів', x: 31.84, y: 17.44, side: 'l', badge: '', size: 18 },
-      { name: 'Ластівка', x: 31.78, y: 46.44, side: 'l', badge: '', size: 18 },
-      { name: 'Чортків', x: 85.51, y: 52.22, side: 'l', badge: '', size: 18 },
-      { name: 'Колочава', x: 38.84, y: 74.46, side: 'r', badge: '', size: 18 },
-      { name: 'Солотвино', x: 42.64, y: 92.21, side: 'r', badge: '', size: 18 }
-    ].map((m) => ({ ...m, ...pinTf(m.side, m.size) }));
+    const mapPins = LOC.map((m) => ({ ...m, ...pinTf(m.side, m.size), pressed: mapSel === m.id ? 'true' : 'false', pick: pickLoc(m.id), aria: m.name + ': ' + m.n + '\u00A0' + objWord(m.n) + ', показати фото' }));
     const mapRefs = [
       { name: 'Ужгород', x: 7.67, y: 67.17, side: 'r' },
       { name: 'Тернопіль', x: 80.98, y: 31.98, side: 'l' },
       { name: 'Івано-Франківськ', x: 61.36, y: 55.81, side: 'b' },
       { name: 'Чернівці', x: 88.67, y: 79.67, side: 'l' }
     ].map((m) => ({ ...m, ...pinTf(m.side, 6) }));
-    const mapList = [
-      { name: 'Львів і передмістя', sub: 'Рудно, Оброшине, Кожичі, Старе Село', count: '9 об’єктів' },
-      { name: 'Яворів', sub: 'Львівська обл.', count: '1 об’єкт' },
-      { name: 'Ластівка', sub: 'Львівська обл.', count: '1 об’єкт' },
-      { name: 'Чортків', sub: 'Тернопільська обл.', count: '1 об’єкт' },
-      { name: 'Колочава', sub: 'Закарпатська обл.', count: '1 об’єкт' },
-      { name: 'Солотвино', sub: 'Закарпатська обл.', count: '1 об’єкт' }
-    ];
+    const mapList = LOC.map((m) => ({ name: m.name, sub: m.sub, count: m.n + '\u00A0' + objWord(m.n), pressed: mapSel === m.id ? 'true' : 'false', pick: pickLoc(m.id) }));
+    const mapCard = selLoc ? {
+      name: selLoc.name,
+      sub: selLoc.sub + ' · ' + selLoc.n + '\u00A0' + objWord(selLoc.n) + (mapObjs.length && mapObjs.length < selLoc.n ? ', на\u00A0фото\u00A0— ' + mapObjs.length : ''),
+      hasPhotos: mapObjs.length > 0, noPhotos: mapObjs.length === 0, thumbsCls: mapObjs.length > 2 ? 'ta-mthumbs-more' : '', gridCls: mapObjs.length === 1 ? 'ta-mthumbs-one' : '',
+      items: mapObjs.map((p, k) => ({ src: p.src, title: p.title, place: p.place, open: () => this.setState({ obj: k, objFrom: 'map' }) }))
+    } : { name: '', sub: '', hasPhotos: false, noPhotos: false, thumbsCls: '', gridCls: '', items: [] };
     const page = this.props.page || 'home';
     const FAQ = [
       { cat: 'all', q: 'Скільки це коштує?', a: 'Орієнтовну суму покаже калькулятор вище. Точну назве інженер після безкоштовної консультації — з урахуванням вашого будинку, обладнання та монтажу.' },
@@ -1758,6 +1850,7 @@ class Component extends DCLogic {
       ...objVals,
       ...pageVals,
       mapPins, mapRefs, mapList, faqs,
+      mapOpen: !!selLoc, mapCard, mapClose: () => this.setState({ mapSel: null }), mapHintCls: selLoc ? 'ta-maphint-off' : '', mapListCls: selLoc ? 'ta-mlist-off' : '',
       evPhoto: EV_PHOTO, evPhotoSlot: !EV_PHOTO && !this.props.site,
       hasMore,
       moreLabel: 'Показати ще ' + (filtered.length - limit),

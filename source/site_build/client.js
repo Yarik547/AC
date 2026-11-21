@@ -71,7 +71,18 @@ function patch(strs) {
   afterRender(ovWas, ovNow);
 }
 
+let lastMapCard = '';
 function afterRender(ovWas, ovNow) {
+  // Bring the map card into view when it opens off-screen (e.g. tapping a city in the list on a phone).
+  const mapName = vals.mapOpen && vals.mapCard ? vals.mapCard.name : '';
+  if (mapName && mapName !== lastMapCard) {
+    const card = [...document.querySelectorAll('.ta-mapcard, .ta-mapcard-d')].find((el) => el.offsetParent !== null);
+    if (card) {
+      const r = card.getBoundingClientRect();
+      if (r.top < 80 || r.bottom > window.innerHeight - 96) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+  lastMapCard = mapName;
   const lock = !!(vals.objOpen || vals.menuOpen);
   document.documentElement.classList.toggle('ta-lock', lock);
   const ov = wrappers[wrappers.length - 1];
@@ -125,6 +136,7 @@ function boot() {
     if (e.key === 'Escape') {
       if (vals.objOpen && typeof vals.objClose === 'function') vals.objClose();
       else if (vals.menuOpen && typeof vals.closeMenu === 'function') vals.closeMenu();
+      else if (vals.mapOpen && typeof vals.mapClose === 'function') vals.mapClose();
     } else if (vals.objOpen && e.key === 'ArrowRight' && typeof vals.objNext === 'function') vals.objNext();
     else if (vals.objOpen && e.key === 'ArrowLeft' && typeof vals.objPrev === 'function') vals.objPrev();
   });
