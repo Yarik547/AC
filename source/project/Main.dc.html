@@ -459,10 +459,11 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 .ta-pcta-p{margin:0;display:flex;flex-direction:column;gap:2px}
 .ta-pcta-p b{font-size:22px;font-weight:700}
 .ta-pcta-p span{font-size:15px;color:#CFE3D6}
-.ta-pcta .ta-qform{width:100%}
+.ta-pcta .ta-qform{flex:0 0 auto;width:100%;max-width:none}
 .ta-pcta-m{display:flex;flex-wrap:wrap;gap:8px}
 .ta-pm{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.3);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none}
 .ta-pm:hover{background:rgba(255,255,255,.1)}
+@container (max-width:560px){.ta-pcta-m{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.1fr)}.ta-pm{justify-content:center;padding:0 6px;font-size:14px}.ta-pcta{padding:18px}.ta-pcta .ta-qin{padding-left:12px}.ta-pcta .ta-qbtn{padding:0 14px}}
 .ta-pmore2{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:28px 56px;align-items:start}
 .ta-pkit-t{border-top:1px solid #E1EEE6}
 .ta-pkit-r{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.7fr) 96px;gap:14px;padding:12px 0;border-bottom:1px solid #E1EEE6;font-size:15.5px;line-height:1.45}
@@ -794,7 +795,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <p class="ta-pcta-p"><b>Ціна за запитом</b><span>Порахуємо вартість із монтажем під ваш об’єкт</span></p>
 <div class="ta-qform ta-qform-l" role="group" aria-label="Дізнатися ціну: передзвонимо">
 <label class="ta-sr" for="ta-pphone">Ваш телефон</label>
-<input id="ta-pphone" class="ta-qin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ваш телефон" value="{{pPhone}}" onChange="{{onPPhone}}" aria-invalid="{{pInvalid}}">
+<input id="ta-pphone" class="ta-qin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Телефон" value="{{pPhone}}" onChange="{{onPPhone}}" aria-invalid="{{pInvalid}}">
 <button type="button" class="ta-qbtn ta-btn" onClick="{{pSubmit}}">Дізнатися ціну</button>
 </div>
 <sc-if value="{{pMsgShow}}" hint-placeholder-val="{{false}}"><p class="ta-qmsg ta-qmsg-l {{pMsgCls}}" aria-live="polite">{{pMsg}}</p></sc-if>
