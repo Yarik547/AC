@@ -25,6 +25,8 @@ a{color:#1F6E3F}a:hover{color:#16552F}
 .ta-link{transition:color .2s ease}.ta-link:hover{color:#26834C !important}
 .ta-flink{transition:opacity .2s ease}.ta-flink:hover{opacity:.75}
 .ta-burger{display:none}
+@container (max-width: 1279px){.ta-nav{flex-wrap:nowrap !important;gap:4px 22px !important;font-size:15px !important}.ta-nav a{white-space:nowrap}.ta-call-text{display:none !important}}
+@container (max-width: 1120px){.ta-nav{gap:4px 18px !important}.ta-nav-x{display:none !important}}
 @container (max-width: 900px){.ta-nav{display:none !important}.ta-burger{display:flex !important}.ta-call-text{display:none}.ta-hide-sm{display:none !important}}
 .ta-pgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .ta-cgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"intro form" "details form";column-gap:96px;row-gap:40px;align-items:start}
@@ -166,6 +168,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid #26834C;outline-offset
 .ta-mpin::after{content:"";position:absolute;inset:-3px;border-radius:50%;animation:taPing 2.4s ease-out infinite}
 .ta-mpinb{position:absolute;display:flex;align-items:center;gap:6px;white-space:nowrap;margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:1}
 .ta-mpinb::before{content:"";position:absolute;inset:-9px -6px}
+.ta-mpin::before{content:attr(data-b)}
 .ta-mpinb .ta-mpin{transition:transform .2s ease,background-color .2s ease}
 .ta-mpinb .ta-mapl{transition:background-color .2s ease,color .2s ease}
 .ta-mpinb:hover .ta-mpin{transform:scale(1.18)}
@@ -284,6 +287,73 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 @media (prefers-reduced-motion: reduce){.ta-glowA,.ta-glowB,.ta-dots,.ta-ken{animation:none}.ta-zoom img{transition:none}.ta-zoom:hover img{transform:none}}
 @media (prefers-reduced-motion: reduce){.ta-spin,.ta-cell,.ta-charge,.ta-sunb,.ta-swap,.ta-livedot{animation:none}.ta-barfill{transition:none}}
 @media (prefers-reduced-motion: reduce){.ta-reveal{animation:none}.ta-btn,.ta-link,.ta-arr{transition:none}html{scroll-behavior:auto}}
+.ta-masc{position:absolute;right:28px;top:300px;z-index:15;width:104px;pointer-events:none;font-family:'Manrope','Segoe UI',Arial,sans-serif}
+.ta-masc-live{position:fixed;top:auto !important;right:22px;bottom:28px;transform:translate3d(0,var(--masc-dy,0px),0);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
+.ta-masc-out{transform:translate3d(170%,var(--masc-dy,0px),0) !important;opacity:0}
+.ta-masc-hidden{display:none}
+.ta-masc-btn{position:relative;display:block;width:100%;margin:0;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.ta-masc-btn:focus-visible{outline:3px solid rgba(38,131,76,.5);outline-offset:4px;border-radius:24px}
+.ta-masc-tilt{display:block;transform:rotate(var(--masc-tilt,0deg));transform-origin:50% 60%;transition:transform .3s ease}
+.ta-masc-fly{display:block;animation:taBob 2.6s ease-in-out infinite}
+.ta-masc svg{display:block;width:100%;height:auto;overflow:visible}
+@keyframes taBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.tm-flames{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(var(--masc-flame,1));transition:transform .25s ease}
+.tm-flame{transform-box:fill-box;transform-origin:50% 0;animation:taFlame .16s ease-in-out infinite alternate}
+.tm-flame2{animation-delay:.08s}
+@keyframes taFlame{from{transform:scale(.94,.86)}to{transform:scale(1.04,1.08)}}
+.tm-glow{transform-box:fill-box;transform-origin:center;opacity:0;transition:opacity .4s ease}
+.tm-rays{opacity:0;transition:opacity .4s ease}
+.tm-glass{transition:filter .4s ease}
+.ta-masc-lit .tm-glow{opacity:1;animation:taGlow 1.6s ease-in-out infinite}
+.ta-masc-lit .tm-rays{opacity:1}
+.ta-masc:not(.ta-masc-lit) .tm-glass{filter:saturate(.2) brightness(1.08)}
+@keyframes taGlow{0%,100%{transform:scale(.88)}50%{transform:scale(1.12)}}
+.tm-armR{transform-box:fill-box;transform-origin:15% 90%;animation:taWave 3.4s ease-in-out infinite}
+@keyframes taWave{0%,68%,100%{transform:rotate(0)}76%{transform:rotate(-12deg)}84%{transform:rotate(7deg)}92%{transform:rotate(-6deg)}}
+.tm-eyes{transform-box:fill-box;transform-origin:center;animation:taBlink 5s infinite}
+@keyframes taBlink{0%,93%,100%{transform:scaleY(1)}95.5%{transform:scaleY(.12)}}
+.ta-mbub{position:absolute;right:calc(100% + 4px);bottom:42%;width:300px;box-sizing:border-box;padding:16px 16px 12px;border-radius:22px;background:#FFFFFF;color:#1C2B22;font-size:15.5px;line-height:1.5;text-align:left;box-shadow:0 24px 50px -22px rgba(16,40,26,.55),0 0 0 1px rgba(215,232,221,.9);pointer-events:auto;animation:taCardIn .3s cubic-bezier(.2,.8,.2,1) both}
+.ta-mbub::after{content:"";position:absolute;right:-6px;bottom:24px;width:12px;height:12px;background:#FFFFFF;transform:rotate(45deg);box-shadow:1px -1px 0 rgba(215,232,221,.9)}
+.ta-mbub-n{margin:0 34px 4px 0;font-size:13px;font-weight:800;letter-spacing:.02em;color:#1F6E3F}
+.ta-mbub-t{margin:0}
+.ta-mbub-a{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ta-mbub-b{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:0;border-radius:999px;background:#EEF6F1;color:#1F6E3F;font:inherit;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer}
+.ta-mbub-b:hover{background:#E1F0E7}
+.ta-mbub-p{background:#26834C;color:#FFFFFF}
+.ta-mbub-p:hover{background:#1F6E3F}
+.ta-mbub-b:focus-visible,.ta-mbub-x:focus-visible,.ta-mbub-hide:focus-visible{outline:2px solid #26834C;outline-offset:2px}
+.ta-mbub-x{position:absolute;top:10px;right:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:10px;background:transparent;color:#5A6E61;cursor:pointer}
+.ta-mbub-x:hover{background:#EEF6F1}
+.ta-mbub-hide{display:inline-block;margin:8px 0 0;padding:4px 0;border:0;background:none;color:#5A6E61;font:inherit;font-size:13px;text-decoration:underline;cursor:pointer}
+@media (max-width:640px){.ta-masc{width:70px;right:8px;top:170px}.ta-masc-live{right:8px;bottom:calc(90px + env(safe-area-inset-bottom))}.ta-mbub{right:0;bottom:calc(100% + 6px);width:min(340px,calc(100vw - 24px));font-size:15px}.ta-mbub::after{right:26px;bottom:-6px;box-shadow:1px 1px 0 rgba(215,232,221,.9)}}
+.ta-pin{height:300vh;height:300svh;overflow:clip !important}
+.ta-pin .ta-pin-in{position:sticky !important;top:82px;height:calc(100vh - 82px);height:calc(100svh - 82px);justify-content:center;padding-top:20px !important;padding-bottom:30px !important;gap:22px !important}
+.ta-pin .ta-flowdia{width:min(100%,900px,calc((100svh - 430px) * 1.5185)) !important}
+.ta-pinbar{position:absolute;left:clamp(20px,4cqi,40px);right:clamp(20px,4cqi,40px);bottom:14px;height:4px;border-radius:4px;background:#E3EFE7;overflow:hidden}
+.ta-pinbar-f{display:block;height:100%;width:calc(var(--ta-pin-p,0) * 100%);border-radius:4px;background:#26834C}
+.ta-pinhint{display:flex;align-items:center;gap:8px;margin:-8px 0 0;font-size:14px;color:#5A6E61}
+.ta-qform{display:flex;align-items:center;gap:6px;flex:1 1 360px;max-width:460px;min-width:0;box-sizing:border-box;padding:6px;border-radius:999px;background:#FFFFFF;box-shadow:0 16px 36px -18px rgba(0,0,0,.55)}
+.ta-qin{flex:1 1 auto;min-width:0;min-height:48px;box-sizing:border-box;padding:0 8px 0 18px;border:0;border-radius:999px;background:transparent;color:#1C2B22;font:inherit;font-size:17px;font-weight:600}
+.ta-qin::placeholder{color:#5F7266;font-weight:500}
+.ta-qin:focus{outline:none}
+.ta-qform:focus-within{box-shadow:0 0 0 3px rgba(245,197,66,.85),0 16px 36px -18px rgba(0,0,0,.55)}
+.ta-qbtn{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 20px;border:0;border-radius:999px;background:#26834C;color:#FFFFFF;font:inherit;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap}
+.ta-qbtn:hover{background:#1F6E3F}
+.ta-qmsg{margin:-6px 0 0;font-size:15px;font-weight:600;color:#FFFFFF;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.ta-qerr{color:#FFE08A}
+.ta-steps{counter-reset:none}
+.ta-step{transition:transform .25s ease,box-shadow .25s ease}
+.ta-step:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(16,40,26,.45)}
+.ta-cr-kit{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #DCEAE1}
+.ta-cr-chip{min-height:44px;padding:8px 14px;border-radius:14px;border:1.5px solid rgba(255,255,255,.22);background:transparent;color:#FFFFFF;font:inherit;font-size:14.5px;font-weight:600;line-height:1.3;text-align:left;cursor:pointer}
+.ta-cr-chip[aria-pressed="true"]{background:var(--sun,#F5C542);border-color:var(--sun,#F5C542);color:#1C2B22}
+.ta-cr-chip:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
+.ta-slot{box-sizing:border-box;border:2px dashed #9CCAAE;border-radius:22px;background:rgba(238,246,241,.6);color:#44564B}
+@container (max-width: 900px){.ta-steps{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.ta-cr3{grid-template-columns:minmax(0,1fr) !important}.ta-cr2{grid-template-columns:minmax(0,1fr) !important}.ta-rev{grid-template-columns:minmax(0,1fr) !important}}
+@container (max-width: 640px){.ta-steps{grid-template-columns:minmax(0,1fr) !important;gap:10px !important}.ta-step{flex-direction:row !important;align-items:flex-start !important;gap:14px !important;padding:16px !important}.ta-step:hover{transform:none;box-shadow:none}.ta-stepn{flex:0 0 40px;width:40px !important;height:40px !important}.ta-qform{max-width:none;flex-basis:100%}.ta-qbtn{padding:0 16px;font-size:15px}.ta-qin{font-size:16px;padding-left:14px}.ta-pin .ta-pin-in{top:66px;height:calc(100vh - 66px);height:calc(100svh - 66px);justify-content:flex-start;padding-top:18px !important;padding-bottom:100px !important;gap:12px !important}.ta-pin h2{font-size:28px !important}.ta-pin .ta-lead{font-size:16px !important;line-height:1.5 !important}.ta-pin .ta-flowlist{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px !important}.ta-pin .ta-flowlist>li{flex-direction:row !important;align-items:center !important;gap:10px !important;padding:10px !important;min-height:60px;border:0 !important;border-radius:14px !important;background:#F4F9F6 !important}.ta-pin .ta-fdot{display:none}.ta-pinbar{bottom:94px}.ta-cr-chips{grid-template-columns:minmax(0,1fr) !important}}
+@media (max-height:740px){.ta-pin .ta-pinhint,.ta-pin .ta-pin-eb{display:none}}
+@media (max-height:540px){.ta-pin{height:auto}.ta-pin .ta-pin-in{position:relative !important;top:auto;height:auto}.ta-pinbar{display:none}}
+@media (prefers-reduced-motion: reduce){.ta-masc-fly,.tm-flame,.tm-armR,.tm-eyes,.ta-masc-lit .tm-glow{animation:none !important}.ta-masc-live,.ta-masc-tilt,.tm-flames{transition:none}.ta-step,.ta-step:hover{transition:none;transform:none}}
 </style>
 </helmet>
 <div class="ta-root" style="position: relative">
@@ -298,8 +368,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <a class="ta-link" href="{{navHeat}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Теплові насоси</a>
 <a class="ta-link" href="{{navSolar}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Сонячні станції</a>
 <a class="ta-link" href="{{navEv}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Зарядні станції</a>
-<a class="ta-link" href="#portfolio" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Об’єкти</a>
-<a class="ta-link" href="#contacts" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Контакти</a>
+<a class="ta-link" href="{{navCredit}}" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Кредит 0%</a>
+<a class="ta-link ta-nav-x" href="#portfolio" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Об’єкти</a>
+<a class="ta-link ta-nav-x" href="#contacts" style="color: #1C2B22; text-decoration: none; padding: 10px 0">Контакти</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 14px">
 <a class="ta-link ta-hcall" href="tel:+380684090275" aria-label="Зателефонувати: +38 068 409 02 75" style="display: flex; align-items: center; gap: 10px; min-height: 46px; color: #1C2B22; font-weight: 700; font-size: 16px; text-decoration: none">
@@ -318,6 +389,7 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <a class="ta-mitem" href="{{navHeat}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"></path><path d="M5.5 9.5V20h13V9.5"></path><path d="M12 17.5c-1.6 0-2.5-1-2.5-2.3 0-1.5 1.4-2.2 1.7-3.7 1.6.8 3.3 2.2 3.3 3.8 0 1.3-1 2.2-2.5 2.2z"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Теплові насоси</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="{{navSolar}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h14l-2-9H7z"></path><path d="M6 15.5h12M10.5 11l-.8 9M13.5 11l.8 9"></path><path d="M12 2.5v2M7.2 4.5l1.2 1.4M16.8 4.5l-1.2 1.4"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Сонячні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="{{navEv}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16.5l1.6-5.2A2 2 0 0 1 7.5 10h9a2 2 0 0 1 1.9 1.3l1.6 5.2"></path><rect x="3" y="16" width="18" height="3.5" rx="1.2"></rect><path d="M12.6 3.5l-2.2 3.2h2.4l-1.4 2.8"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Зарядні станції</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
+<a class="ta-mitem" href="{{navCredit}}" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"></path><circle cx="7" cy="7" r="2.5"></circle><circle cx="17" cy="17" r="2.5"></circle></svg></span><span style="flex: 1 1 auto; min-width: 0">Кредит від 0%</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="#calc" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: {{sun}}; display: flex; align-items: center; justify-content: center; color: #1C2B22"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><rect x="8" y="5.5" width="8" height="4" rx="1"></rect><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.6"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Калькулятор вартості</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="#portfolio" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></span><span style="flex: 1 1 auto; min-width: 0">Наші об’єкти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
 <a class="ta-mitem" href="#contacts" onClick="{{closeMenu}}" style="display: flex; align-items: center; gap: 14px; min-height: 54px; padding: 0 12px 0 8px; border-radius: 16px; color: #1C2B22; text-decoration: none; font-size: 17px; font-weight: 700"><span aria-hidden="true" style="flex: 0 0 38px; width: 38px; height: 38px; border-radius: 12px; background: #EEF6F1; display: flex; align-items: center; justify-content: center; color: #1F6E3F"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s-7-6.3-7-12a7 7 0 0 1 14 0c0 5.7-7 12-7 12z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span style="flex: 1 1 auto; min-width: 0">Контакти</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AAAA0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M9 6l6 6-6 6"></path></svg></a>
@@ -370,9 +442,16 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <p class="ta-lead-h" style="margin: 0; font-size: clamp(19px, 1.7cqi, 24px); font-weight: 400; line-height: 1.45; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35)">{{svcLead}}</p>
 </sc-if>
 <div class="ta-cta" style="display: flex; flex-wrap: wrap; gap: 12px">
-<a class="ta-btn ta-solid" href="#contacts" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Безкоштовна консультація<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<div class="ta-qform" role="group" aria-label="Швидка заявка: передзвонимо">
+<label class="ta-sr" for="ta-qphone">Ваш телефон</label>
+<input id="ta-qphone" class="ta-qin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ваш телефон" value="{{qPhone}}" onChange="{{onQPhone}}" aria-invalid="{{qInvalid}}">
+<button type="button" class="ta-qbtn ta-btn" onClick="{{qSubmit}}"><span class="ta-desk-i">Передзвоніть мені</span><span class="ta-mob-i">Передзвоніть</span></button>
+</div>
 <a class="ta-btn ta-glass-l ta-deskonly" href="#calc" style="display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 26px; border-radius: 999px; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати ціну</a>
 </div>
+<sc-if value="{{qMsgShow}}" hint-placeholder-val="{{false}}">
+<p class="ta-qmsg {{qMsgCls}}" aria-live="polite">{{qMsg}}</p>
+</sc-if>
 <div class="ta-mstats" style="grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
 <span class="ta-glass" style="display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 16px; line-height: 1.2"><b style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap">25</b><span style="font-size: 12px; font-weight: 500; opacity: 0.9; white-space: nowrap">років досвіду</span></span>
 <span class="ta-glass" style="display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 16px; line-height: 1.2"><b style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap">24</b><span style="font-size: 12px; font-weight: 500; opacity: 0.9">об’єкти</span></span>
@@ -410,12 +489,38 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </nav>
 </sc-if>
 
+<sc-if value="{{revShow}}" hint-placeholder-val="{{true}}">
+<section id="reviews" aria-labelledby="reviews-title" style="position: relative; overflow: hidden; background: #FFFFFF">
+<div class="ta-reveal ta-sec" style="box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 40px) 0; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0 0 -8px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Відгуки</p>
+<h2 id="reviews-title" style="margin: 0; font-weight: 300; font-size: clamp(30px, 3.4cqi, 46px); line-height: 1.12; letter-spacing: -0.02em">Що кажуть наші клієнти</h2>
+</div>
+<sc-if value="{{revEmpty}}" hint-placeholder-val="{{true}}">
+<div class="ta-slot" style="display: flex; flex-direction: column; gap: 6px; padding: 28px 24px">
+<span style="font-weight: 800; font-size: 18px; color: #1C2B22">Тут будуть справжні відгуки</span>
+<span style="font-size: 16px; line-height: 1.55">Надішліть 3–6 відгуків з Google Maps, Instagram чи Viber — з дозволу клієнтів, з іменем і населеним пунктом. Поки їх немає, на сайті цей блок прихований.</span>
+</div>
+</sc-if>
+<div class="ta-rev" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 22px; background: #F4F9F6">
+<span aria-label="{{r.starsLabel}}" role="img" style="color: #E9B126; font-size: 18px; letter-spacing: 2px">{{r.stars}}</span>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.55">{{r.text}}</blockquote>
+<figcaption style="font-size: 15px; color: #4F6457"><b style="color: #1C2B22">{{r.name}}</b> · {{r.place}} · {{r.source}}</figcaption>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
 <sc-if value="{{showFlow}}" hint-placeholder-val="{{true}}">
-<section id="flow" aria-labelledby="flow-title" style="position: relative; overflow: hidden; background: #FFFFFF">
-<div class="ta-reveal ta-sec" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: flex; flex-direction: column; gap: 36px">
+<section id="flow" class="{{flowPinCls}}" data-pin-steps="day,night,outage" data-pin-key="scenario" aria-labelledby="flow-title" style="position: relative; overflow: hidden; background: #FFFFFF">
+<div class="{{flowInCls}}" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: flex; flex-direction: column; gap: 36px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px">
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-<p style="margin: 0 0 -12px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Просто про складне</p>
+<p class="ta-pin-eb" style="margin: 0 0 -12px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Просто про складне</p>
 <h2 id="flow-title" style="margin: 0; font-weight: 300; font-size: clamp(34px, 4cqi, 56px); line-height: 1.1; letter-spacing: -0.02em">Як працює енергосистема вашого дому</h2>
 </div>
 <div class="ta-tabs" role="tablist" aria-label="Ситуація" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: 999px; background: #EEF6F1">
@@ -429,6 +534,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </sc-for>
 </div>
 </div>
+<sc-if value="{{flowPinned}}" hint-placeholder-val="{{false}}">
+<p class="ta-pinhint"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>Гортайте вниз — день зміниться на ніч, а потім на відключення</p>
+</sc-if>
 <p class="ta-lead" aria-live="polite" style="margin: 0; max-width: 760px; font-size: 20px; color: #44564B">{{flowText}}</p>
 <div class="ta-flowdia" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 820 / 540">
 <svg aria-hidden="true" viewBox="0 0 820 540" style="position: absolute; inset: 0; width: 100%; height: 100%">
@@ -482,6 +590,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </li>
 </sc-for>
 </ul>
+<sc-if value="{{flowPinned}}" hint-placeholder-val="{{false}}">
+<div class="ta-pinbar" aria-hidden="true"><span class="ta-pinbar-f"></span></div>
+</sc-if>
 </div>
 </section>
 </sc-if>
@@ -537,6 +648,19 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 <button type="button" class="ta-mobonly ta-btn" onClick="{{solarToggle}}" aria-expanded="{{solarExp}}" style="align-self: flex-start; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: #1F6E3F; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">{{solarLabel}}<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{solarChev}}"></path></svg></button>
 <a class="ta-btn ta-ghost ta-scta" href="#calc" onClick="{{goCalcSolar}}" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Розрахувати сонячну станцію<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<sc-if value="{{liveShow}}" hint-placeholder-val="{{false}}">
+<div style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 14px 30px -20px rgba(20, 50, 32, 0.5)">
+<span class="ta-livedot" aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #2FBF71"></span>
+<span style="display: flex; flex-direction: column; line-height: 1.35"><span style="font-size: 14px; color: #4F6457">{{live.label}}</span><span style="font-weight: 800; font-size: 18px">{{live.value}}</span></span>
+</div>
+</sc-if>
+<sc-if value="{{liveSlot}}" hint-placeholder-val="{{true}}">
+<div class="ta-slot" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px">
+<span style="font-weight: 800; font-size: 16px; color: #1C2B22">Жива генерація станції</span>
+<span style="font-size: 15px; line-height: 1.5">Тут може показуватися, скільки зараз виробляє одна з ваших станцій. Потрібен доступ до моніторингу інвертора (Deye, Huawei, Solis). Без даних на сайті блок прихований.</span>
+</div>
+</sc-if>
+
 </div>
 <figure style="flex: 1 1 400px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
 <div class="ta-media" style="position: relative; overflow: hidden; border-radius: 24px; isolation: isolate; aspect-ratio: 4 / 5"><img class="ta-par" src="/_blob/5ff649b6b22a96bdcadc9e34bd69e43b" alt="Сонячні панелі на даху будинку в Чорткові" style="position: absolute; left: 0; top: -6%; width: 100%; height: 112%; object-fit: cover"></div>
@@ -587,6 +711,103 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </section>
 </sc-if>
+
+<sc-if value="{{showCredit}}" hint-placeholder-val="{{false}}">
+<section id="credit" class="ta-sheet" aria-labelledby="credit-title" style="position: relative; overflow: hidden; background: #FFFFFF">
+<div class="ta-reveal ta-sec" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: flex; flex-direction: column; gap: 48px">
+<div style="max-width: 820px; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0 0 -10px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Державна програма «Доступні кредити 5–7–9%»</p>
+<h2 id="credit-title" style="margin: 0; font-weight: 300; font-size: clamp(34px, 4cqi, 56px); line-height: 1.1; letter-spacing: -0.02em">Кредит на світло для приватного будинку</h2>
+<p class="ta-lead" style="margin: 0; font-size: 20px; color: #44564B">Власники приватних будинків і таунхаусів можуть узяти кредит від 0% на обладнання для автономного живлення, а держава поверне частину тіла кредиту.</p>
+</div>
+<div class="ta-cr3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 26px 24px; border-radius: 24px; background: #EEF6F1"><span style="font-weight: 300; font-size: clamp(34px, 3.4cqi, 46px); line-height: 1.05; letter-spacing: -0.02em; color: #1F6E3F">0% → 5% → 7%</span><span style="font-size: 16px; line-height: 1.5; color: #44564B">ставка в перший, другий і третій рік. З четвертого року — ставка банку.</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 26px 24px; border-radius: 24px; background: #EEF6F1"><span style="font-weight: 300; font-size: clamp(34px, 3.4cqi, 46px); line-height: 1.05; letter-spacing: -0.02em; color: #1F6E3F">до 480 тис. грн</span><span style="font-size: 16px; line-height: 1.5; color: #44564B">сума від 10 тис. грн, строк до 10 років. Одна адреса — один кредит.</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 26px 24px; border-radius: 24px; background: #EEF6F1"><span style="font-weight: 300; font-size: clamp(34px, 3.4cqi, 46px); line-height: 1.05; letter-spacing: -0.02em; color: #1F6E3F">до 30%</span><span style="font-size: 16px; line-height: 1.5; color: #44564B">тіла кредиту компенсує держава після встановлення обладнання, залежно від комплектації.</span></div>
+</div>
+<div class="ta-cr2" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 56px; align-items: start">
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0 0 8px; font-weight: 700; font-size: 22px; line-height: 1.3">Скільки компенсує держава</h3>
+<div style="border-top: 1px solid #DCEAE1">
+<sc-for list="{{crKits}}" as="k" hint-placeholder-count="4">
+<div class="ta-cr-kit"><span style="font-size: 17px; line-height: 1.4">{{k.label}}</span><b style="flex: 0 0 auto; font-size: 20px; color: #1F6E3F">{{k.pctText}}</b></div>
+</sc-for>
+</div>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: #4F6457">Сонячна станція — потужністю до 10 кВт, з гібридним інвертором. Кредит покриває й допоміжне обладнання та роботи з підключення.</p>
+</div>
+<div style="min-width: 0; box-sizing: border-box; padding: clamp(22px, 2.6cqi, 32px); border-radius: 26px; background: #133224; color: #FFFFFF; --sun: {{sun}}">
+<h3 style="margin: 0 0 18px; font-weight: 700; font-size: 22px; line-height: 1.3">Порахуйте компенсацію</h3>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px"><label for="cr-amt" style="font-size: 16px; color: #CFE3D6">Сума кредиту</label><span style="font-size: 26px; font-weight: 300"><b style="font-weight: 600">{{crAmtText}}</b></span></div>
+<input id="cr-amt" class="ta-range" type="range" min="10" max="480" step="10" value="{{crAmt}}" onChange="{{onCrAmt}}" aria-valuetext="{{crAmtText}}" style="--p: {{crAmtPct}}%; margin: 10px 0 4px">
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #9CC2AB"><span>10 тис.</span><span>480 тис.</span></div>
+<p style="margin: 18px 0 10px; font-size: 16px; color: #CFE3D6">Що купуєте</p>
+<div class="ta-cr-chips" role="group" aria-label="Комплектація" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{crKits}}" as="k" hint-placeholder-count="4">
+<button type="button" class="ta-cr-chip" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}">{{k.label}}</button>
+</sc-for>
+</div>
+<div style="margin-top: 22px; padding: 18px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 15px; color: #CFE3D6">Держава поверне ≈</span>
+<span style="font-size: 34px; font-weight: 700; line-height: 1.1; color: var(--sun)">{{crComp}}</span>
+<span style="font-size: 15px; color: #CFE3D6">Ви повернете банку ≈ <b style="color: #FFFFFF">{{crRest}}</b> тіла кредиту</span>
+</div>
+<p style="margin: 14px 0 0; font-size: 13.5px; line-height: 1.5; color: #9CC2AB">Орієнтовно, без відсотків. Остаточні умови називає банк.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-weight: 700; font-size: 22px; line-height: 1.3">Як оформити</h3>
+<ol class="ta-steps" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{crSteps}}" as="h" hint-placeholder-count="4">
+<li class="ta-step" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 22px 20px 24px; border-radius: 22px; background: #F4F9F6">
+<span class="ta-stepn" aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: #26834C; color: #FFFFFF; font-weight: 800; font-size: 17px; display: flex; align-items: center; justify-content: center">{{h.n}}</span>
+<span style="font-size: 16px; line-height: 1.5; color: #1C2B22">{{h.text}}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+<div class="ta-cr2" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 56px; align-items: start">
+<div style="min-width: 0; padding: 26px 24px; border-radius: 24px; border: 1.5px solid #CFE3D6; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-weight: 700; font-size: 20px; line-height: 1.3">Для ОСББ і ЖБК</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #44564B">Кредит від 0% до 7% річних, до 3 млн грн на строк до 3 років — на генератори, сонячні станції та теплові насоси. Власний внесок — 50% вартості генератора або 30% вартості сонячної станції чи теплового насоса, решту після введення в експлуатацію компенсує держава.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #44564B">Окремо діє грантова програма «СвітлоДім» — заявки через Дію.</p>
+</div>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #4F6457">Ми не банк і не видаємо кредитів. Інформація — з офіційних джерел станом на листопад 2026 року. Умови змінюються, тож перед оформленням перевірте їх у банку й на сайті програми.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 15px">
+<li><a href="https://energycredit.bdf.gov.ua/for-houses/" target="_blank" rel="noopener" style="color: #1F6E3F; font-weight: 700">Сайт програми: енергокредит для домівок</a></li>
+<li><a href="https://www.kmu.gov.ua/news/uriad-rozshyryv-prohramy-pidtrymky-enerhetychnoi-stiikosti-zhytlovoho-sektoru" target="_blank" rel="noopener" style="color: #1F6E3F; font-weight: 700">Кабмін: умови для будинків і ОСББ</a></li>
+<li><a href="https://privatbank.ua/kredyty/dzherela-enerhiyi" target="_blank" rel="noopener" style="color: #1F6E3F; font-weight: 700">ПриватБанк: компенсація за пакетами</a></li>
+<li><a href="https://mindev.gov.ua/diialnist/svitlodim/perelik-obladnannia-shcho-mozhe-buty-prydbane-v-mezhakh-prohramy" target="_blank" rel="noopener" style="color: #1F6E3F; font-weight: 700">Програма «СвітлоДім» для ОСББ</a></li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px">
+<a class="ta-btn ta-solid" href="#contacts" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: {{primary}}; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">Порадитися з інженером</a>
+<a class="ta-btn ta-ghost" href="#calc" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Порахувати станцію</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<section id="how" class="ta-sheet" aria-labelledby="how-title" style="position: relative; overflow: hidden; background: #FFFFFF">
+<div class="ta-reveal ta-sec" style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; padding: clamp(72px, 9cqi, 136px) clamp(20px, 4cqi, 40px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0 0 -10px; font-size: 15px; font-weight: 700; letter-spacing: 0.03em; color: #1F6E3F">Як ми працюємо</p>
+<h2 id="how-title" style="margin: 0; font-weight: 300; font-size: clamp(34px, 4cqi, 56px); line-height: 1.1; letter-spacing: -0.02em">Від дзвінка до світла в домі</h2>
+</div>
+<a class="ta-btn ta-ghost" href="#contacts" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1.5px solid #9CCAAE; background: #FFFFFF; color: #1F6E3F; font-weight: 700; font-size: 17px; text-decoration: none">Почати з консультації<svg class="ta-arr" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<ol class="ta-steps" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{howSteps}}" as="h" hint-placeholder-count="5">
+<li class="ta-step" style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 22px 20px 24px; border-radius: 22px; background: {{h.bg}}">
+<span class="ta-stepn" aria-hidden="true" style="width: 44px; height: 44px; border-radius: 14px; background: {{h.nbg}}; color: {{h.ncol}}; font-weight: 800; font-size: 17px; display: flex; align-items: center; justify-content: center">{{h.n}}</span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 800; font-size: 18px; line-height: 1.3">{{h.title}}</span><span style="font-size: 15.5px; line-height: 1.5; color: #44564B">{{h.text}}</span></span>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
 
 <section id="calc" class="ta-sheet" aria-labelledby="calc-title" style="position: relative; overflow: hidden; background: #133224; color: #FFFFFF; --sun: {{sun}}">
 <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
@@ -960,6 +1181,11 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <p class="ta-hide-m" style="margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.64)">У розрахунку: світло 4,32 грн/кВт·год (2,64 грн — для електроопалення з жовтня по квітень), газ 7,96 грн/м³, дрова ≈ 2 800 грн/м³, А-95 ≈ 88 грн/л, швидка публічна зарядка ≈ 25 грн/кВт·год, генерація у Львові ≈ 1 050 кВт·год на 1 кВт панелей за рік.</p>
 </div>
 </div>
+<a class="ta-btn" href="{{navCredit}}" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #FFFFFF; text-decoration: none">
+<span aria-hidden="true" style="flex: 0 0 44px; width: 44px; height: 44px; border-radius: 14px; background: {{sun}}; color: #1C2B22; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px">%</span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; line-height: 1.4"><b style="font-size: 17px">Кредит від 0% і компенсація до 30%</b><span style="font-size: 15px; color: #CFE3D6">Державна програма для приватних будинків: умови простими словами</span></span>
+<svg class="ta-arr" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
 </div>
 </section>
 
@@ -1054,9 +1280,9 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <span aria-hidden="true" style="position: absolute; left: {{r.x}}%; top: {{r.y}}%; transform: {{r.tf}}; display: flex; align-items: center; gap: 5px; flex-direction: {{r.dir}}; font-size: 12px; font-weight: 600; color: #6F8577; white-space: nowrap"><span style="width: 6px; height: 6px; border-radius: 50%; background: #A9BCB0"></span><span class="ta-mapl">{{r.name}}</span></span>
 </sc-for>
 <sc-for list="{{mapPins}}" as="m" hint-placeholder-count="6">
-<button type="button" class="ta-mpinb" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}" aria-label="{{m.aria}}" style="left: {{m.x}}%; top: {{m.y}}%; transform: {{m.tf}}; flex-direction: {{m.dir}}">
-<span class="ta-mpin" aria-hidden="true" style="position: relative; flex: 0 0 auto; width: {{m.size}}px; height: {{m.size}}px; border-radius: 50%; background: {{primary}}; border: 3px solid #FFFFFF; box-shadow: 0 6px 14px -4px rgba(16, 60, 34, 0.55); color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-sizing: border-box">{{m.badge}}</span>
-<span class="ta-mapl" style="padding: 3px 9px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 4px 12px -6px rgba(16, 40, 26, 0.45); font-size: 13px; font-weight: 700; color: #1C2B22">{{m.name}}</span>
+<button type="button" class="ta-mpinb" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}" style="left: {{m.x}}%; top: {{m.y}}%; transform: {{m.tf}}; flex-direction: {{m.dir}}">
+<span class="ta-mpin" aria-hidden="true" style="position: relative; flex: 0 0 auto; width: {{m.size}}px; height: {{m.size}}px; border-radius: 50%; background: {{primary}}; border: 3px solid #FFFFFF; box-shadow: 0 6px 14px -4px rgba(16, 60, 34, 0.55); color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-sizing: border-box" data-b="{{m.badge}}"></span>
+<span class="ta-mapl" style="padding: 3px 9px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 4px 12px -6px rgba(16, 40, 26, 0.45); font-size: 13px; font-weight: 700; color: #1C2B22">{{m.name}}<span class="ta-sr">: {{m.srText}}</span></span>
 </button>
 </sc-for>
 </div>
@@ -1202,8 +1428,10 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 <a class="ta-flink" href="{{navSolar}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Сонячні станції</a>
 <a class="ta-flink" href="{{navEv}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Зарядні станції</a>
 <a class="ta-flink" href="#calc" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Калькулятор</a>
+<a class="ta-flink" href="{{navCredit}}" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Кредит від 0%</a>
 <a class="ta-flink" href="#portfolio" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Об’єкти</a>
 <a class="ta-flink" href="#contacts" style="color: #FFFFFF; text-decoration: none; padding: 8px 0">Контакти</a>
+<sc-if value="{{mascotOffNow}}" hint-placeholder-val="{{false}}"><button type="button" class="ta-flink" onClick="{{mascotShow}}" style="margin: 0; padding: 8px 0; border: 0; background: none; color: #FFFFFF; font: inherit; font-weight: 600; text-align: left; cursor: pointer">Показати Інженера IS</button></sc-if>
 </nav>
 </div>
 </footer>
@@ -1252,9 +1480,109 @@ section h2{font-size:31px !important;line-height:1.12 !important}
 </div>
 </div>
 </sc-if>
+<sc-if value="{{mascotOn}}" hint-placeholder-val="{{true}}">
+<div class="ta-masc {{mascotCls}}">
+<sc-if value="{{mascotOpen}}" hint-placeholder-val="{{false}}">
+<div class="ta-mbub" role="dialog" aria-label="Порада Інженера IS">
+<p class="ta-mbub-n">Інженер IS</p>
+<p class="ta-mbub-t">{{mascotTip.text}}</p>
+<div class="ta-mbub-a">
+<sc-if value="{{mascotTip.hasCta}}" hint-placeholder-val="{{true}}"><a class="ta-mbub-b ta-mbub-p" href="{{mascotTip.href}}" onClick="{{mascotClose}}">{{mascotTip.cta}}</a></sc-if>
+<button type="button" class="ta-mbub-b" onClick="{{mascotNext}}">Ще порада</button>
+</div>
+<button type="button" class="ta-mbub-hide" onClick="{{mascotHide}}">Сховати Інженера</button>
+<button type="button" class="ta-mbub-x" onClick="{{mascotClose}}" aria-label="Закрити"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</sc-if>
+<button type="button" class="ta-masc-btn" onClick="{{mascotToggle}}" aria-expanded="{{mascotExp}}" aria-label="{{mascotAria}}">
+<span class="ta-masc-tilt"><span class="ta-masc-fly">
+<svg aria-hidden="true" viewBox="0 -22 220 322" width="220" height="322">
+<defs>
+<radialGradient id="tmGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFE680" stop-opacity=".85"></stop><stop offset=".45" stop-color="#FFD84A" stop-opacity=".35"></stop><stop offset="1" stop-color="#FFD84A" stop-opacity="0"></stop></radialGradient>
+<radialGradient id="tmBulb" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#FFFFF4"></stop><stop offset=".45" stop-color="#FFEC8C"></stop><stop offset="1" stop-color="#F2BE2E"></stop></radialGradient>
+<linearGradient id="tmMetal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4A5C52"></stop><stop offset=".28" stop-color="#9DB0A5"></stop><stop offset=".42" stop-color="#E2ECE6"></stop><stop offset=".62" stop-color="#7E9187"></stop><stop offset="1" stop-color="#3B4B42"></stop></linearGradient>
+<linearGradient id="tmMetalTop" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6E8278"></stop><stop offset=".45" stop-color="#F1F6F3"></stop><stop offset="1" stop-color="#6E8278"></stop></linearGradient>
+<radialGradient id="tmFlame" cx="50%" cy="12%" r="95%"><stop offset="0" stop-color="#FFFBE6"></stop><stop offset=".25" stop-color="#FFE15C"></stop><stop offset=".6" stop-color="#FF9A2E"></stop><stop offset="1" stop-color="#FF6A1F" stop-opacity="0"></stop></radialGradient>
+<radialGradient id="tmSuit" cx="36%" cy="26%" r="85%"><stop offset="0" stop-color="#5CC88A"></stop><stop offset=".45" stop-color="#2E9459"></stop><stop offset="1" stop-color="#175732"></stop></radialGradient>
+<linearGradient id="tmLeg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1D6B3F"></stop><stop offset=".4" stop-color="#3BA266"></stop><stop offset="1" stop-color="#175732"></stop></linearGradient>
+<radialGradient id="tmBoot" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#5A6B62"></stop><stop offset=".6" stop-color="#26332C"></stop><stop offset="1" stop-color="#141C18"></stop></radialGradient>
+<radialGradient id="tmSkin" cx="38%" cy="32%" r="78%"><stop offset="0" stop-color="#FFEAD6"></stop><stop offset=".55" stop-color="#F6C9A1"></stop><stop offset="1" stop-color="#D9976E"></stop></radialGradient>
+<radialGradient id="tmHat" cx="36%" cy="22%" r="90%"><stop offset="0" stop-color="#FFF6C4"></stop><stop offset=".35" stop-color="#FAD65A"></stop><stop offset=".8" stop-color="#E9B126"></stop><stop offset="1" stop-color="#C98F12"></stop></radialGradient>
+<linearGradient id="tmBrim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7CC45"></stop><stop offset="1" stop-color="#C58B10"></stop></linearGradient>
+<radialGradient id="tmCheek" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FF8F80" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF8F80" stop-opacity="0"></stop></radialGradient>
+<radialGradient id="tmBtn" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFF3B0"></stop><stop offset="1" stop-color="#E0A51C"></stop></radialGradient>
+<linearGradient id="tmLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7EDC9F"></stop><stop offset="1" stop-color="#1F7A45"></stop></linearGradient>
+</defs>
+<g class="tm-bulbw">
+<circle class="tm-glow" cx="110" cy="2" r="30" fill="url(#tmGlow)"></circle>
+<g class="tm-rays" stroke="#F5C542" stroke-width="2.6" stroke-linecap="round"><path d="M110 -20v-0.5M89 -12l-2-2M131 -12l2-2M84 3h-3M136 3h3"></path></g>
+<circle class="tm-glass" cx="110" cy="0" r="14" fill="url(#tmBulb)" stroke="#E7B52A" stroke-width="1.2"></circle>
+<path d="M105.5 4c0-4 9-4 9 0" fill="none" stroke="#D8A21C" stroke-width="1.5" stroke-linecap="round"></path>
+<ellipse cx="105" cy="-5" rx="3.6" ry="5" fill="#FFFFFF" opacity=".8" transform="rotate(-25 105 -5)"></ellipse>
+<rect x="104.5" y="12" width="11" height="8" rx="2.5" fill="url(#tmMetal)"></rect>
+<path d="M105 15h10M105 17.6h10" stroke="#3B4B42" stroke-width=".9" opacity=".6"></path>
+</g>
+<g class="tm-flames">
+<path class="tm-flame" d="M70 218c-7 14-6 34 7 48 13-14 14-34 7-48z" fill="url(#tmFlame)"></path>
+<path class="tm-flame tm-flame2" d="M136 218c-7 14-6 34 7 48 13-14 14-34 7-48z" fill="url(#tmFlame)"></path>
+</g>
+<rect x="61" y="122" width="32" height="92" rx="16" fill="url(#tmMetal)"></rect>
+<ellipse cx="77" cy="126" rx="15" ry="6" fill="url(#tmMetalTop)"></ellipse>
+<rect x="127" y="122" width="32" height="92" rx="16" fill="url(#tmMetal)"></rect>
+<ellipse cx="143" cy="126" rx="15" ry="6" fill="url(#tmMetalTop)"></ellipse>
+<path d="M68 208h18l-3 12H71z" fill="#26332C"></path>
+<path d="M134 208h18l-3 12h-12z" fill="#26332C"></path>
+<rect x="64" y="150" width="26" height="6" rx="3" fill="#F5C542" opacity=".9"></rect>
+<rect x="130" y="150" width="26" height="6" rx="3" fill="#F5C542" opacity=".9"></rect>
+<path d="M94 206c-2 16-3 28-4 38" stroke="url(#tmLeg)" stroke-width="20" stroke-linecap="round" fill="none"></path>
+<path d="M126 206c2 16 3 28 4 38" stroke="url(#tmLeg)" stroke-width="20" stroke-linecap="round" fill="none"></path>
+<ellipse cx="88" cy="252" rx="15" ry="10" fill="url(#tmBoot)"></ellipse>
+<ellipse cx="132" cy="252" rx="15" ry="10" fill="url(#tmBoot)"></ellipse>
+<ellipse cx="84" cy="248" rx="5" ry="2.4" fill="#FFFFFF" opacity=".25"></ellipse>
+<ellipse cx="128" cy="248" rx="5" ry="2.4" fill="#FFFFFF" opacity=".25"></ellipse>
+<path d="M78 140c0-14 12-22 32-22s32 8 32 22v52c0 16-14 26-32 26s-32-10-32-26z" fill="url(#tmSuit)"></path>
+<path d="M92 158h36v22c0 6-4 10-10 10h-16c-6 0-10-4-10-10z" fill="#1F7A45" opacity=".55"></path>
+<path d="M95 162h30" stroke="#7EDC9F" stroke-width="2" stroke-linecap="round" opacity=".6"></path>
+<path d="M88 124v34M132 124v34" stroke="#1E6A3E" stroke-width="7" stroke-linecap="round"></path>
+<circle cx="88" cy="158" r="5" fill="url(#tmBtn)"></circle>
+<circle cx="132" cy="158" r="5" fill="url(#tmBtn)"></circle>
+<path d="M84 150c-4 10-4 26 0 38" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".18" fill="none"></path>
+<path d="M104 176l-4 9h7l-3 8" fill="none" stroke="#F5C542" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+<g class="tm-armL"><path d="M80 146c-14 8-20 22-18 36" stroke="url(#tmLeg)" stroke-width="15" stroke-linecap="round" fill="none"></path><circle cx="62" cy="186" r="9" fill="url(#tmSkin)"></circle></g>
+<g class="tm-armR"><path d="M140 144c14-4 24-16 27-30" stroke="url(#tmLeg)" stroke-width="15" stroke-linecap="round" fill="none"></path><rect x="164" y="84" width="8" height="20" rx="4" fill="url(#tmSkin)" transform="rotate(12 168 100)"></rect><circle cx="168" cy="108" r="10" fill="url(#tmSkin)"></circle><path d="M161 106c3 3 9 3 12 0" stroke="#D9976E" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"></path></g>
+<circle cx="66" cy="96" r="8" fill="url(#tmSkin)"></circle>
+<circle cx="154" cy="96" r="8" fill="url(#tmSkin)"></circle>
+<circle cx="110" cy="94" r="44" fill="url(#tmSkin)"></circle>
+<ellipse cx="86" cy="112" rx="10" ry="7" fill="url(#tmCheek)"></ellipse>
+<ellipse cx="134" cy="112" rx="10" ry="7" fill="url(#tmCheek)"></ellipse>
+<g class="tm-eyes">
+<ellipse cx="94" cy="98" rx="7.5" ry="9.5" fill="#1C2B22"></ellipse>
+<ellipse cx="126" cy="98" rx="7.5" ry="9.5" fill="#1C2B22"></ellipse>
+<circle cx="96.5" cy="94" r="2.8" fill="#FFFFFF"></circle>
+<circle cx="128.5" cy="94" r="2.8" fill="#FFFFFF"></circle>
+<circle cx="92" cy="102" r="1.3" fill="#FFFFFF" opacity=".8"></circle>
+<circle cx="124" cy="102" r="1.3" fill="#FFFFFF" opacity=".8"></circle>
+</g>
+<path d="M86 83c4-3 9-3 13-1M121 82c4-2 9-2 13 1" stroke="#8A5A3C" stroke-width="2.6" stroke-linecap="round" fill="none"></path>
+<ellipse cx="110" cy="107" rx="4" ry="3" fill="#E39C76"></ellipse>
+<path d="M98 116c6 8 18 8 24 0" fill="#9C3B2E"></path>
+<path d="M98 116c6 8 18 8 24 0" fill="none" stroke="#7A2A20" stroke-width="2.2" stroke-linecap="round"></path>
+<path d="M104 120c3 2 9 2 12 0" fill="#F08A7A"></path>
+<path d="M64 80c0-30 20-48 46-48s46 18 46 48z" fill="url(#tmHat)"></path>
+<path d="M104 33h12v46h-12z" fill="#FFFFFF" opacity=".22"></path>
+<path d="M74 66c4-16 14-26 28-30" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".45" fill="none"></path>
+<rect x="56" y="76" width="108" height="11" rx="5.5" fill="url(#tmBrim)"></rect>
+<path d="M60 78h100" stroke="#FFF2B0" stroke-width="1.6" stroke-linecap="round" opacity=".8"></path>
+<path d="M110 52c-8 4-11 13-7 20 9-1 14-9 12-18z" fill="url(#tmLeaf)"></path>
+<path d="M104 70c3-5 6-9 10-13" stroke="#E8FFF0" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".8"></path>
+</svg>
+</span></span>
+</button>
+</div>
+</sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"site":{"editor":null,"default":false},"base":{"editor":null,"default":"/"},"$preview":{"width":1440,"height":11180}}'>
+<script type="text/x-dc" data-dc-script data-props='{"primary":{"editor":"color","default":"#26834C","options":["#26834C","#0B9446","#1F6E3F","#1C2B22"],"section":"Кольори"},"sun":{"editor":"color","default":"#F5C542","options":["#F5C542","#FFFFFF","#7FD4A0"],"section":"Кольори"},"page":{"editor":null,"default":"home"},"site":{"editor":null,"default":false},"base":{"editor":null,"default":"/"},"mascot":{"editor":"enum","default":"always","options":["always","tips","off"],"section":"Інженер IS"},"$preview":{"width":1440,"height":12900}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1267,6 +1595,17 @@ class Component extends DCLogic {
       scenario: 'day',
       showAll: false,
       menuOpen: false,
+      mascotSec: 'top',
+      mascotOpen: false,
+      mascotIdx: 0,
+      mascotSeen: {},
+      mascotOff: false,
+      qPhone: '',
+      qVia: null,
+      qErr: false,
+      crAmt: 300,
+      crKit: 'full',
+      live: null,
       mapSel: null,
       objFrom: null,
       name: '',
@@ -1298,6 +1637,13 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     this._animKey = JSON.stringify(this._tgt || {});
+    let ep = '';
+    try { ep = (this.props.site && typeof window !== 'undefined' && window.TA_LIVE_ENDPOINT) || ''; } catch (e) {}
+    if (ep && typeof fetch === 'function') {
+      const load = () => fetch(ep).then((r) => (r.ok ? r.json() : null)).then((d) => { if (d && d.power_kw != null) this.setState({ live: d }); }, () => {});
+      load();
+      this._liveT = setInterval(load, 60000);
+    }
   }
   componentDidUpdate() {
     const t = this._tgt;
@@ -1325,6 +1671,23 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._liveT) clearInterval(this._liveT);
+  }
+  sendLead(payload, key, done) {
+    if (this.props.site && typeof window !== 'undefined') {
+      const ep = window.TA_FORM_ENDPOINT;
+      if (ep) {
+        this.setState({ [key]: 'sending' });
+        fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then((r) => this.setState({ [key]: r.ok ? 'sent' : 'fail' }), () => this.setState({ [key]: 'fail' }));
+        return;
+      }
+      const body = 'Телефон: ' + payload.phone + (payload.name ? '\nІм’я: ' + payload.name : '') + (payload.service ? '\nЩо цікавить: ' + payload.service : '') + (payload.note ? '\nКоментар: ' + payload.note : '');
+      window.location.href = 'mailto:tehno.as.lviv@gmail.com?subject=' + encodeURIComponent('Заявка з сайту: ' + (payload.service || 'консультація')) + '&body=' + encodeURIComponent(body);
+      this.setState({ [key]: 'mail' });
+      return;
+    }
+    this.setState({ [key]: 'sent' });
   }
   calcModel(s, primary, sun) {
     const num = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -1647,7 +2010,7 @@ class Component extends DCLogic {
       objToForm: () => this.setState({ obj: null, submitted: false, service: oc && oc.kind === 'heat' ? 'Тепловий насос' : 'Сонячна станція', note: oc ? 'Цікавить схожий об’єкт: ' + oc.title + ', ' + oc.place + '.' : '' })
     };
     const pinTf = (side, size) => side === 'l' ? { dir: 'row-reverse', tf: 'translate(calc(-100% + ' + size / 2 + 'px), -50%)' } : (side === 'b' ? { dir: 'column', tf: 'translate(-50%, -' + size / 2 + 'px)' } : { dir: 'row', tf: 'translate(-' + size / 2 + 'px, -50%)' });
-    const mapPins = LOC.map((m) => ({ ...m, ...pinTf(m.side, m.size), pressed: mapSel === m.id ? 'true' : 'false', pick: pickLoc(m.id), aria: m.name + ': ' + m.n + '\u00A0' + objWord(m.n) + ', показати фото' }));
+    const mapPins = LOC.map((m) => ({ ...m, ...pinTf(m.side, m.size), pressed: mapSel === m.id ? 'true' : 'false', pick: pickLoc(m.id), srText: m.n + '\u00A0' + objWord(m.n) + ', показати фото' }));
     const mapRefs = [
       { name: 'Ужгород', x: 7.67, y: 67.17, side: 'r' },
       { name: 'Тернопіль', x: 80.98, y: 31.98, side: 'l' },
@@ -1671,16 +2034,19 @@ class Component extends DCLogic {
       { cat: 'solar', q: 'Що буде, коли вимкнуть світло?', a: 'Гібридна станція з акумулятором автоматично перемкне будинок на панелі й батарею. Мережева станція без акумулятора під час відключення не працює.' },
       { cat: 'ev', q: 'Що потрібно для зарядної станції вдома?', a: 'Для станції на 7,4 кВт вистачить звичайної однофазної мережі, для 11 і 22 кВт потрібні три фази. Ми перевіримо потужність вашого підключення й підберемо станцію під ваше авто.' },
       { cat: 'all', q: 'Чи є кредити або державна підтримка?', a: 'Так. Власники приватних будинків можуть узяти кредит від 0% за програмою «Доступні кредити 5–7–9%» на обладнання для автономного живлення — держава компенсує до 30% тіла кредиту. Для ОСББ — кредити 0–7% і компенсація до 70% на сонячну станцію чи тепловий насос. Умови змінюються, актуальні — на сайті програми:', link: 'https://energycredit.bdf.gov.ua/for-houses/', linkText: 'energycredit.bdf.gov.ua' },
-      { cat: 'all', q: 'Ви працюєте лише у Львові?', a: 'Наші об’єкти є у Львові й області, на Тернопільщині та Закарпатті. Напишіть, де ваш будинок, — підкажемо, чи зможемо приїхати.' }
+      { cat: 'credit', q: 'Хто може отримати кредит від 0%?', a: 'Фізичні особи — власники приватних будинків, таунхаусів або частин будинку. На одну адресу можна отримати один кредит.' },
+      { cat: 'credit', q: 'Коли держава повертає частину кредиту?', a: 'Після встановлення обладнання: документи подають у банк, і держава компенсує до 30% тіла кредиту — залежно від комплектації.' },
+      { cat: 'all', q: 'Ви працюєте лише у Львові?', a: 'Наші об’єкти є у Львові й області, на Тернопільщині та Закарпатті. Напишіть, де ваш будинок, — підкажемо, чи зможемо приїхати.' }
     ];
-    const faqs = FAQ.filter((f) => page === 'home' || f.cat === 'all' || f.cat === page).map((f) => ({ q: f.q, a: f.a, link: f.link || '', linkText: f.linkText || '' }));
+    const faqs = FAQ.filter((f) => (page === 'home' && f.cat !== 'credit') || f.cat === 'all' || f.cat === page).map((f) => ({ q: f.q, a: f.a, link: f.link || '', linkText: f.linkText || '' }));
     const EV_PHOTO = '';
     const site = !!this.props.site;
     const B = this.props.base || '/';
-    const URLS = { home: B, heat: B + 'teplovi-nasosy/', solar: B + 'sonyachni-stantsii/', ev: B + 'zaryadni-stantsii/' };
+    const URLS = { home: B, heat: B + 'teplovi-nasosy/', solar: B + 'sonyachni-stantsii/', ev: B + 'zaryadni-stantsii/', credit: B + 'kredyty/' };
     const SVC = {
       heat: { title: 'Теплові насоси', sub: 'у Львові та області — під ключ', lead: 'Опалення й гаряча вода за рахунок тепла повітря. Розрахунок, монтаж, запуск і сервіс.', img: '/_blob/76cf2841f7d367cd383eecd5eb37a33a', obj: 'Тепловий насос 12 кВт, с. Колочава, Закарпатська обл.' },
       solar: { title: 'Сонячні станції', sub: 'для дому й бізнесу — під ключ', lead: 'Власна електроенергія і світло під час відключень. Розраховуємо станцію під ваше споживання.', img: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', obj: 'Сонячна станція 30 кВт, с. Ластівка, Львівська обл.' },
+      credit: { title: 'Кредит від\u00A00%', sub: 'на світло для приватного будинку', lead: 'Пояснюємо державну програму «Доступні кредити 5–7–9%» простими словами — і підбираємо обладнання з урахуванням її умов.', img: '/_blob/5d0a412a73e3051a7fdbb9dc3a3ad5d2', obj: '' },
       ev: { title: 'Зарядні станції', sub: 'для електромобілів — удома й для бізнесу', lead: 'Домашні станції 7–22 кВт і швидкі DC-станції. Можна поєднати із сонячною станцією.', img: '/_blob/8f2af6843b0a6094fe99789fa1116c53', obj: '' }
     };
     const sv = SVC[page] || null;
@@ -1693,7 +2059,8 @@ class Component extends DCLogic {
       svcTitle: sv ? sv.title : '', svcSub: sv ? sv.sub : '', svcLead: sv ? sv.lead : '',
       showFlow: !sv || page === 'solar', showHeat: !sv || page === 'heat', showSolar: !sv || page === 'solar', showEv: !sv || page === 'ev',
       navHome: site ? URLS.home : '#top',
-      navHeat: site ? URLS.heat : '#heat', navSolar: site ? URLS.solar : '#solar', navEv: site ? URLS.ev : '#ev'
+      navHeat: site ? URLS.heat : '#heat', navSolar: site ? URLS.solar : '#solar', navEv: site ? URLS.ev : '#ev',
+      navCredit: site ? URLS.credit : 'Credit.dc.html', showCredit: page === 'credit'
     };
     const hasMore = !showAll && filtered.length > limit;
 
@@ -1833,6 +2200,103 @@ class Component extends DCLogic {
       onBizCars: (e) => this.setState({ bizCars: +e.target.value }),
       pvCols: m.tab === 'solar' ? (m.cells <= 10 ? 5 : (m.cells <= 24 ? 8 : 10)) : 5
     };
+    const nbsp = ' ';
+    const tis = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, nbsp) + nbsp + 'тис.' + nbsp + 'грн';
+    const mMode = this.props.mascot || 'always';
+    const MT = {
+      top: [{ text: 'Привіт! Я Інженер IS. Коли лампочка над моєю головою світиться, у мене є порада саме для цього місця сторінки.' }],
+      reviews: [{ text: 'Тут наші клієнти розповідають, як усе працює в них удома.' }],
+      flow: [{ text: 'Гортай далі: схема перемкнеться з дня на ніч, а потім на відключення світла. Так видно, звідки в домі береться енергія.' }],
+      heat: [{ text: 'Тепловий насос «повітря — вода» працює і в мороз: до −20…−25' + nbsp + '°C, залежно від моделі.', cta: 'Порахувати', href: '#calc' }],
+      solar: [{ text: 'Гібридна станція з акумулятором тримає світло в домі, коли вимикають мережу.', cta: 'Порахувати', href: '#calc' }],
+      ev: [{ text: 'Для зарядки на 7,4' + nbsp + 'кВт вистачить однофазної мережі, для 11 і 22' + nbsp + 'кВт потрібні три фази.', cta: 'Розрахувати', href: '#calc' }],
+      credit: [{ text: 'Компенсація залежить від комплектації. Найбільша, 30%, — за сонячну станцію разом із генератором і акумулятором.' }],
+      how: [{ text: 'Консультація безкоштовна: інженер з’ясує, що потрібно саме вашому дому, і лише тоді рахує вартість.', cta: 'Залишити заявку', href: '#contacts' }],
+      calc: [{ text: 'Посунь повзунок — і я одразу все перерахую. Це середні ціни по ринку, точну суму назве інженер.' }],
+      portfolio: [{ text: 'Тисни на місто на мапі — покажу фото наших об’єктів там.', cta: 'До мапи', href: '#map' }],
+      map: [{ text: 'Тисни на точку або на місто в списку — покажу фото об’єктів.' }],
+      faq: [{ text: 'Не знайшли відповіді? Напишіть нам у Viber чи Telegram.', cta: 'Написати у Viber', href: 'viber://chat?number=%2B380684090275' }],
+      contacts: [{ text: 'Інженер на зв’язку: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.', cta: 'Подзвонити', href: 'tel:+380684090275' }]
+    };
+    const MG = [
+      { id: 'credit', text: 'Можна взяти кредит від 0% на автономне живлення будинку, а держава компенсує до 30% тіла кредиту.', cta: 'Про кредит', href: pageVals.navCredit },
+      { id: 'calc', text: 'Порахуй вартість за хвилину в калькуляторі — без реєстрації й дзвінків.', cta: 'До калькулятора', href: '#calc' },
+      { id: 'map', text: 'Наші об’єкти є у Львові й області, на Тернопільщині та Закарпатті.', cta: 'Мапа', href: '#map' }
+    ];
+    const mSec = s.mascotSec || 'top';
+    const mPool = (MT[mSec] || []).concat(MG.filter((g) => g.id !== mSec && !(g.id === 'map' && mSec === 'portfolio') && !(g.id === 'credit' && page === 'credit')));
+    const mTip = mPool[(s.mascotIdx || 0) % mPool.length];
+    const mSeen = s.mascotSeen || {};
+    const mOpen = !!s.mascotOpen;
+    const mLit = !mSeen[mSec];
+    const mCls = [site ? 'ta-masc-live' : '', (mLit || mOpen) ? 'ta-masc-lit' : '', (mMode === 'tips' && !mOpen && !mLit) ? 'ta-masc-out' : '', (oc || menuOpen) ? 'ta-masc-hidden' : ''].filter(Boolean).join(' ');
+    const qDigits = (s.qPhone || '').replace(/\D/g, '');
+    const qMsgs = { sending: 'Надсилаємо…', sent: 'Дякуємо! Інженер вам передзвонить.', mail: 'Ми відкрили вашу пошту з готовим листом — натисніть «Надіслати».', fail: 'Не вдалося надіслати. Подзвоніть: 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.' };
+    const HOW = [
+      ['Заявка', 'Дзвінок, Viber, Telegram або форма на сайті — як вам зручніше.'],
+      ['Консультація', 'Безкоштовно. Інженер з’ясує, що вам потрібно: площа, споживання, підключення.'],
+      ['Розрахунок', 'Підбираємо обладнання й рахуємо вартість під ваш будинок і бюджет.'],
+      ['Монтаж і запуск', 'Встановлюємо, налаштовуємо й показуємо, як усім користуватися.'],
+      ['Сервіс', 'Лишаємося на зв’язку після запуску: обслуговування й відповіді на питання.']
+    ];
+    const REVIEWS = [];
+    const CRK = [
+      { id: 'gen', label: 'Генератор', pct: 20 },
+      { id: 'genbat', label: 'Генератор + акумулятор', pct: 25 },
+      { id: 'ses', label: 'Сонячна станція з акумулятором', pct: 20 },
+      { id: 'full', label: 'Сонячна станція + генератор + акумулятор', pct: 30 }
+    ];
+    const crKit = CRK.find((k) => k.id === s.crKit) || CRK[3];
+    const crAmt = s.crAmt || 300;
+    const live = s.live;
+    const flowPinned = site && pageVals.showFlow;
+    const extraVals = {
+      mascotOn: mMode !== 'off' && !s.mascotOff,
+      mascotOffNow: mMode !== 'off' && !!s.mascotOff,
+      mascotCls: mCls,
+      mascotOpen: mOpen,
+      mascotExp: mOpen ? 'true' : 'false',
+      mascotAria: mOpen ? 'Сховати пораду Інженера IS' : (mLit ? 'Інженер IS: є порада' : 'Інженер IS: порада'),
+      mascotTip: { text: mTip.text, hasCta: !!mTip.cta, cta: mTip.cta || '', href: mTip.href || '#' },
+      mascotToggle: () => this.setState({ mascotOpen: !mOpen, mascotSeen: Object.assign({}, mSeen, { [mSec]: true }) }),
+      mascotNext: () => this.setState({ mascotIdx: (s.mascotIdx || 0) + 1 }),
+      mascotClose: () => this.setState({ mascotOpen: false }),
+      mascotHide: () => { this.setState({ mascotOff: true, mascotOpen: false }); try { window.localStorage.setItem('ta-masc', 'off'); } catch (e) {} },
+      mascotShow: () => { this.setState({ mascotOff: false }); try { window.localStorage.removeItem('ta-masc'); } catch (e) {} },
+      qPhone: s.qPhone || '',
+      qInvalid: s.qErr ? 'true' : 'false',
+      onQPhone: (e) => this.setState({ qPhone: e.target.value, qErr: false }),
+      qSubmit: () => {
+        if (qDigits.length < 10) { this.setState({ qErr: true }); return; }
+        this.sendLead({ name: '', phone: s.qPhone, service: 'Передзвонити (швидка заявка)', note: '', page: page }, 'qVia');
+      },
+      qMsgShow: !!s.qErr || !!s.qVia,
+      qMsg: s.qErr ? 'Вкажіть номер телефону повністю, наприклад 068' + nbsp + '409' + nbsp + '02' + nbsp + '75.' : (qMsgs[s.qVia] || ''),
+      qMsgCls: s.qErr || s.qVia === 'fail' ? 'ta-qerr' : '',
+      howSteps: HOW.map((h, i) => ({ n: String(i + 1), title: h[0], text: h[1], bg: i === 1 ? '#EEF6F1' : '#F4F9F6', nbg: i === 1 ? sun : primary, ncol: i === 1 ? '#1C2B22' : '#FFFFFF' })),
+      reviews: REVIEWS.map((r) => ({ text: r.text, name: r.name, place: r.place, source: r.source, stars: '★★★★★'.slice(0, r.stars || 5), starsLabel: 'Оцінка ' + (r.stars || 5) + ' з 5' })),
+      revShow: REVIEWS.length > 0 || !site,
+      revEmpty: REVIEWS.length === 0 && !site,
+      liveShow: !!live,
+      liveSlot: !site && !live,
+      live: live ? { label: 'Наша станція' + (live.place ? ', ' + live.place : '') + ' — зараз', value: String(live.power_kw).replace('.', ',') + nbsp + 'кВт' + (live.today_kwh != null ? ' · ' + String(live.today_kwh).replace('.', ',') + nbsp + 'кВт·год сьогодні' : '') } : { label: '', value: '' },
+      crKits: CRK.map((k) => ({ label: k.label, pctText: k.pct + '%', pressed: k.id === crKit.id ? 'true' : 'false', pick: () => this.setState({ crKit: k.id }) })),
+      crAmt: crAmt,
+      crAmtPct: ((crAmt - 10) / 470 * 100).toFixed(1),
+      crAmtText: tis(crAmt),
+      onCrAmt: (e) => this.setState({ crAmt: +e.target.value }),
+      crComp: tis(crAmt * crKit.pct / 100),
+      crRest: tis(crAmt * (100 - crKit.pct) / 100),
+      crSteps: [
+        'Порадьтеся з інженером: яка потужність і комплектація потрібні вашому дому.',
+        'Оберіть банк-партнер програми й подайте заявку на кредит.',
+        'Купуєте обладнання, ми його встановлюємо й запускаємо.',
+        'Після встановлення подаєте документи в банк — і держава компенсує частину тіла кредиту.'
+      ].map((t, i) => ({ n: String(i + 1), text: t })),
+      flowPinned: flowPinned,
+      flowPinCls: flowPinned ? 'ta-pin' : '',
+      flowInCls: flowPinned ? 'ta-sec ta-pin-in' : 'ta-reveal ta-sec'
+    };
     return {
       ...calc,
       ...tog('heat'),
@@ -1841,6 +2305,7 @@ class Component extends DCLogic {
       primary,
       sun,
       flowTabs,
+      ...extraVals,
       flowNodes,
       fl: cur.fl,
       flowText: cur.text,

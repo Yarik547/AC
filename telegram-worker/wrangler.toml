@@ -1,0 +1,9 @@
+name = "techno-as-leads"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://www.techno-as.com.ua,https://techno-as.com.ua,https://yarik547.github.io"
+# TG_CHAT_ID і TG_TOKEN додайте як secrets:
+#   npx wrangler secret put TG_TOKEN
+#   npx wrangler secret put TG_CHAT_ID

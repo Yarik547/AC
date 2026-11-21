@@ -18,7 +18,7 @@ const NOINDEX = process.argv.includes('--noindex');
 const U = (p) => BASE + String(p).replace(/^\//, '');
 // Files and folders this script writes; only these are removed before a build,
 // so the output folder may also hold other things (e.g. the repository root).
-const GENERATED = ['index.html', '404.html', 'assets', 'img', 'og', 'teplovi-nasosy', 'sonyachni-stantsii', 'zaryadni-stantsii', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest', 'robots.txt', 'sitemap.xml', 'config.js', '_headers', '.htaccess', '.nojekyll'];
+const GENERATED = ['index.html', '404.html', 'assets', 'img', 'og', 'teplovi-nasosy', 'sonyachni-stantsii', 'zaryadni-stantsii', 'kredyty', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest', 'robots.txt', 'sitemap.xml', 'config.js', '_headers', '.htaccess', '.nojekyll'];
 const PHONE = '+380684090275';
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -34,7 +34,10 @@ const PAGES = [
     service: 'Монтаж сонячних електростанцій', og: { title: 'Сонячні станції під ключ', sub: 'Власна електроенергія і світло під час відключень' } },
   { page: 'ev', url: '/zaryadni-stantsii/', title: 'Зарядні станції для електромобілів у Львові | Техно-АС', crumb: 'Зарядні станції',
     desc: 'Домашні зарядні станції 7–22 кВт і швидкі DC-станції для бізнесу. Підбір, монтаж і підключення у Львові та області, можна поєднати із сонячною станцією.',
-    service: 'Монтаж зарядних станцій для електромобілів', og: { title: 'Зарядні станції для електромобілів', sub: 'Удома й для бізнесу: від 7 кВт до швидких DC' } }
+    service: 'Монтаж зарядних станцій для електромобілів', og: { title: 'Зарядні станції для електромобілів', sub: 'Удома й для бізнесу: від 7 кВт до швидких DC' } },
+  { page: 'credit', url: '/kredyty/', title: 'Кредит від 0% на сонячну станцію й генератор — умови 2026 | Техно-АС', crumb: 'Кредит від 0%',
+    desc: 'Як узяти кредит від 0% за програмою «Доступні кредити 5–7–9%» на автономне живлення будинку: до 480 тис. грн, компенсація до 30%. Умови станом на листопад 2026 року.',
+    og: { title: 'Кредит від 0% на світло для дому', sub: 'До 480 тис. грн і компенсація до 30% тіла кредиту' } }
 ];
 
 const hash = (buf) => crypto.createHash('sha1').update(buf).digest('hex').slice(0, 8);
@@ -111,7 +114,18 @@ ${designCss}`;
   const jsRel = `/assets/app.${hash(jsCode)}.js`;
   write(jsRel, jsCode);
   const jsUrl = U(jsRel);
-  write('config.js', "// Адреса обробника форми (POST JSON: name, phone, service, note, page).\n// Порожньо — заявка відкриється листом на tehno.as.lviv@gmail.com.\nwindow.TA_FORM_ENDPOINT = '';\n");
+  write('config.js', [
+    '// Адреса обробника форми (POST JSON: name, phone, service, note, page), напр. Cloudflare Worker з папки telegram-worker.',
+    '// Порожньо — заявка відкриється листом на tehno.as.lviv@gmail.com.',
+    "window.TA_FORM_ENDPOINT = '';",
+    '',
+    '// Жива генерація станції: адреса, що віддає JSON {"power_kw": 4.2, "today_kwh": 18.5, "place": "Львів"}. Порожньо — блок прихований.',
+    "window.TA_LIVE_ENDPOINT = '';",
+    '',
+    "// Інженер IS: 'always' — завжди видно, 'tips' — з’являється, коли є нова порада, 'off' — вимкнено.",
+    "window.TA_MASCOT_MODE = 'always';",
+    ''
+  ].join('\n'));
 
   // 6. Pre-render every page
   const tpl = await import(pathToFileURL(path.join(GEN, 'template.mjs')).href + '?v=' + Date.now());
@@ -199,7 +213,7 @@ ${designCss}`;
   fs.mkdirSync(path.join(DIST, 'og'), { recursive: true });
   if (!noOg) {
     const blobs = Object.fromEntries(Object.entries(JSON.parse(fs.readFileSync(path.join(ROOT, 'preview/blobs.json'), 'utf8'))).map(([k, v]) => [k, path.resolve(ROOT, v)]));
-    const heroFile = { home: blobs['9f6a3cecaf9c33a6c058c8f5f038abb9'], heat: blobs['76cf2841f7d367cd383eecd5eb37a33a'], solar: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], ev: blobs['8f2af6843b0a6094fe99789fa1116c53'] };
+    const heroFile = { home: blobs['9f6a3cecaf9c33a6c058c8f5f038abb9'], heat: blobs['76cf2841f7d367cd383eecd5eb37a33a'], solar: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'], ev: blobs['8f2af6843b0a6094fe99789fa1116c53'], credit: blobs['5d0a412a73e3051a7fdbb9dc3a3ad5d2'] };
     const spec = { font_dir: fontSrc, logo: blobs['0b85442bc566a74d30e892c7ea73a51c'], favicon_svg: path.join(__dirname, 'favicon.svg'), out_dir: path.join(DIST, 'og'),
       cards: PAGES.map((P) => ({ out: P.page + '.jpg', img: heroFile[P.page], title: P.og.title, sub: P.og.sub })) };
     fs.writeFileSync(path.join(GEN, 'og.json'), JSON.stringify(spec));
